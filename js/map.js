@@ -2,11 +2,18 @@
 
 const DATA_BASE = './data';
 
-// Alkmaar center coordinates
-const ALKMAAR_CENTER = [52.6324, 4.7534];
-const DEFAULT_ZOOM = 14;
+// Gemeente Alkmaar center coordinates
+const ALKMAAR_CENTER = [52.63, 4.77];
+const DEFAULT_ZOOM = 13;
 
 // Layer styles
+const ROUTE_STYLE = {
+  color: '#90CAF9',
+  weight: 1,
+  fillColor: '#BBDEFB',
+  fillOpacity: 0.15,
+};
+
 const ZONE_STYLE = {
   color: '#F57C00',
   weight: 2,
@@ -62,21 +69,33 @@ async function initMap() {
 
   try {
     // Fetch all data in parallel
-    const [zonesRes, schoolsRes, accidentsRes, streetsRes] = await Promise.all([
+    const [routesRes, zonesRes, schoolsRes, accidentsRes, streetsRes] = await Promise.all([
+      fetch(`${DATA_BASE}/routes.geojson`),
       fetch(`${DATA_BASE}/zones.geojson`),
       fetch(`${DATA_BASE}/schools.geojson`),
-      fetch(`${DATA_BASE}/accidents.geojson`),
+      fetch(`${DATA_BASE}/accidents-filtered.geojson`),
       fetch(`${DATA_BASE}/priority-streets.geojson`),
     ]);
 
-    const [zones, schools, accidents, streets] = await Promise.all([
+    const [routes, zones, schools, accidents, streets] = await Promise.all([
+      routesRes.json(),
       zonesRes.json(),
       schoolsRes.json(),
       accidentsRes.json(),
       streetsRes.json(),
     ]);
 
-    // 1. Zone polygons (bottom layer)
+    // 0. School route areas (500m, bottom-most layer)
+    L.geoJSON(routes, {
+      style: () => ROUTE_STYLE,
+      onEachFeature: (feature, layer) => {
+        if (feature.properties.school) {
+          layer.bindPopup(`<strong>Schoolroute</strong><br>${feature.properties.school}<br><em>500m zone</em>`);
+        }
+      },
+    }).addTo(map);
+
+    // 1. Zone polygons
     L.geoJSON(zones, {
       style: () => ZONE_STYLE,
       onEachFeature: (feature, layer) => {

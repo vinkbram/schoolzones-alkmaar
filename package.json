@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "fetch-accidents": "node scripts/fetch-accidents.js",
-    "generate-zones": "node scripts/generate-zones.js"
+    "fetch-schools": "node scripts/fetch-schools.js",
+    "generate-zones": "node scripts/generate-zones.js",
+    "filter-accidents": "node scripts/filter-accidents.js",
+    "update-data": "npm run fetch-accidents && npm run filter-accidents"
   },
   "devDependencies": {
     "@mapbox/vector-tile": "^2.0.4",

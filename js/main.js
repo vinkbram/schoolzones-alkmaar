@@ -5,7 +5,7 @@ const DATA_BASE = './data';
 // --- Day Counter ---
 async function initCounter() {
   try {
-    const res = await fetch(`${DATA_BASE}/accidents.geojson`);
+    const res = await fetch(`${DATA_BASE}/accidents-filtered.geojson`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
@@ -38,7 +38,7 @@ async function initRanking() {
   try {
     const [schoolsRes, accidentsRes, zonesRes] = await Promise.all([
       fetch(`${DATA_BASE}/schools.geojson`),
-      fetch(`${DATA_BASE}/accidents.geojson`),
+      fetch(`${DATA_BASE}/accidents-filtered.geojson`),
       fetch(`${DATA_BASE}/zones.geojson`),
     ]);
 

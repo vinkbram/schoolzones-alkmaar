@@ -28,8 +28,8 @@ const API_BASE = 'https://api.via.software/applications/PublicAccidents';
 const COUNTRY = 'NLD';
 const ORIGIN = 'https://www.star-verkeersongevallen.nl';
 
-// Alkmaar bounding box
-const BOUNDS = { minLon: 4.71, maxLon: 4.80, minLat: 52.61, maxLat: 52.66 };
+// Gemeente Alkmaar bounding box (includes Koedijk, Stompetoren, De Rijp, Schermerhorn etc.)
+const BOUNDS = { minLon: 4.69, maxLon: 4.91, minLat: 52.54, maxLat: 52.69 };
 const TILE_ZOOM = 14;
 
 // Tile coordinate math

@@ -27,16 +27,19 @@ jobs:
       - name: Fetch accident data
         run: node scripts/fetch-accidents.js
 
+      - name: Filter accidents to school areas
+        run: node scripts/filter-accidents.js
+
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet data/accidents.geojson && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet data/accidents.geojson data/accidents-filtered.geojson && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/accidents.geojson
-          git commit -m "chore(data): update accidents.geojson [skip ci]"
+          git add data/accidents.geojson data/accidents-filtered.geojson
+          git commit -m "chore(data): update accident data [skip ci]"
           git push

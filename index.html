@@ -62,13 +62,14 @@
     <!-- INTERACTIEVE KAART -->
     <section id="kaart" class="section section--map">
       <h2 class="section__title">Ongelukken rondom Alkmaarse scholen</h2>
-      <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021. De gele zones markeren 100 meter rondom schoolingangen.</p>
+      <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, gefilterd tot schoolzones (100m) en schoolroutes (500m). Alleen ongelukken nabij scholen worden getoond.</p>
       <div id="map" class="map-container" role="application" aria-label="Kaart met schoolzones en verkeersongelukken in Alkmaar">
         <div class="map-container__loading" id="map-loading">Kaart laden…</div>
       </div>
       <div class="map-legend" id="map-legend">
         <h3 class="map-legend__title">Legenda</h3>
         <ul class="map-legend__list">
+          <li><span class="map-legend__swatch map-legend__swatch--route"></span> Schoolroute (500m)</li>
           <li><span class="map-legend__swatch map-legend__swatch--zone"></span> Schoolzone (100m)</li>
           <li><span class="map-legend__swatch map-legend__swatch--materieel"></span> Materiële schade</li>
           <li><span class="map-legend__swatch map-legend__swatch--letsel"></span> Letselongeval</li>
@@ -172,6 +173,8 @@
         <h3>Methode</h3>
         <ul>
           <li><strong>Schoolzone:</strong> 100 meter buffer rondom elke schoolingang, berekend met Turf.js.</li>
+          <li><strong>Schoolroute:</strong> 500 meter buffer rondom elke school — het gebied waar kinderen lopen en fietsen van en naar school.</li>
+          <li><strong>Filtering:</strong> alleen ongelukken binnen een schoolzone of schoolroute worden getoond.</li>
           <li><strong>Risicoscore:</strong> aantal geregistreerde ongelukken binnen de schoolzone, gedeeld door het aantal leerlingen × 1000.</li>
           <li><strong>Dagenteller:</strong> berekend op basis van de meest recente ongeluksdatum in de dataset.</li>
         </ul>

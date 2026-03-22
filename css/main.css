@@ -292,6 +292,12 @@ a:hover {
   flex-shrink: 0;
 }
 
+.map-legend__swatch--route {
+  background: #BBDEFB;
+  border: 2px solid #90CAF9;
+  border-radius: 3px;
+}
+
 .map-legend__swatch--zone {
   background: var(--clr-warning-light);
   border: 2px solid var(--clr-warning);

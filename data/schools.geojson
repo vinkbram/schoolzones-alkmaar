@@ -3,7 +3,7 @@
   "metadata": {
     "source": "DUO open onderwijsdata + PDOK geocoding",
     "lastUpdated": "2026-03-22",
-    "schoolCount": 33
+    "schoolCount": 41
   },
   "features": [
     {
@@ -11,18 +11,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.74406321,
-          52.62811472
+          4.84914909,
+          52.58119229
         ]
       },
       "properties": {
-        "name": "OBS De Kennemerpoort",
+        "name": "KC De Driessen",
         "type": "basisschool",
-        "studentCount": 621,
+        "studentCount": 31,
+        "plaats": "GROOTSCHERMER",
         "entrances": [
           [
-            4.74406321,
-            52.62811472
+            4.84914909,
+            52.58119229
           ]
         ]
       }
@@ -32,18 +33,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.74673915,
-          52.62721825
+          4.74876406,
+          52.65913194
         ]
       },
       "properties": {
-        "name": "RK BS St Adelbertus",
+        "name": "DURF",
         "type": "basisschool",
-        "studentCount": 478,
+        "studentCount": 287,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.74673915,
-            52.62721825
+            4.74876406,
+            52.65913194
           ]
         ]
       }
@@ -53,18 +55,195 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7340767,
-          52.64167924
+          4.80682346,
+          52.57815615
         ]
       },
       "properties": {
-        "name": "OBS Nicolaas Beets",
+        "name": "De Overhael",
         "type": "basisschool",
-        "studentCount": 456,
+        "studentCount": 99,
+        "plaats": "DRIEHUIZEN",
         "entrances": [
           [
-            4.7340767,
-            52.64167924
+            4.80682346,
+            52.57815615
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84868947,
+          52.5539557
+        ]
+      },
+      "properties": {
+        "name": "Basisschool De Tweemaster",
+        "type": "basisschool",
+        "studentCount": 168,
+        "plaats": "DE RIJP",
+        "entrances": [
+          [
+            4.84868947,
+            52.5539557
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.80540704,
+          52.55047179
+        ]
+      },
+      "properties": {
+        "name": "OBS Vinckhuysen",
+        "type": "basisschool",
+        "studentCount": 49,
+        "plaats": "WEST-GRAFTDIJK",
+        "entrances": [
+          [
+            4.80540704,
+            52.55047179
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.82175016,
+          52.61377147
+        ]
+      },
+      "properties": {
+        "name": "OBS de Wiekslag",
+        "type": "basisschool",
+        "studentCount": 190,
+        "plaats": "STOMPETOREN",
+        "entrances": [
+          [
+            4.82175016,
+            52.61377147
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.77111432,
+          52.66454392
+        ]
+      },
+      "properties": {
+        "name": "Rudolf Steinerschool",
+        "type": "basisschool",
+        "studentCount": 438,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.77111432,
+            52.66454392
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.73361998,
+          52.64170233
+        ]
+      },
+      "properties": {
+        "name": "De Rank",
+        "type": "basisschool",
+        "studentCount": 126,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.73361998,
+            52.64170233
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.75209311,
+          52.64203789
+        ]
+      },
+      "properties": {
+        "name": "OBS Jules Verne",
+        "type": "basisschool",
+        "studentCount": 187,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.75209311,
+            52.64203789
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.76112052,
+          52.66500243
+        ]
+      },
+      "properties": {
+        "name": "OBS Liereland",
+        "type": "basisschool",
+        "studentCount": 253,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.76112052,
+            52.66500243
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.74261423,
+          52.61895455
+        ]
+      },
+      "properties": {
+        "name": "OBS De Fontein",
+        "type": "basisschool",
+        "studentCount": 102,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.74261423,
+            52.61895455
           ]
         ]
       }
@@ -81,7 +260,8 @@
       "properties": {
         "name": "OBS De Zes Wielen",
         "type": "basisschool",
-        "studentCount": 370,
+        "studentCount": 373,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.76468508,
@@ -103,6 +283,7 @@
         "name": "OBS De Vlieger",
         "type": "basisschool",
         "studentCount": 369,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.76399311,
@@ -116,18 +297,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.77111223,
-          52.65641857
+          4.74734421,
+          52.65260565
         ]
       },
       "properties": {
-        "name": "De Lispeltuut",
+        "name": "OBS De Sterrenwachter",
         "type": "basisschool",
-        "studentCount": 328,
+        "studentCount": 110,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.77111223,
-            52.65641857
+            4.74734421,
+            52.65260565
           ]
         ]
       }
@@ -137,18 +319,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.73931681,
-          52.63218715
+          4.75201311,
+          52.67487796
         ]
       },
       "properties": {
-        "name": "RK Basisschool De Kring",
+        "name": "OBS Zandloper",
         "type": "basisschool",
-        "studentCount": 297,
+        "studentCount": 211,
+        "plaats": "KOEDIJK",
         "entrances": [
           [
-            4.73931681,
-            52.63218715
+            4.75201311,
+            52.67487796
           ]
         ]
       }
@@ -158,18 +341,85 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.74876406,
-          52.65913194
+          4.74406321,
+          52.62811472
         ]
       },
       "properties": {
-        "name": "DURF",
+        "name": "OBS De Kennemerpoort",
         "type": "basisschool",
-        "studentCount": 287,
+        "studentCount": 624,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.74876406,
-            52.65913194
+            4.74406321,
+            52.62811472
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7340767,
+          52.64167924
+        ]
+      },
+      "properties": {
+        "name": "OBS Nicolaas Beets",
+        "type": "basisschool",
+        "studentCount": 465,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.7340767,
+            52.64167924
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.76641152,
+          52.67228668
+        ]
+      },
+      "properties": {
+        "name": "OBS de Cocon",
+        "type": "basisschool",
+        "studentCount": 232,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.76641152,
+            52.67228668
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.74673915,
+          52.62721825
+        ]
+      },
+      "properties": {
+        "name": "RK BS St Adelbertus",
+        "type": "basisschool",
+        "studentCount": 478,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.74673915,
+            52.62721825
           ]
         ]
       }
@@ -184,9 +434,10 @@
         ]
       },
       "properties": {
-        "name": "RK BS Regenboog",
+        "name": "RK BS De Regenboog",
         "type": "basisschool",
-        "studentCount": 281,
+        "studentCount": 581,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.75264633,
@@ -200,18 +451,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.76112052,
-          52.66500243
+          4.74058428,
+          52.61868481
         ]
       },
       "properties": {
-        "name": "OBS Liereland",
+        "name": "Basisschool De Stek",
         "type": "basisschool",
-        "studentCount": 250,
+        "studentCount": 187,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.76112052,
-            52.66500243
+            4.74058428,
+            52.61868481
           ]
         ]
       }
@@ -221,39 +473,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.76808379,
-          52.67268323
+          4.73941938,
+          52.63234031
         ]
       },
       "properties": {
-        "name": "OBS De Cocon",
+        "name": "RK BS De Kring",
         "type": "basisschool",
-        "studentCount": 232,
+        "studentCount": 300,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.76808379,
-            52.67268323
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.75964997,
-          52.66060774
-        ]
-      },
-      "properties": {
-        "name": "RK Basisschool t Baeken",
-        "type": "basisschool",
-        "studentCount": 225,
-        "entrances": [
-          [
-            4.75964997,
-            52.66060774
+            4.73941938,
+            52.63234031
           ]
         ]
       }
@@ -268,76 +500,14 @@
         ]
       },
       "properties": {
-        "name": "RK BS De Wegwijzer",
+        "name": "RK BS St Matthias",
         "type": "basisschool",
-        "studentCount": 221,
+        "studentCount": 400,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.755902,
             52.62465519
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.77219147,
-          52.66378778
-        ]
-      },
-      "properties": {
-        "name": "Rudolf Steinerschool",
-        "type": "basisschool",
-        "studentCount": 210,
-        "entrances": [
-          [
-            4.77219147,
-            52.66378778
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.76384425,
-          52.65384039
-        ]
-      },
-      "properties": {
-        "name": "RK BS Het Kompas",
-        "type": "basisschool",
-        "studentCount": 197,
-        "entrances": [
-          [
-            4.76384425,
-            52.65384039
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.74787812,
-          52.6532015
-        ]
-      },
-      "properties": {
-        "name": "RK Basisschool De Burijn",
-        "type": "basisschool",
-        "studentCount": 193,
-        "entrances": [
-          [
-            4.74787812,
-            52.6532015
           ]
         ]
       }
@@ -355,6 +525,7 @@
         "name": "RK BS De Driemaster",
         "type": "basisschool",
         "studentCount": 190,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.72248057,
@@ -368,18 +539,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.75209311,
-          52.64203789
+          4.75964997,
+          52.66060774
         ]
       },
       "properties": {
-        "name": "OBS Jules Verne",
+        "name": "RK BS 't Baeken",
         "type": "basisschool",
-        "studentCount": 187,
+        "studentCount": 228,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.75209311,
-            52.64203789
+            4.75964997,
+            52.66060774
           ]
         ]
       }
@@ -389,18 +561,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.74058428,
-          52.61868481
+          4.74763869,
+          52.65300624
         ]
       },
       "properties": {
-        "name": "Basisschool De Stek",
+        "name": "RK BS De Burijn",
         "type": "basisschool",
-        "studentCount": 184,
+        "studentCount": 193,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.74058428,
-            52.61868481
+            4.74763869,
+            52.65300624
           ]
         ]
       }
@@ -410,18 +583,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.755902,
-          52.62465519
+          4.7636044,
+          52.65368784
         ]
       },
       "properties": {
-        "name": "RK Basisschool St Matthias",
+        "name": "RK BS Het Kompas",
         "type": "basisschool",
-        "studentCount": 176,
+        "studentCount": 197,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.755902,
-            52.62465519
+            4.7636044,
+            52.65368784
           ]
         ]
       }
@@ -431,18 +605,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.76994101,
-          52.65286932
+          4.76634467,
+          52.67140318
         ]
       },
       "properties": {
-        "name": "An Nasr",
+        "name": "RK BS Erasmus",
         "type": "basisschool",
-        "studentCount": 158,
+        "studentCount": 146,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.76994101,
-            52.65286932
+            4.76634467,
+            52.67140318
           ]
         ]
       }
@@ -452,18 +627,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7666243,
-          52.67115796
+          4.7710818,
+          52.65627008
         ]
       },
       "properties": {
-        "name": "RK Basisschool Erasmus",
+        "name": "De Lispeltuut",
         "type": "basisschool",
-        "studentCount": 143,
+        "studentCount": 328,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.7666243,
-            52.67115796
+            4.7710818,
+            52.65627008
           ]
         ]
       }
@@ -473,18 +649,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.73361998,
-          52.64170233
+          4.84833512,
+          52.55412379
         ]
       },
       "properties": {
-        "name": "De Rank",
+        "name": "De Balein (Basisschool De Balein)",
         "type": "basisschool",
-        "studentCount": 123,
+        "studentCount": 210,
+        "plaats": "DE RIJP",
         "entrances": [
           [
-            4.73361998,
-            52.64170233
+            4.84833512,
+            52.55412379
           ]
         ]
       }
@@ -494,60 +671,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.80330755,
-          52.60179151
+          4.89003693,
+          52.60024183
         ]
       },
       "properties": {
-        "name": "Montessorischool",
+        "name": "De Bonte Mol",
         "type": "basisschool",
-        "studentCount": 117,
+        "studentCount": 88,
+        "plaats": "SCHERMERHORN",
         "entrances": [
           [
-            4.80330755,
-            52.60179151
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.74734421,
-          52.65260565
-        ]
-      },
-      "properties": {
-        "name": "De Sterrenwachter",
-        "type": "basisschool",
-        "studentCount": 110,
-        "entrances": [
-          [
-            4.74734421,
-            52.65260565
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.74261423,
-          52.61895455
-        ]
-      },
-      "properties": {
-        "name": "OBS De Fontein",
-        "type": "basisschool",
-        "studentCount": 99,
-        "entrances": [
-          [
-            4.74261423,
-            52.61895455
+            4.89003693,
+            52.60024183
           ]
         ]
       }
@@ -562,13 +698,58 @@
         ]
       },
       "properties": {
-        "name": "OSG Willem Blaeu",
+        "name": "osg Willem Blaeu",
         "type": "middelbaar",
-        "studentCount": 1100,
+        "studentCount": 754,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.72366024,
             52.640159
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.76542173,
+          52.64265234
+        ]
+      },
+      "properties": {
+        "name": "Van der Meij College",
+        "type": "middelbaar",
+        "studentCount": 222,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.76542173,
+            52.64265234
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.73849246,
+          52.64886516
+        ]
+      },
+      "properties": {
+        "name": "De Viaan (praktijkonderwijs)",
+        "type": "middelbaar",
+        "studentCount": 222,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.73849246,
+            52.64886516
           ]
         ]
       }
@@ -585,7 +766,8 @@
       "properties": {
         "name": "Stedelijk Dalton College",
         "type": "middelbaar",
-        "studentCount": 900,
+        "studentCount": 834,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.75764366,
@@ -599,18 +781,85 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.73863911,
-          52.63430054
+          4.73878807,
+          52.6339981
         ]
       },
       "properties": {
         "name": "Murmellius Gymnasium",
         "type": "middelbaar",
-        "studentCount": 650,
+        "studentCount": 674,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
-            4.73863911,
-            52.63430054
+            4.73878807,
+            52.6339981
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.752708,
+          52.64107471
+        ]
+      },
+      "properties": {
+        "name": "Vonk",
+        "type": "middelbaar",
+        "studentCount": 520,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.752708,
+            52.64107471
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.74557253,
+          52.62544485
+        ]
+      },
+      "properties": {
+        "name": "Petrus Canisius College (Blekerskade)",
+        "type": "middelbaar",
+        "studentCount": 1145,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.74557253,
+            52.62544485
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.72992813,
+          52.6354369
+        ]
+      },
+      "properties": {
+        "name": "Petrus Canisius College (Fabritiusstraat)",
+        "type": "middelbaar",
+        "studentCount": 356,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.72992813,
+            52.6354369
           ]
         ]
       }
@@ -625,9 +874,10 @@
         ]
       },
       "properties": {
-        "name": "Petrus Canisius College",
+        "name": "Petrus Canisius College (Vondelstraat)",
         "type": "middelbaar",
-        "studentCount": 1800,
+        "studentCount": 625,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.74904202,
@@ -648,53 +898,12 @@
       "properties": {
         "name": "Jan Arentsz",
         "type": "middelbaar",
-        "studentCount": 1200,
+        "studentCount": 1714,
+        "plaats": "ALKMAAR",
         "entrances": [
           [
             4.75085213,
             52.64843402
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.73849246,
-          52.64886516
-        ]
-      },
-      "properties": {
-        "name": "De Viaan (praktijkonderwijs)",
-        "type": "middelbaar",
-        "studentCount": 200,
-        "entrances": [
-          [
-            4.73849246,
-            52.64886516
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.76244903,
-          52.6437524
-        ]
-      },
-      "properties": {
-        "name": "Vonk Alkmaar",
-        "type": "middelbaar",
-        "studentCount": 150,
-        "entrances": [
-          [
-            4.76244903,
-            52.6437524
           ]
         ]
       }
