@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "PLACEHOLDER — replace with STAR data",
+    "lastUpdated": "2026-03-22"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7405, 52.6312] },
+      "properties": { "date": "2026-03-10", "severity": "materieel", "description": "Placeholder — wordt vervangen door echte STAR-data" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7515, 52.6345] },
+      "properties": { "date": "2026-02-18", "severity": "letsel", "description": "Placeholder" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7490, 52.6395] },
+      "properties": { "date": "2026-01-05", "severity": "materieel", "description": "Placeholder" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7610, 52.6285] },
+      "properties": { "date": "2025-11-20", "severity": "letsel", "description": "Placeholder" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7340, 52.6360] },
+      "properties": { "date": "2025-09-14", "severity": "materieel", "description": "Placeholder" }
+    }
+  ]
+}

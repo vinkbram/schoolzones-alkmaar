@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": "PLACEHOLDER — run scripts/generate-zones.js to regenerate",
+    "bufferMeters": 100
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.7387, 52.6299], [4.7387, 52.6317], [4.7415, 52.6317], [4.7415, 52.6299], [4.7387, 52.6299]]]
+      },
+      "properties": { "school": "OBS De Dijkgraaf" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.7496, 52.6341], [4.7496, 52.6359], [4.7524, 52.6359], [4.7524, 52.6341], [4.7496, 52.6341]]]
+      },
+      "properties": { "school": "BS De Achtbaan" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.7606, 52.6281], [4.7606, 52.6299], [4.7634, 52.6299], [4.7634, 52.6281], [4.7606, 52.6281]]]
+      },
+      "properties": { "school": "Vrijzinnig Christelijke Basisschool" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.7466, 52.6391], [4.7466, 52.6409], [4.7494, 52.6409], [4.7494, 52.6391], [4.7466, 52.6391]]]
+      },
+      "properties": { "school": "Petrus Canisius" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.7321, 52.6346], [4.7321, 52.6364], [4.7349, 52.6364], [4.7349, 52.6346], [4.7321, 52.6346]]]
+      },
+      "properties": { "school": "Willem Alexander school" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.7546, 52.6221], [4.7546, 52.6239], [4.7574, 52.6239], [4.7574, 52.6221], [4.7546, 52.6221]]]
+      },
+      "properties": { "school": "Murmellius Gymnasium" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.7431, 52.6261], [4.7431, 52.6279], [4.7459, 52.6279], [4.7459, 52.6261], [4.7431, 52.6261]]]
+      },
+      "properties": { "school": "Horizon College" }
+    }
+  ]
+}

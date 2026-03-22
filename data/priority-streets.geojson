@@ -1,0 +1,90 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7380, 52.6340],
+          [4.7420, 52.6320],
+          [4.7460, 52.6300]
+        ]
+      },
+      "properties": {
+        "id": "bergerweg",
+        "name": "Bergerweg / Geestersingel",
+        "currentLimit": 50,
+        "note": "Drukke doorgaande route langs meerdere scholen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7500, 52.6380],
+          [4.7530, 52.6360],
+          [4.7560, 52.6340]
+        ]
+      },
+      "properties": {
+        "id": "terborchlaan",
+        "name": "Terborchlaan / Aert de Gelderlaan",
+        "currentLimit": 50,
+        "note": "Brede weg met hoge rijsnelheden nabij basisscholen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7600, 52.6310],
+          [4.7630, 52.6290],
+          [4.7660, 52.6270]
+        ]
+      },
+      "properties": {
+        "id": "schinkelwaard",
+        "name": "Schinkelwaard",
+        "currentLimit": 50,
+        "note": "Doorgaande weg door woonwijk met scholen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7430, 52.6260],
+          [4.7450, 52.6250],
+          [4.7470, 52.6240]
+        ]
+      },
+      "properties": {
+        "id": "vondelstraat",
+        "name": "Vondelstraat",
+        "currentLimit": 30,
+        "note": "30 km/u maar 50 km/u inrichting — automobilisten rijden structureel te hard"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7300, 52.6370],
+          [4.7320, 52.6360],
+          [4.7340, 52.6350]
+        ]
+      },
+      "properties": {
+        "id": "westerweg",
+        "name": "Westerweg",
+        "currentLimit": 50,
+        "note": "Al in uitvoering — positief voorbeeld"
+      }
+    }
+  ]
+}

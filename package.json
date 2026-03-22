@@ -1,0 +1,15 @@
+{
+  "name": "schoolzones-alkmaar",
+  "version": "1.0.0",
+  "description": "Data-gedreven website over gevaarlijke schoolzones in Alkmaar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch-accidents": "node scripts/fetch-accidents.js",
+    "generate-zones": "node scripts/generate-zones.js"
+  },
+  "devDependencies": {
+    "@turf/buffer": "^7.0.0",
+    "@turf/helpers": "^7.0.0"
+  }
+}

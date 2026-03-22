@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7401, 52.6308] },
+      "properties": {
+        "name": "OBS De Dijkgraaf",
+        "type": "basisschool",
+        "studentCount": 220,
+        "entrances": [[4.7401, 52.6308]]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7510, 52.6350] },
+      "properties": {
+        "name": "BS De Achtbaan",
+        "type": "basisschool",
+        "studentCount": 185,
+        "entrances": [[4.7510, 52.6350]]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7620, 52.6290] },
+      "properties": {
+        "name": "Vrijzinnig Christelijke Basisschool",
+        "type": "basisschool",
+        "studentCount": 310,
+        "entrances": [[4.7620, 52.6290]]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7480, 52.6400] },
+      "properties": {
+        "name": "Petrus Canisius",
+        "type": "basisschool",
+        "studentCount": 275,
+        "entrances": [[4.7480, 52.6400]]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7335, 52.6355] },
+      "properties": {
+        "name": "Willem Alexander school",
+        "type": "basisschool",
+        "studentCount": 340,
+        "entrances": [[4.7335, 52.6355]]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7560, 52.6230] },
+      "properties": {
+        "name": "Murmellius Gymnasium",
+        "type": "middelbaar",
+        "studentCount": 650,
+        "entrances": [[4.7560, 52.6230]]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.7445, 52.6270] },
+      "properties": {
+        "name": "Horizon College",
+        "type": "middelbaar",
+        "studentCount": 1200,
+        "entrances": [[4.7445, 52.6270]]
+      }
+    }
+  ]
+}
