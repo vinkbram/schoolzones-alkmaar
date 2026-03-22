@@ -99,7 +99,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 - [ ] **11.1** Cross-browser test: Chrome, Firefox, Safari, Edge
 - [ ] **11.2** Mobile test: iOS Safari, Android Chrome
-- [ ] **11.3** Accessibility audit: keyboard navigation, screen reader, contrast check
+- [x] **11.3** Accessibility audit: keyboard navigation, screen reader, contrast check
 - [ ] **11.4** Performance check: Lighthouse score, page weight budget (<500KB excl. tiles)
 - [ ] **11.5** Verify daily data pipeline runs successfully for 3+ days
 - [ ] **11.6** Proof-read all Dutch text

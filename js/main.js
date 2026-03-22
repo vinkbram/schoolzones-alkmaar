@@ -116,6 +116,10 @@ function renderTable(rankings) {
       : school.riskScore >= 2 ? 'risk-medium'
       : '';
 
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('role', 'button');
+    row.setAttribute('aria-label', `Toon ${school.name} op kaart`);
+
     row.innerHTML = `
       <td>${i + 1}</td>
       <td>${escapeHtml(school.name)}</td>
@@ -124,15 +128,21 @@ function renderTable(rankings) {
       <td class="${riskClass}">${school.riskScore.toFixed(1)}</td>
     `;
 
-    // Click to pan map to school
-    row.addEventListener('click', () => {
+    // Click/Enter to pan map to school
+    const panToSchool = () => {
       const mapSection = document.getElementById('kaart');
       mapSection.scrollIntoView({ behavior: 'smooth' });
-
-      // Dispatch custom event for map.js to handle
       window.dispatchEvent(new CustomEvent('panToSchool', {
         detail: { name: school.name, coordinates: school.coordinates }
       }));
+    };
+
+    row.addEventListener('click', panToSchool);
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        panToSchool();
+      }
     });
 
     tbody.appendChild(row);

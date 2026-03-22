@@ -55,6 +55,29 @@ img {
   display: block;
 }
 
+/* --- Focus styles (keyboard a11y) --- */
+:focus-visible {
+  outline: 3px solid var(--clr-warning);
+  outline-offset: 2px;
+}
+
+/* --- Skip to content (a11y) --- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  background: var(--clr-danger);
+  color: var(--clr-white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  font-weight: 700;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: var(--space-md);
+}
+
 /* --- Typography --- */
 h1, h2, h3 {
   line-height: 1.2;
