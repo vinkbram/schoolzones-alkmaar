@@ -292,12 +292,6 @@ a:hover {
   flex-shrink: 0;
 }
 
-.map-legend__swatch--route {
-  background: #BBDEFB;
-  border: 2px solid #90CAF9;
-  border-radius: 3px;
-}
-
 .map-legend__swatch--zone {
   background: var(--clr-warning-light);
   border: 2px solid var(--clr-warning);
@@ -316,13 +310,6 @@ a:hover {
 .map-legend__swatch--dodelijk {
   background: var(--clr-danger-dark);
   border: 2px solid #000;
-}
-
-.map-legend__swatch--straat {
-  width: 20px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--clr-danger);
 }
 
 /* --- Ranking Table --- */

@@ -7,30 +7,11 @@ const ALKMAAR_CENTER = [52.63, 4.77];
 const DEFAULT_ZOOM = 13;
 
 // Layer styles
-const ROUTE_STYLE = {
-  color: '#90CAF9',
-  weight: 1,
-  fillColor: '#BBDEFB',
-  fillOpacity: 0.15,
-};
-
 const ZONE_STYLE = {
   color: '#F57C00',
   weight: 2,
   fillColor: '#FFE0B2',
   fillOpacity: 0.35,
-};
-
-const STREET_STYLE = {
-  color: '#D32F2F',
-  weight: 5,
-  opacity: 0.8,
-};
-
-const STREET_HIGHLIGHT_STYLE = {
-  color: '#D32F2F',
-  weight: 8,
-  opacity: 1,
 };
 
 const SEVERITY_COLORS = {
@@ -46,7 +27,6 @@ const SEVERITY_RADIUS = {
 };
 
 let map = null;
-let streetLayers = {};
 
 async function initMap() {
   const container = document.getElementById('map');
@@ -69,33 +49,19 @@ async function initMap() {
 
   try {
     // Fetch all data in parallel
-    const [routesRes, zonesRes, schoolsRes, accidentsRes, streetsRes] = await Promise.all([
-      fetch(`${DATA_BASE}/routes.geojson`),
+    const [zonesRes, schoolsRes, accidentsRes] = await Promise.all([
       fetch(`${DATA_BASE}/zones.geojson`),
       fetch(`${DATA_BASE}/schools.geojson`),
       fetch(`${DATA_BASE}/accidents-filtered.geojson`),
-      fetch(`${DATA_BASE}/priority-streets.geojson`),
     ]);
 
-    const [routes, zones, schools, accidents, streets] = await Promise.all([
-      routesRes.json(),
+    const [zones, schools, accidents] = await Promise.all([
       zonesRes.json(),
       schoolsRes.json(),
       accidentsRes.json(),
-      streetsRes.json(),
     ]);
 
-    // 0. School route areas (500m, bottom-most layer)
-    L.geoJSON(routes, {
-      style: () => ROUTE_STYLE,
-      onEachFeature: (feature, layer) => {
-        if (feature.properties.school) {
-          layer.bindPopup(`<strong>Schoolroute</strong><br>${feature.properties.school}<br><em>500m zone</em>`);
-        }
-      },
-    }).addTo(map);
-
-    // 1. Zone polygons
+    // 0. Zone polygons
     L.geoJSON(zones, {
       style: () => ZONE_STYLE,
       onEachFeature: (feature, layer) => {
@@ -105,26 +71,7 @@ async function initMap() {
       },
     }).addTo(map);
 
-    // 2. Priority streets
-    L.geoJSON(streets, {
-      style: () => STREET_STYLE,
-      onEachFeature: (feature, layer) => {
-        const props = feature.properties;
-        const popup = `
-          <strong>${props.name || 'Prioriteitsstraat'}</strong><br>
-          Huidige limiet: ${props.currentLimit} km/u
-          ${props.note ? `<br><em>${props.note}</em>` : ''}
-        `;
-        layer.bindPopup(popup);
-
-        // Store reference by street ID for highlighting
-        if (props.id) {
-          streetLayers[props.id] = layer;
-        }
-      },
-    }).addTo(map);
-
-    // 3. Accident markers (clustered)
+    // 2. Accident markers (clustered)
     const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
       year: 'numeric',
       month: 'long',
@@ -228,24 +175,6 @@ window.addEventListener('panToSchool', (e) => {
   const { coordinates, name } = e.detail;
   // GeoJSON is [lon, lat], Leaflet is [lat, lon]
   map.setView([coordinates[1], coordinates[0]], 17);
-});
-
-// Highlight street (triggered from street card click)
-window.addEventListener('highlightStreet', (e) => {
-  if (!map) return;
-  const { streetId } = e.detail;
-  const layer = streetLayers[streetId];
-
-  if (layer) {
-    // Reset all streets
-    Object.values(streetLayers).forEach(l => l.setStyle(STREET_STYLE));
-    // Highlight selected
-    layer.setStyle(STREET_HIGHLIGHT_STYLE);
-    layer.bringToFront();
-    // Zoom to street
-    map.fitBounds(layer.getBounds(), { padding: [50, 50] });
-    layer.openPopup();
-  }
 });
 
 // --- Init ---
