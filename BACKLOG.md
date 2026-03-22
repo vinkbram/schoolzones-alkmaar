@@ -11,15 +11,15 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] **1.3** Add `package.json` with devDependencies
 - [x] **1.4** Add `netlify.toml` with headers (CSP, X-Frame-Options) and cache rules
 - [x] **1.5** Add `.gitignore` (node_modules, .DS_Store, etc.)
-- [ ] **1.6** Connect repo to Netlify (auto-deploy on push to `main`)
+- [x] **1.6** Connect repo to Netlify (auto-deploy on push to `main`)
 
 ## Epic 2: Data Pipeline (GitHub Actions)
 
 - [x] **2.1** Research STAR API — confirmed via.software PublicAccidents API (vector tiles + detail endpoint)
 - [x] **2.2** Write `scripts/fetch-accidents.js` — fetches STAR tiles, decodes MVT, fetches detail, writes GeoJSON
 - [x] **2.3** Write `.github/workflows/update-data.yml` — daily cron (06:00 CET), commit & push if changed
-- [ ] **2.4** Test workflow manually via `workflow_dispatch`
-- [ ] **2.5** Verify Netlify auto-redeploys after data commit
+- [x] **2.4** Test workflow manually via `workflow_dispatch`
+- [x] **2.5** Verify Netlify auto-redeploys after data commit
 
 ## Epic 3: Data Collection & Preparation
 
@@ -60,7 +60,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] **6.4** Load and render `accidents.geojson` as red circle markers, sized/coloured by severity, popups
 - [x] **6.5** Load and render `priority-streets.geojson` as red line overlays with popups
 - [x] **6.6** Add map legend (zones, accidents by severity, priority streets)
-- [ ] **6.7** Cluster accident markers at low zoom levels (Leaflet.markercluster or manual)
+- [x] **6.7** Cluster accident markers at low zoom levels (Leaflet.markercluster)
 - [x] **6.8** Show loading spinner/skeleton until all layers loaded
 - [ ] **6.9** Test map on mobile — touch interactions, popup readability
 
@@ -87,7 +87,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] **9.2** Add WhatsApp share button (wa.me link with pre-filled text)
 - [x] **9.3** Add copy-link button (Clipboard API with visual confirmation)
 - [ ] **9.4** Verify OG meta tags render correctly (use opengraph.xyz or similar debugger)
-- [ ] **9.5** Create OG image (1200x630px)
+- [x] **9.5** Create OG image (1200x630px)
 
 ## Epic 10: Sources & Methodology
 

@@ -105,14 +105,31 @@ async function initMap() {
       },
     }).addTo(map);
 
-    // 3. Accident markers
+    // 3. Accident markers (clustered)
     const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     });
 
-    L.geoJSON(accidents, {
+    const accidentCluster = L.markerClusterGroup({
+      maxClusterRadius: 40,
+      disableClusteringAtZoom: 16,
+      iconCreateFunction: (cluster) => {
+        const count = cluster.getChildCount();
+        let size = 'small';
+        let diameter = 36;
+        if (count > 50) { size = 'large'; diameter = 52; }
+        else if (count > 20) { size = 'medium'; diameter = 44; }
+        return L.divIcon({
+          html: `<div><span>${count}</span></div>`,
+          className: `marker-cluster marker-cluster-${size}`,
+          iconSize: L.point(diameter, diameter),
+        });
+      },
+    });
+
+    const accidentLayer = L.geoJSON(accidents, {
       pointToLayer: (feature, latlng) => {
         const severity = feature.properties.severity || 'materieel';
         return L.circleMarker(latlng, {
@@ -147,7 +164,10 @@ async function initMap() {
         `;
         layer.bindPopup(popup);
       },
-    }).addTo(map);
+    });
+
+    accidentCluster.addLayer(accidentLayer);
+    map.addLayer(accidentCluster);
 
     // 4. School markers (top layer)
     const schoolIcon = L.divIcon({
