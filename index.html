@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schoolzones Alkmaar — Veilige schoolwegen, nu.</title>
-  <meta name="description" content="Schoolwegen in Alkmaar zijn gevaarlijk. Data laat zien waarom we 30 km/u zones nodig hebben bij scholen.">
+  <title>Schoolgebieden Alkmaar — Nul ongelukken bij scholen in 2030</title>
+  <meta name="description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht. Data laat zien waarom schoolgebieden veiliger moeten.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Schoolzones Alkmaar — Veilige schoolwegen, nu.">
-  <meta property="og:description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht. Steun de oproep voor 30 km/u.">
+  <meta property="og:title" content="Schoolgebieden Alkmaar — Nul ongelukken bij scholen in 2030">
+  <meta property="og:description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht. Steun de oproep voor veilige schoolgebieden.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://schoolzones-alkmaar.netlify.app">
   <meta property="og:image" content="https://schoolzones-alkmaar.netlify.app/img/og-image.png">
@@ -18,8 +18,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Schoolzones Alkmaar — Veilige schoolwegen, nu.">
-  <meta name="twitter:description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht.">
+  <meta name="twitter:title" content="Schoolgebieden Alkmaar — Nul ongelukken bij scholen in 2030">
+  <meta name="twitter:description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht. Steun de oproep voor veilige schoolgebieden.">
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -47,11 +47,11 @@
         <span class="hero__counter-label">dagen</span>
       </div>
       <p class="hero__subtitle">
-        geleden vond het meest recente verkeersongeluk plaats in een Alkmaarse schoolzone.
+        geleden vond het meest recente verkeersongeluk plaats bij een Alkmaarse school.
       </p>
       <p class="hero__lead">
-        Schoolwegen in Alkmaar zijn niet veilig. De data laat het zien.
-        <strong>Wij eisen 30 km/u bij elke school.</strong>
+        Schoolgebieden in Alkmaar zijn niet veilig. De data laat het zien.
+        <strong>Nul ongelukken bij scholen in 2030.</strong>
       </p>
       <a href="#kaart" class="hero__cta">Bekijk de kaart &darr;</a>
     </div>
@@ -62,14 +62,16 @@
     <!-- INTERACTIEVE KAART -->
     <section id="kaart" class="section section--map">
       <h2 class="section__title">Ongelukken rondom Alkmaarse scholen</h2>
-      <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, binnen 100 meter van een school. Alleen ongelukken in schoolzones worden getoond.</p>
-      <div id="map" class="map-container" role="application" aria-label="Kaart met schoolzones en verkeersongelukken in Alkmaar">
+      <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, binnen 100 meter van een school. Alleen ongelukken in schoolgebieden worden getoond.</p>
+      <div id="map" class="map-container" role="application" aria-label="Kaart met schoolgebieden en verkeersongelukken in Alkmaar">
         <div class="map-container__loading" id="map-loading">Kaart laden…</div>
       </div>
       <div class="map-legend" id="map-legend">
         <h3 class="map-legend__title">Legenda</h3>
         <ul class="map-legend__list">
-          <li><span class="map-legend__swatch map-legend__swatch--zone"></span> Schoolzone (100m)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--zone-safe"></span> Schoolgebied (0 ongelukken)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--zone-warn"></span> Schoolgebied (1-2)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--zone-danger"></span> Schoolgebied (3+)</li>
           <li><span class="map-legend__swatch map-legend__swatch--materieel"></span> Materiële schade</li>
           <li><span class="map-legend__swatch map-legend__swatch--letsel"></span> Letselongeval</li>
           <li><span class="map-legend__swatch map-legend__swatch--dodelijk"></span> Dodelijk ongeval</li>
@@ -79,7 +81,7 @@
 
     <!-- PER-SCHOOL RANKING -->
     <section id="ranking" class="section">
-      <h2 class="section__title">Ranglijst: ongelukken per school</h2>
+      <h2 class="section__title">Overzicht per school</h2>
       <p class="section__intro">Hoeveel verkeersongelukken vonden plaats binnen 100 meter van elke school?</p>
       <div class="table-wrapper">
         <table class="ranking-table" id="ranking-table">
@@ -89,6 +91,7 @@
               <th scope="col">School</th>
               <th scope="col">Leerlingen</th>
               <th scope="col">Ongelukken</th>
+              <th scope="col">Max. snelheid</th>
               <th scope="col">Risicoscore</th>
             </tr>
           </thead>
@@ -99,55 +102,11 @@
       </div>
     </section>
 
-    <!-- PRIORITEITSSTRATEN -->
-    <section id="straten" class="section section--straten">
-      <h2 class="section__title">Vijf straten die nu moeten veranderen</h2>
-      <p class="section__intro">Op basis van de data en meldingen van ouders: deze vijf straten zijn het gevaarlijkst voor schoolkinderen.</p>
-      <div class="straten-grid" id="straten-grid">
-
-        <article class="straat-card">
-          <h3 class="straat-card__name">Bergerweg / Geestersingel</h3>
-          <span class="straat-card__badge straat-card__badge--danger">50 km/u</span>
-          <p class="straat-card__desc">Drukke doorgaande route langs meerdere scholen. Hoge snelheden, smalle stoepen, onoverzichtelijke oversteekplaatsen.</p>
-          <button class="straat-card__map-link" data-street="bergerweg">Toon op kaart</button>
-        </article>
-
-        <article class="straat-card">
-          <h3 class="straat-card__name">Terborchlaan / Aert de Gelderlaan</h3>
-          <span class="straat-card__badge straat-card__badge--danger">50 km/u</span>
-          <p class="straat-card__desc">Brede weg met hoge rijsnelheden nabij basisscholen. Kinderen moeten de weg oversteken zonder beveiligde overgang.</p>
-          <button class="straat-card__map-link" data-street="terborchlaan">Toon op kaart</button>
-        </article>
-
-        <article class="straat-card">
-          <h3 class="straat-card__name">Schinkelwaard</h3>
-          <span class="straat-card__badge straat-card__badge--danger">50 km/u</span>
-          <p class="straat-card__desc">Doorgaande weg door woonwijk met scholen. Auto's rijden structureel te hard ondanks de nabijheid van schoolgaande kinderen.</p>
-          <button class="straat-card__map-link" data-street="schinkelwaard">Toon op kaart</button>
-        </article>
-
-        <article class="straat-card">
-          <h3 class="straat-card__name">Vondelstraat</h3>
-          <span class="straat-card__badge straat-card__badge--warning">30 km/u, 50 km/u inrichting</span>
-          <p class="straat-card__desc">Officieel 30 km/u, maar de weg is ingericht als 50-weg. Automobilisten rijden hier structureel te hard omdat de inrichting dat uitlokt.</p>
-          <button class="straat-card__map-link" data-street="vondelstraat">Toon op kaart</button>
-        </article>
-
-        <article class="straat-card straat-card--positive">
-          <h3 class="straat-card__name">Westerweg</h3>
-          <span class="straat-card__badge straat-card__badge--safe">In uitvoering ✓</span>
-          <p class="straat-card__desc">Hier wordt al gewerkt aan verkeersveiligheid. Een positief voorbeeld dat laat zien dat verandering mogelijk is.</p>
-          <button class="straat-card__map-link" data-street="westerweg">Toon op kaart</button>
-        </article>
-
-      </div>
-    </section>
-
     <!-- ACTIE-STUB -->
     <section id="actie" class="section section--actie">
       <h2 class="section__title">Doe mee</h2>
       <p class="actie__text">
-        Wil jij ook veilige schoolroutes? We zijn in gesprek met de gemeente Alkmaar.
+        Nul ongelukken bij scholen in 2030. Wij zijn in gesprek met de gemeente Alkmaar.
       </p>
       <div class="actie__share">
         <a href="#" class="btn btn--whatsapp" id="share-whatsapp" aria-label="Deel via WhatsApp">
@@ -170,10 +129,9 @@
         </ul>
         <h3>Methode</h3>
         <ul>
-          <li><strong>Schoolzone:</strong> 100 meter buffer rondom elke schoolingang, berekend met Turf.js.</li>
-          <li><strong>Schoolroute:</strong> 500 meter buffer rondom elke school — het gebied waar kinderen lopen en fietsen van en naar school.</li>
-          <li><strong>Filtering:</strong> alleen ongelukken binnen een schoolzone of schoolroute worden getoond.</li>
-          <li><strong>Risicoscore:</strong> aantal geregistreerde ongelukken binnen de schoolzone, gedeeld door het aantal leerlingen × 1000.</li>
+          <li><strong>Schoolgebied:</strong> 100 meter buffer rondom elke schoolingang, berekend met Turf.js.</li>
+          <li><strong>Filtering:</strong> alleen ongelukken binnen een schoolgebied worden getoond.</li>
+          <li><strong>Risicoscore:</strong> aantal geregistreerde ongelukken binnen het schoolgebied, gedeeld door het aantal leerlingen × 1000.</li>
           <li><strong>Dagenteller:</strong> berekend op basis van de meest recente ongeluksdatum in de dataset.</li>
         </ul>
         <h3>Disclaimer</h3>
@@ -184,7 +142,7 @@
   </main>
 
   <footer class="footer">
-    <p>&copy; 2026 Schoolzones Alkmaar. Data wordt dagelijks bijgewerkt.</p>
+    <p>&copy; 2026 Schoolgebieden Alkmaar. Data wordt dagelijks bijgewerkt.</p>
   </footer>
 
   <!-- Leaflet JS -->

@@ -55,7 +55,7 @@ async function initRanking() {
   } catch (err) {
     console.error('Ranking table failed:', err);
     document.getElementById('ranking-tbody').innerHTML =
-      '<tr><td colspan="5" style="text-align:center;padding:2rem;color:#757575;">Data kon niet geladen worden.</td></tr>';
+      '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#757575;">Data kon niet geladen worden.</td></tr>';
   }
 }
 
@@ -89,6 +89,8 @@ function buildRankings(schools, accidents, zones) {
       studentCount,
       accidentCount,
       riskScore,
+      maxSpeed: school.properties.maxSpeed || null,
+      speedLimits: school.properties.speedLimits || [],
       coordinates: school.geometry.coordinates,
     });
   }
@@ -120,11 +122,19 @@ function renderTable(rankings) {
     row.setAttribute('role', 'button');
     row.setAttribute('aria-label', `Toon ${school.name} op kaart`);
 
+    // Speed limit display
+    let speedHtml = '–';
+    if (school.maxSpeed) {
+      const speedClass = school.maxSpeed > 30 ? 'speed-high' : 'speed-ok';
+      speedHtml = `<span class="${speedClass}">${school.maxSpeed} km/u</span>`;
+    }
+
     row.innerHTML = `
       <td>${i + 1}</td>
       <td>${escapeHtml(school.name)}</td>
       <td>${formatter.format(school.studentCount)}</td>
       <td>${school.accidentCount}</td>
+      <td>${speedHtml}</td>
       <td class="${riskClass}">${school.riskScore.toFixed(1)}</td>
     `;
 
@@ -152,7 +162,7 @@ function renderTable(rankings) {
 // --- Social Sharing ---
 function initSharing() {
   const pageUrl = window.location.href;
-  const shareText = 'Schoolwegen in Alkmaar zijn niet veilig. Bekijk de data en steun de oproep voor 30 km/u bij elke school.';
+  const shareText = 'Schoolgebieden in Alkmaar zijn niet veilig. Bekijk de data — nul ongelukken bij scholen in 2030.';
 
   // WhatsApp
   const waBtn = document.getElementById('share-whatsapp');
@@ -189,19 +199,6 @@ function initSharing() {
   }
 }
 
-// --- Street card map links ---
-function initStreetLinks() {
-  document.querySelectorAll('.straat-card__map-link').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const streetId = btn.dataset.street;
-      document.getElementById('kaart').scrollIntoView({ behavior: 'smooth' });
-      window.dispatchEvent(new CustomEvent('highlightStreet', {
-        detail: { streetId }
-      }));
-    });
-  });
-}
-
 // --- Utility ---
 function escapeHtml(str) {
   const div = document.createElement('div');
@@ -214,5 +211,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounter();
   initRanking();
   initSharing();
-  initStreetLinks();
 });

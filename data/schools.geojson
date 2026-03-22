@@ -25,7 +25,14 @@
             4.84914909,
             52.58119229
           ]
-        ]
+        ],
+        "maxSpeed": 60,
+        "speedLimits": [
+          30,
+          60
+        ],
+        "roadSegments": 12,
+        "minSpeed": 30
       }
     },
     {
@@ -47,7 +54,15 @@
             4.74876406,
             52.65913194
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          15,
+          30,
+          50
+        ],
+        "roadSegments": 19,
+        "minSpeed": 15
       }
     },
     {
@@ -69,7 +84,13 @@
             4.80682346,
             52.57815615
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 1,
+        "minSpeed": 30
       }
     },
     {
@@ -91,7 +112,10 @@
             4.84868947,
             52.5539557
           ]
-        ]
+        ],
+        "maxSpeed": null,
+        "speedLimits": [],
+        "roadSegments": 0
       }
     },
     {
@@ -113,7 +137,14 @@
             4.80540704,
             52.55047179
           ]
-        ]
+        ],
+        "maxSpeed": 60,
+        "speedLimits": [
+          30,
+          60
+        ],
+        "roadSegments": 2,
+        "minSpeed": 30
       }
     },
     {
@@ -135,7 +166,14 @@
             4.82175016,
             52.61377147
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 28,
+        "minSpeed": 30
       }
     },
     {
@@ -157,7 +195,14 @@
             4.77111432,
             52.66454392
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          15,
+          30
+        ],
+        "roadSegments": 11,
+        "minSpeed": 15
       }
     },
     {
@@ -179,7 +224,13 @@
             4.73361998,
             52.64170233
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 7,
+        "minSpeed": 30
       }
     },
     {
@@ -201,7 +252,13 @@
             4.75209311,
             52.64203789
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 6,
+        "minSpeed": 30
       }
     },
     {
@@ -223,7 +280,14 @@
             4.76112052,
             52.66500243
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          15,
+          30
+        ],
+        "roadSegments": 19,
+        "minSpeed": 15
       }
     },
     {
@@ -245,7 +309,14 @@
             4.74261423,
             52.61895455
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 9,
+        "minSpeed": 30
       }
     },
     {
@@ -267,7 +338,13 @@
             4.76468508,
             52.6373487
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 16,
+        "minSpeed": 30
       }
     },
     {
@@ -289,7 +366,15 @@
             4.76399311,
             52.65980232
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          15,
+          30,
+          50
+        ],
+        "roadSegments": 25,
+        "minSpeed": 15
       }
     },
     {
@@ -311,7 +396,14 @@
             4.74734421,
             52.65260565
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          15,
+          30
+        ],
+        "roadSegments": 20,
+        "minSpeed": 15
       }
     },
     {
@@ -333,7 +425,13 @@
             4.75201311,
             52.67487796
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 13,
+        "minSpeed": 30
       }
     },
     {
@@ -355,7 +453,13 @@
             4.74406321,
             52.62811472
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 18,
+        "minSpeed": 30
       }
     },
     {
@@ -377,7 +481,13 @@
             4.7340767,
             52.64167924
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 9,
+        "minSpeed": 30
       }
     },
     {
@@ -399,7 +509,14 @@
             4.76641152,
             52.67228668
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 26,
+        "minSpeed": 30
       }
     },
     {
@@ -421,7 +538,13 @@
             4.74673915,
             52.62721825
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 9,
+        "minSpeed": 30
       }
     },
     {
@@ -443,7 +566,13 @@
             4.75264633,
             52.64216479
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 4,
+        "minSpeed": 30
       }
     },
     {
@@ -465,7 +594,13 @@
             4.74058428,
             52.61868481
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 20,
+        "minSpeed": 30
       }
     },
     {
@@ -487,7 +622,13 @@
             4.73941938,
             52.63234031
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 6,
+        "minSpeed": 30
       }
     },
     {
@@ -509,7 +650,13 @@
             4.755902,
             52.62465519
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 9,
+        "minSpeed": 30
       }
     },
     {
@@ -531,7 +678,13 @@
             4.72248057,
             52.63459315
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 6,
+        "minSpeed": 30
       }
     },
     {
@@ -553,7 +706,14 @@
             4.75964997,
             52.66060774
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          15,
+          30
+        ],
+        "roadSegments": 24,
+        "minSpeed": 15
       }
     },
     {
@@ -575,7 +735,14 @@
             4.74763869,
             52.65300624
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          15,
+          30
+        ],
+        "roadSegments": 14,
+        "minSpeed": 15
       }
     },
     {
@@ -597,7 +764,14 @@
             4.7636044,
             52.65368784
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          15,
+          30
+        ],
+        "roadSegments": 14,
+        "minSpeed": 15
       }
     },
     {
@@ -619,7 +793,13 @@
             4.76634467,
             52.67140318
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 20,
+        "minSpeed": 30
       }
     },
     {
@@ -641,7 +821,14 @@
             4.7710818,
             52.65627008
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 43,
+        "minSpeed": 30
       }
     },
     {
@@ -663,7 +850,10 @@
             4.84833512,
             52.55412379
           ]
-        ]
+        ],
+        "maxSpeed": null,
+        "speedLimits": [],
+        "roadSegments": 0
       }
     },
     {
@@ -685,7 +875,15 @@
             4.89003693,
             52.60024183
           ]
-        ]
+        ],
+        "maxSpeed": 80,
+        "speedLimits": [
+          30,
+          60,
+          80
+        ],
+        "roadSegments": 25,
+        "minSpeed": 30
       }
     },
     {
@@ -707,7 +905,15 @@
             4.72366024,
             52.640159
           ]
-        ]
+        ],
+        "maxSpeed": 70,
+        "speedLimits": [
+          30,
+          50,
+          70
+        ],
+        "roadSegments": 7,
+        "minSpeed": 30
       }
     },
     {
@@ -729,7 +935,14 @@
             4.76542173,
             52.64265234
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 12,
+        "minSpeed": 30
       }
     },
     {
@@ -751,7 +964,13 @@
             4.73849246,
             52.64886516
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          50
+        ],
+        "roadSegments": 18,
+        "minSpeed": 50
       }
     },
     {
@@ -773,7 +992,14 @@
             4.75764366,
             52.65907137
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 48,
+        "minSpeed": 30
       }
     },
     {
@@ -795,7 +1021,14 @@
             4.73878807,
             52.6339981
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 11,
+        "minSpeed": 30
       }
     },
     {
@@ -817,7 +1050,13 @@
             4.752708,
             52.64107471
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          30
+        ],
+        "roadSegments": 1,
+        "minSpeed": 30
       }
     },
     {
@@ -839,7 +1078,14 @@
             4.74557253,
             52.62544485
           ]
-        ]
+        ],
+        "maxSpeed": 30,
+        "speedLimits": [
+          15,
+          30
+        ],
+        "roadSegments": 19,
+        "minSpeed": 15
       }
     },
     {
@@ -861,7 +1107,14 @@
             4.72992813,
             52.6354369
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 19,
+        "minSpeed": 30
       }
     },
     {
@@ -883,7 +1136,14 @@
             4.74904202,
             52.62103588
           ]
-        ]
+        ],
+        "maxSpeed": 50,
+        "speedLimits": [
+          30,
+          50
+        ],
+        "roadSegments": 69,
+        "minSpeed": 30
       }
     },
     {
@@ -905,7 +1165,14 @@
             4.75085213,
             52.64843402
           ]
-        ]
+        ],
+        "maxSpeed": 70,
+        "speedLimits": [
+          30,
+          70
+        ],
+        "roadSegments": 4,
+        "minSpeed": 30
       }
     }
   ]

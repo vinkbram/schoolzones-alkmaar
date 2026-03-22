@@ -6,13 +6,22 @@ const DATA_BASE = './data';
 const ALKMAAR_CENTER = [52.63, 4.77];
 const DEFAULT_ZOOM = 13;
 
-// Layer styles
-const ZONE_STYLE = {
-  color: '#F57C00',
-  weight: 2,
-  fillColor: '#FFE0B2',
-  fillOpacity: 0.35,
-};
+// Zone color scale: green (0 accidents) → yellow → red (many)
+function zoneColor(accidentCount) {
+  if (accidentCount === 0) return '#4CAF50';
+  if (accidentCount <= 1) return '#8BC34A';
+  if (accidentCount <= 2) return '#FFC107';
+  if (accidentCount <= 4) return '#FF9800';
+  return '#D32F2F';
+}
+
+function zoneBorderColor(accidentCount) {
+  if (accidentCount === 0) return '#388E3C';
+  if (accidentCount <= 1) return '#689F38';
+  if (accidentCount <= 2) return '#F9A825';
+  if (accidentCount <= 4) return '#EF6C00';
+  return '#B71C1C';
+}
 
 const SEVERITY_COLORS = {
   materieel: '#E57373',
@@ -61,22 +70,83 @@ async function initMap() {
       accidentsRes.json(),
     ]);
 
-    // 0. Zone polygons
-    L.geoJSON(zones, {
-      style: () => ZONE_STYLE,
-      onEachFeature: (feature, layer) => {
-        if (feature.properties.school) {
-          layer.bindPopup(`<strong>Schoolzone</strong><br>${feature.properties.school}`);
-        }
-      },
-    }).addTo(map);
-
-    // 2. Accident markers (clustered)
+    // Pre-compute accident stats per zone
     const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     });
+
+    const zoneStats = {};
+    for (const zone of zones.features) {
+      const name = zone.properties.school;
+      zoneStats[name] = { count: 0, lastDate: null };
+    }
+    for (const acc of accidents.features) {
+      const d = acc.properties.date;
+      // Match accident to zone by checking which school's zone it belongs to
+      for (const zone of zones.features) {
+        const name = zone.properties.school;
+        if (typeof turf !== 'undefined' && turf.booleanPointInPolygon(
+          turf.point(acc.geometry.coordinates), zone
+        )) {
+          zoneStats[name].count++;
+          if (d && (!zoneStats[name].lastDate || d > zoneStats[name].lastDate)) {
+            zoneStats[name].lastDate = d;
+          }
+          break;
+        }
+      }
+    }
+
+    // Find school data for popups
+    const schoolMap = {};
+    for (const s of schools.features) {
+      schoolMap[s.properties.name] = s.properties;
+    }
+
+    // 0. Zone polygons — colored by accident count
+    L.geoJSON(zones, {
+      style: (feature) => {
+        const stats = zoneStats[feature.properties.school] || { count: 0 };
+        return {
+          color: zoneBorderColor(stats.count),
+          weight: 2,
+          fillColor: zoneColor(stats.count),
+          fillOpacity: 0.35,
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const name = feature.properties.school;
+        const stats = zoneStats[name] || { count: 0, lastDate: null };
+        const school = schoolMap[name] || {};
+        const formatter = new Intl.NumberFormat('nl-NL');
+
+        let lastDateStr = '';
+        if (stats.lastDate) {
+          try {
+            lastDateStr = dateFormatter.format(new Date(stats.lastDate + 'T00:00:00'));
+          } catch { lastDateStr = stats.lastDate; }
+        }
+
+        const speedInfo = school.maxSpeed
+          ? `Max. snelheid: <strong>${school.maxSpeed} km/u</strong>`
+          : '';
+
+        layer.bindPopup(`
+          <strong>${name}</strong><br>
+          ${school.studentCount ? `${formatter.format(school.studentCount)} leerlingen<br>` : ''}
+          Ongelukken: <strong>${stats.count}</strong><br>
+          ${lastDateStr ? `Laatste: ${lastDateStr}<br>` : ''}
+          ${speedInfo}
+        `);
+
+        // Click zone → zoom in
+        layer.on('click', () => {
+          map.fitBounds(layer.getBounds(), { padding: [50, 50], maxZoom: 17 });
+        });
+      },
+    }).addTo(map);
 
     const accidentCluster = L.markerClusterGroup({
       maxClusterRadius: 40,

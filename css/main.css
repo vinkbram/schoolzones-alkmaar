@@ -292,9 +292,21 @@ a:hover {
   flex-shrink: 0;
 }
 
-.map-legend__swatch--zone {
-  background: var(--clr-warning-light);
-  border: 2px solid var(--clr-warning);
+.map-legend__swatch--zone-safe {
+  background: #4CAF50;
+  border: 2px solid #388E3C;
+  border-radius: 3px;
+}
+
+.map-legend__swatch--zone-warn {
+  background: #FFC107;
+  border: 2px solid #F9A825;
+  border-radius: 3px;
+}
+
+.map-legend__swatch--zone-danger {
+  background: #D32F2F;
+  border: 2px solid #B71C1C;
   border-radius: 3px;
 }
 
@@ -363,6 +375,16 @@ a:hover {
 
 .ranking-table .risk-medium {
   color: var(--clr-warning);
+  font-weight: 600;
+}
+
+.ranking-table .speed-high {
+  color: var(--clr-danger);
+  font-weight: 700;
+}
+
+.ranking-table .speed-ok {
+  color: var(--clr-safe);
   font-weight: 600;
 }
 
