@@ -6,94 +6,94 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 ## Epic 1: Project Setup & Infrastructure
 
-- [ ] **1.1** Create GitHub repo `schoolzones-alkmaar` (public)
-- [ ] **1.2** Init project with directory structure per ARCHITECTURE.md
-- [ ] **1.3** Add `package.json` with devDependencies (`@turf/buffer`, `@turf/helpers`)
-- [ ] **1.4** Add `netlify.toml` with headers (CSP, X-Frame-Options) and cache rules
-- [ ] **1.5** Add `.gitignore` (node_modules, .DS_Store, etc.)
+- [x] **1.1** Create GitHub repo `schoolzones-alkmaar` (public)
+- [x] **1.2** Init project with directory structure per ARCHITECTURE.md
+- [x] **1.3** Add `package.json` with devDependencies
+- [x] **1.4** Add `netlify.toml` with headers (CSP, X-Frame-Options) and cache rules
+- [x] **1.5** Add `.gitignore` (node_modules, .DS_Store, etc.)
 - [ ] **1.6** Connect repo to Netlify (auto-deploy on push to `main`)
 
 ## Epic 2: Data Pipeline (GitHub Actions)
 
-- [ ] **2.1** Research STAR open data API — confirm endpoint, query parameters, response format for Alkmaar accidents
-- [ ] **2.2** Write `scripts/fetch-accidents.js` — fetch STAR data, filter Alkmaar + date range, transform to GeoJSON schema, write `data/accidents.geojson`
-- [ ] **2.3** Write `.github/workflows/update-data.yml` — daily cron (06:00 CET), run fetch script, commit & push if data changed
+- [x] **2.1** Research STAR API — confirmed via.software PublicAccidents API (vector tiles + detail endpoint)
+- [x] **2.2** Write `scripts/fetch-accidents.js` — fetches STAR tiles, decodes MVT, fetches detail, writes GeoJSON
+- [x] **2.3** Write `.github/workflows/update-data.yml` — daily cron (06:00 CET), commit & push if changed
 - [ ] **2.4** Test workflow manually via `workflow_dispatch`
 - [ ] **2.5** Verify Netlify auto-redeploys after data commit
 
 ## Epic 3: Data Collection & Preparation
 
-- [ ] **3.1** Collect school data from scholenopdekaart.nl — Alkmaar basisscholen + middelbare scholen >100 leerlingen
-- [ ] **3.2** Geocode school entrance coordinates (Google Maps / manual verification)
-- [ ] **3.3** Create `data/schools.geojson` with name, type, studentCount, entrances
-- [ ] **3.4** Write `scripts/generate-zones.js` — Turf.js 100m buffer per entrance → merge per school → write `data/zones.geojson`
-- [ ] **3.5** Run generate-zones.js and commit `data/zones.geojson`
-- [ ] **3.6** Create `data/priority-streets.geojson` — trace the five streets as LineString geometries with properties
-- [ ] **3.7** Seed initial `data/accidents.geojson` via first run of fetch script (or manual if API not yet confirmed)
+- [x] **3.1** Collect school data from DUO open onderwijsdata — 33 Alkmaar scholen (26 basisscholen + 7 middelbaar)
+- [x] **3.2** Geocode school entrance coordinates (PDOK Locatieserver API)
+- [x] **3.3** Create `data/schools.geojson` with real data (name, type, studentCount, entrances)
+- [x] **3.4** Write `scripts/generate-zones.js` — Turf.js 100m buffer per entrance → write `data/zones.geojson`
+- [x] **3.5** Run generate-zones.js with real school data and commit `data/zones.geojson`
+- [x] **3.6** Create `data/priority-streets.geojson` — trace the five streets with real geometries
+- [x] **3.7** Seed `data/accidents.geojson` — 2,524 accidents (2021-2026) from STAR API
 
 ## Epic 4: HTML Skeleton & Styling
 
-- [ ] **4.1** Create `index.html` with semantic structure: header, 6 sections (hero, kaart, ranking, straten, actie, bronnen), footer
-- [ ] **4.2** Add meta tags: charset, viewport, description, OG tags (og:title, og:description, og:image, og:url)
-- [ ] **4.3** Add Leaflet + Turf CDN links with SRI hashes
-- [ ] **4.4** Create `css/main.css` — CSS custom properties, base typography, system font stack
-- [ ] **4.5** Style hero section — large counter, alarming visual treatment, dark background
-- [ ] **4.6** Style map container — full-width, responsive height, loading state
-- [ ] **4.7** Style ranking table — sortable look, severity colour coding, responsive horizontal scroll on mobile
-- [ ] **4.8** Style priority streets section — cards or list with street details
-- [ ] **4.9** Style action stub section — CTA block, placeholder text
-- [ ] **4.10** Style footer — bronnen/methodologie, compact
-- [ ] **4.11** Add responsive breakpoints (mobile-first)
+- [x] **4.1** Create `index.html` with semantic structure: header, 6 sections, footer
+- [x] **4.2** Add meta tags: charset, viewport, description, OG tags
+- [x] **4.3** Add Leaflet + Turf CDN links with SRI hashes
+- [x] **4.4** Create `css/main.css` — CSS custom properties, base typography, system font stack
+- [x] **4.5** Style hero section — large counter, alarming visual treatment, dark background
+- [x] **4.6** Style map container — full-width, responsive height, loading state
+- [x] **4.7** Style ranking table — severity colour coding, responsive horizontal scroll on mobile
+- [x] **4.8** Style priority streets section — cards with street details
+- [x] **4.9** Style action stub section — CTA block, placeholder text
+- [x] **4.10** Style footer — bronnen/methodologie, compact
+- [x] **4.11** Add responsive breakpoints (mobile-first)
 
 ## Epic 5: Hero Banner & Day Counter
 
-- [ ] **5.1** Write JS: parse `accidents.geojson`, find most recent date, calculate days difference
-- [ ] **5.2** Render counter dynamically in hero section
-- [ ] **5.3** Add lead-in text below counter ("Het is al X dagen geleden dat…")
-- [ ] **5.4** Handle edge cases: no data loaded, date in the future, zero days
+- [x] **5.1** Write JS: parse `accidents.geojson`, find most recent date, calculate days difference
+- [x] **5.2** Render counter dynamically in hero section
+- [x] **5.3** Add lead-in text below counter
+- [x] **5.4** Handle edge cases: no data loaded, fallback to '?'
 
 ## Epic 6: Interactive Map
 
-- [ ] **6.1** Write `js/map.js` — init Leaflet map centered on Alkmaar, OpenStreetMap tiles
-- [ ] **6.2** Load and render `zones.geojson` as yellow/orange polygons with opacity
-- [ ] **6.3** Load and render `schools.geojson` as markers with school icon, popups (name, type, students)
-- [ ] **6.4** Load and render `accidents.geojson` as red circle markers, sized/coloured by severity, popups (date, severity, description)
-- [ ] **6.5** Load and render `priority-streets.geojson` as red line overlays with popups (name, current limit, note)
-- [ ] **6.6** Add map legend (zones, accidents by severity, priority streets)
+- [x] **6.1** Write `js/map.js` — init Leaflet map centered on Alkmaar, OpenStreetMap tiles
+- [x] **6.2** Load and render `zones.geojson` as yellow/orange polygons with opacity
+- [x] **6.3** Load and render `schools.geojson` as markers with school icon, popups
+- [x] **6.4** Load and render `accidents.geojson` as red circle markers, sized/coloured by severity, popups
+- [x] **6.5** Load and render `priority-streets.geojson` as red line overlays with popups
+- [x] **6.6** Add map legend (zones, accidents by severity, priority streets)
 - [ ] **6.7** Cluster accident markers at low zoom levels (Leaflet.markercluster or manual)
-- [ ] **6.8** Show loading spinner/skeleton until all layers loaded
+- [x] **6.8** Show loading spinner/skeleton until all layers loaded
 - [ ] **6.9** Test map on mobile — touch interactions, popup readability
 
 ## Epic 7: Per-School Ranking Table
 
-- [ ] **7.1** Write JS: for each school, count accidents within its zone (spatial join using point-in-polygon or distance)
-- [ ] **7.2** Calculate risk score (accidents / students or similar metric — define formula)
-- [ ] **7.3** Render table: school name, leerlingen, # ongelukken, risicoscore
-- [ ] **7.4** Sort table by risk score descending (most dangerous first)
-- [ ] **7.5** Highlight top-5 riskiest schools visually
-- [ ] **7.6** Make table rows clickable → pan map to that school
+- [x] **7.1** Write JS: for each school, count accidents within its zone (point-in-polygon via Turf.js)
+- [x] **7.2** Calculate risk score (accidents per 1000 students)
+- [x] **7.3** Render table: school name, leerlingen, # ongelukken, risicoscore
+- [x] **7.4** Sort table by risk score descending
+- [x] **7.5** Highlight top-5 riskiest schools visually
+- [x] **7.6** Make table rows clickable → pan map to that school
 
 ## Epic 8: Priority Streets Section
 
-- [ ] **8.1** Create section with the five streets: Bergerweg/Geestersingel, Terborchlaan/Aert de Gelderlaan, Schinkelwaard, Vondelstraat, Westerweg
-- [ ] **8.2** Per street: name, current situation, why it's dangerous, proposed change
-- [ ] **8.3** Vondelstraat: note "30 km/u maar 50 km/u inrichting"
-- [ ] **8.4** Westerweg: mark as positive example ("al in uitvoering")
-- [ ] **8.5** Link each street to map location (scroll to map + highlight)
+- [x] **8.1** Create section with the five streets
+- [x] **8.2** Per street: name, current situation, why it's dangerous
+- [x] **8.3** Vondelstraat: note "30 km/u maar 50 km/u inrichting"
+- [x] **8.4** Westerweg: mark as positive example ("al in uitvoering")
+- [x] **8.5** Link each street to map location (scroll to map + highlight)
 
 ## Epic 9: Action Stub & Social Sharing
 
-- [ ] **9.1** Add action stub section with placeholder text: "Wil jij ook veilige schoolroutes? We zijn in gesprek met de gemeente Alkmaar."
-- [ ] **9.2** Add WhatsApp share button (wa.me link with pre-filled text)
-- [ ] **9.3** Add copy-link button (Clipboard API with visual confirmation)
+- [x] **9.1** Add action stub section with placeholder text
+- [x] **9.2** Add WhatsApp share button (wa.me link with pre-filled text)
+- [x] **9.3** Add copy-link button (Clipboard API with visual confirmation)
 - [ ] **9.4** Verify OG meta tags render correctly (use opengraph.xyz or similar debugger)
-- [ ] **9.5** Create OG image (1200x630px) — needs graphic design or generated
+- [ ] **9.5** Create OG image (1200x630px)
 
 ## Epic 10: Sources & Methodology
 
-- [ ] **10.1** Write bronnen section: list data sources (STAR/BRON via RWS, scholenopdekaart.nl)
-- [ ] **10.2** Explain methodology: 100m zone radius, risk score formula, data date range
-- [ ] **10.3** Add disclaimer: data limitations, positional accuracy of STAR coordinates
+- [x] **10.1** Write bronnen section: list data sources (STAR, scholenopdekaart.nl)
+- [x] **10.2** Explain methodology: 100m zone radius, risk score formula, data date range
+- [x] **10.3** Add disclaimer: data limitations, positional accuracy
 
 ## Epic 11: Testing & Polish
 
@@ -117,24 +117,20 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 
 | Blocker | Blocks | Resolution |
 |---|---|---|
-| STAR API endpoint confirmation | Epic 2 (data pipeline) | Research API, test queries |
+| ~~STAR API endpoint confirmation~~ | ~~Epic 2~~ | ✅ Resolved — using via.software API |
 | School entrance coordinates | Epic 3 (zones), Epic 6-7 (map, ranking) | Manual geocoding from Google Maps |
+| Real street geometries | Epic 3.6, map accuracy | Trace from OpenStreetMap |
 | Gemeente overleg | Epic 9 (actie-stub final text) | Placeholder for now |
 | OG image design | 9.5 | Can use generated/placeholder initially |
 
-## Priority Order
+## Remaining Work (priority order)
 
-Build in this order to get a working site as fast as possible:
-
-1. **Epic 1** — infra (repo, Netlify)
-2. **Epic 3** — manual data (schools, streets) — can start before API is confirmed
-3. **Epic 2** — data pipeline (accidents) — research API first
-4. **Epic 4** — HTML/CSS skeleton
-5. **Epic 5** — hero counter (quick win, very visible)
-6. **Epic 6** — map (core feature)
-7. **Epic 7** — ranking table
-8. **Epic 8** — priority streets
-9. **Epic 9** — social/action
-10. **Epic 10** — sources
-11. **Epic 11** — testing
-12. **Epic 12** — launch
+1. ~~**3.1-3.3** — Real school data~~ ✅ Done (33 schools from DUO + PDOK)
+2. ~~**3.6** — Real priority street geometries~~ ✅ Done (5 streets from Overpass API)
+3. ~~**3.5** — Regenerate zones with real school data~~ ✅ Done (33 zones)
+4. **1.6** — Connect Netlify
+5. **2.4-2.5** — Test GitHub Actions workflow
+6. **6.7** — Marker clustering
+7. **9.4-9.5** — OG image & verification
+8. **11.x** — Testing & polish
+9. **12.x** — Launch
