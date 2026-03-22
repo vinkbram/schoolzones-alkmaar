@@ -9,7 +9,9 @@
     "generate-zones": "node scripts/generate-zones.js"
   },
   "devDependencies": {
+    "@mapbox/vector-tile": "^2.0.4",
     "@turf/buffer": "^7.0.0",
-    "@turf/helpers": "^7.0.0"
+    "@turf/helpers": "^7.0.0",
+    "pbf": "^4.0.1"
   }
 }
