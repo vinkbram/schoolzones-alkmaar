@@ -21,6 +21,11 @@
   <meta name="twitter:title" content="Schoolgebieden Alkmaar — Nul ongelukken bij scholen in 2030">
   <meta name="twitter:description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht. Steun de oproep voor veilige schoolgebieden.">
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -42,18 +47,21 @@
   <!-- HERO BANNER -->
   <header id="hero" class="hero">
     <div class="hero__container">
-      <div class="hero__counter-wrapper">
-        <span class="hero__counter" id="day-counter" aria-live="polite">–</span>
-        <span class="hero__counter-label">dagen</span>
+      <div class="hero__left">
+        <div class="hero__counter-wrapper">
+          <span class="hero__counter" id="day-counter" aria-live="polite">–</span>
+          <span class="hero__counter-label">dagen</span>
+        </div>
       </div>
-      <p class="hero__subtitle">
-        geleden vond het meest recente verkeersongeluk plaats bij een Alkmaarse school.
-      </p>
-      <p class="hero__lead">
-        Schoolgebieden in Alkmaar zijn niet veilig. De data laat het zien.
-        <strong>Nul ongelukken bij scholen in 2030.</strong>
-      </p>
-      <a href="#kaart" class="hero__cta">Bekijk de kaart &darr;</a>
+      <div class="hero__right">
+        <p class="hero__subtitle">
+          geleden vond het meest recente verkeersongeluk plaats bij een Alkmaarse school.
+        </p>
+        <p class="hero__lead">
+          Schoolgebieden in Alkmaar zijn niet veilig. De data laat het zien.
+          <strong>Nul ongelukken bij scholen in 2030.</strong>
+        </p>
+      </div>
     </div>
   </header>
 
@@ -61,8 +69,10 @@
 
     <!-- INTERACTIEVE KAART -->
     <section id="kaart" class="section section--map">
-      <h2 class="section__title">Ongelukken rondom Alkmaarse scholen</h2>
-      <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, binnen 100 meter van een school. Alleen ongelukken in schoolgebieden worden getoond.</p>
+      <div class="section__container">
+        <h2 class="section__title">Ongelukken rondom Alkmaarse scholen</h2>
+        <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, binnen 100 meter van een school. Alleen ongelukken in schoolgebieden worden getoond.</p>
+      </div>
       <div id="map" class="map-container" role="application" aria-label="Kaart met schoolgebieden en verkeersongelukken in Alkmaar">
         <div class="map-container__loading" id="map-loading">Kaart laden…</div>
       </div>
@@ -80,46 +90,50 @@
     </section>
 
     <!-- PER-SCHOOL RANKING -->
-    <section id="ranking" class="section">
-      <h2 class="section__title">Overzicht per school</h2>
-      <p class="section__intro">Hoeveel verkeersongelukken vonden plaats binnen 100 meter van elke school?</p>
-      <div class="table-wrapper">
-        <table class="ranking-table" id="ranking-table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">School</th>
-              <th scope="col">Leerlingen</th>
-              <th scope="col">Ongelukken</th>
-              <th scope="col">Max. snelheid</th>
-              <th scope="col">Risicoscore</th>
-            </tr>
-          </thead>
-          <tbody id="ranking-tbody">
-            <!-- Populated by JS -->
-          </tbody>
-        </table>
+    <section id="ranking" class="section section--alt">
+      <div class="section__container">
+        <h2 class="section__title">Overzicht per school</h2>
+        <p class="section__intro">Hoeveel verkeersongelukken vonden plaats binnen 100 meter van elke school?</p>
+        <div class="table-wrapper">
+          <table class="ranking-table" id="ranking-table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">School</th>
+                <th scope="col">Leerlingen</th>
+                <th scope="col">Ongelukken</th>
+                <th scope="col">Max. snelheid</th>
+              </tr>
+            </thead>
+            <tbody id="ranking-tbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
     <!-- ACTIE-STUB -->
     <section id="actie" class="section section--actie">
-      <h2 class="section__title">Doe mee</h2>
-      <p class="actie__text">
-        Nul ongelukken bij scholen in 2030. Wij zijn in gesprek met de gemeente Alkmaar.
-      </p>
-      <div class="actie__share">
-        <a href="#" class="btn btn--whatsapp" id="share-whatsapp" aria-label="Deel via WhatsApp">
-          Deel via WhatsApp
-        </a>
-        <button class="btn btn--copy" id="share-copy" aria-label="Kopieer link">
-          Kopieer link
-        </button>
+      <div class="section__container">
+        <h2 class="section__title">Doe mee</h2>
+        <p class="actie__text">
+          Nul ongelukken bij scholen in 2030. Wij zijn in gesprek met de gemeente Alkmaar.
+        </p>
+        <div class="actie__share">
+          <a href="#" class="btn btn--whatsapp" id="share-whatsapp" aria-label="Deel via WhatsApp">
+            Deel via WhatsApp
+          </a>
+          <button class="btn btn--copy" id="share-copy" aria-label="Kopieer link">
+            Kopieer link
+          </button>
+        </div>
       </div>
     </section>
 
     <!-- BRONNEN & METHODOLOGIE -->
     <section id="bronnen" class="section">
+      <div class="section__container">
       <h2 class="section__title">Bronnen &amp; methodologie</h2>
       <div class="bronnen__content">
         <h3>Data</h3>
@@ -131,11 +145,12 @@
         <ul>
           <li><strong>Schoolgebied:</strong> 100 meter buffer rondom elke schoolingang, berekend met Turf.js.</li>
           <li><strong>Filtering:</strong> alleen ongelukken binnen een schoolgebied worden getoond.</li>
-          <li><strong>Risicoscore:</strong> aantal geregistreerde ongelukken binnen het schoolgebied, gedeeld door het aantal leerlingen × 1000.</li>
+          <li><strong>Rangschikking:</strong> scholen worden gerangschikt op het aantal geregistreerde ongelukken binnen het schoolgebied.</li>
           <li><strong>Dagenteller:</strong> berekend op basis van de meest recente ongeluksdatum in de dataset.</li>
         </ul>
         <h3>Disclaimer</h3>
         <p>STAR-data bevat alleen geregistreerde verkeersongelukken. Het werkelijke aantal incidenten ligt waarschijnlijk hoger. Coördinaten in de dataset hebben een nauwkeurigheid van ca. 10-50 meter.</p>
+      </div>
       </div>
     </section>
 

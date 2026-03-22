@@ -55,7 +55,7 @@ async function initRanking() {
   } catch (err) {
     console.error('Ranking table failed:', err);
     document.getElementById('ranking-tbody').innerHTML =
-      '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#757575;">Data kon niet geladen worden.</td></tr>';
+      '<tr><td colspan="5" style="text-align:center;padding:2rem;color:#757575;">Data kon niet geladen worden.</td></tr>';
   }
 }
 
@@ -79,24 +79,18 @@ function buildRankings(schools, accidents, zones) {
       }
     }
 
-    // Risk score: accidents per 1000 students
-    const riskScore = studentCount > 0
-      ? Math.round((accidentCount / studentCount) * 1000 * 10) / 10
-      : 0;
-
     rankings.push({
       name: schoolName,
       studentCount,
       accidentCount,
-      riskScore,
       maxSpeed: school.properties.maxSpeed || null,
       speedLimits: school.properties.speedLimits || [],
       coordinates: school.geometry.coordinates,
     });
   }
 
-  // Sort by risk score descending
-  rankings.sort((a, b) => b.riskScore - a.riskScore);
+  // Sort by accident count descending
+  rankings.sort((a, b) => b.accidentCount - a.accidentCount);
   return rankings;
 }
 
@@ -114,8 +108,8 @@ function renderTable(rankings) {
       row.classList.add('ranking-table__row--highlight');
     }
 
-    const riskClass = school.riskScore >= 5 ? 'risk-high'
-      : school.riskScore >= 2 ? 'risk-medium'
+    const riskClass = school.accidentCount >= 5 ? 'risk-high'
+      : school.accidentCount >= 2 ? 'risk-medium'
       : '';
 
     row.setAttribute('tabindex', '0');
@@ -133,9 +127,8 @@ function renderTable(rankings) {
       <td>${i + 1}</td>
       <td>${escapeHtml(school.name)}</td>
       <td>${formatter.format(school.studentCount)}</td>
-      <td>${school.accidentCount}</td>
+      <td class="${riskClass}">${school.accidentCount}</td>
       <td>${speedHtml}</td>
-      <td class="${riskClass}">${school.riskScore.toFixed(1)}</td>
     `;
 
     // Click/Enter to pan map to school
