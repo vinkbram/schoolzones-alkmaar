@@ -1,103 +1,210 @@
 #!/usr/bin/env node
 
 // fetch-accidents.js
-// Fetches STAR traffic accident data for Alkmaar from the open data API,
-// filters to relevant date range, transforms to GeoJSON, writes data/accidents.geojson.
+// Fetches STAR/BRON traffic accident data for Alkmaar from the Rijkswaterstaat
+// WFS service, transforms to GeoJSON, writes data/accidents.geojson.
 //
-// TODO: Update API_URL once STAR endpoint is confirmed (see backlog item 2.1).
-// Currently uses a placeholder — this script will fail gracefully until configured.
+// Date tracking strategy:
+// - Historical data (from WFS bulk): only has year-level precision → stored as "YYYY-01-01"
+// - New accidents (detected by daily diff): stamped with today's date as "first seen" date.
+//   This gives us day-level precision going forward for the hero counter.
+// - The "firstSeen" property tracks when we first detected each accident.
+//
+// API: Rijkswaterstaat GDR WFS — no authentication required.
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = join(__dirname, '..', 'data', 'accidents.geojson');
 
-// Alkmaar bounding box (approximate)
-const ALKMAAR_BBOX = {
-  minLon: 4.70,
-  maxLon: 4.80,
-  minLat: 52.61,
-  maxLat: 52.66,
+// WFS endpoint
+const WFS_BASE = 'https://geo.rijkswaterstaat.nl/services/ogc/gdr/verkeersongevallen_nederland/ows';
+
+// Layers to fetch — add new yearly layers as RWS publishes them
+const LAYERS = [
+  'ongevallen_2022_2024',
+  // 'ongevallen_2025', // uncomment when available
+];
+
+// Max features per request (WFS pagination)
+const PAGE_SIZE = 1000;
+
+// Severity mapping: WFS values → our schema
+const SEVERITY_MAP = {
+  'Uitsluitend materiele schade': 'materieel',
+  'Letsel': 'letsel',
+  'Dood': 'dodelijk',
 };
 
-// Date range
-const START_DATE = '2021-01-01';
+async function fetchLayer(typeName) {
+  const allFeatures = [];
+  let startIndex = 0;
+  let hasMore = true;
 
-// TODO: Replace with actual STAR/BRON API endpoint once confirmed
-const API_URL = null; // Will be set after API research
+  while (hasMore) {
+    const params = new URLSearchParams({
+      service: 'WFS',
+      version: '2.0.0',
+      request: 'GetFeature',
+      typeName,
+      outputFormat: 'json',
+      CQL_FILTER: "gemeente='Alkmaar'",
+      srsName: 'EPSG:4326',
+      count: PAGE_SIZE.toString(),
+      startIndex: startIndex.toString(),
+    });
 
-async function fetchAccidents() {
-  if (!API_URL) {
-    console.error('ERROR: API_URL is not configured. Run backlog item 2.1 first.');
-    console.error('Keeping existing accidents.geojson unchanged.');
-    process.exit(0); // Exit 0 so the workflow doesn't fail — existing data stays
-  }
+    const url = `${WFS_BASE}?${params}`;
+    console.log(`Fetching ${typeName} startIndex=${startIndex}...`);
 
-  try {
-    console.log(`Fetching accidents from ${API_URL}...`);
-
-    const response = await fetch(API_URL);
+    const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`API returned HTTP ${response.status}`);
+      throw new Error(`WFS returned HTTP ${response.status} for ${typeName}`);
     }
 
-    const rawData = await response.json();
+    const data = await response.json();
+    const features = data.features || [];
+    allFeatures.push(...features);
 
-    // Transform to GeoJSON
-    // TODO: Adapt this transformation to the actual API response format
-    const features = rawData
-      .filter(record => {
-        const lon = parseFloat(record.longitude);
-        const lat = parseFloat(record.latitude);
-        return (
-          lon >= ALKMAAR_BBOX.minLon && lon <= ALKMAAR_BBOX.maxLon &&
-          lat >= ALKMAAR_BBOX.minLat && lat <= ALKMAAR_BBOX.maxLat &&
-          record.date >= START_DATE
-        );
-      })
-      .map(record => ({
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [parseFloat(record.longitude), parseFloat(record.latitude)],
-        },
-        properties: {
-          date: record.date,
-          severity: mapSeverity(record.severity),
-          description: record.description || '',
-        },
-      }));
+    console.log(`  Got ${features.length} features (total: ${allFeatures.length})`);
+
+    if (features.length < PAGE_SIZE) {
+      hasMore = false;
+    } else {
+      startIndex += PAGE_SIZE;
+    }
+  }
+
+  return allFeatures;
+}
+
+// Generate a stable unique key for deduplication (coords + year only — description can vary)
+function featureKey(coords, year) {
+  const lon = coords[0].toFixed(5);
+  const lat = coords[1].toFixed(5);
+  return `${lon}_${lat}_${year}`;
+}
+
+function transformFeature(wfsFeature, today) {
+  const props = wfsFeature.properties;
+  const geom = wfsFeature.geometry;
+
+  if (!geom || !geom.coordinates) return null;
+
+  const severityRaw = props.verkeersongeval_afloop || '';
+  const severity = SEVERITY_MAP[severityRaw] || 'materieel';
+
+  // Build description from available fields
+  const parts = [];
+  if (props.aard_ongeval) parts.push(props.aard_ongeval);
+  if (props.partij_1_objecttype && props.partij_2_objecttype) {
+    parts.push(`${props.partij_1_objecttype} vs. ${props.partij_2_objecttype}`);
+  } else if (props.partij_1_objecttype) {
+    parts.push(props.partij_1_objecttype);
+  }
+
+  return {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: geom.coordinates,
+    },
+    properties: {
+      date: `${props.jaar_ongeval}-01-01`, // Year-level only from WFS
+      severity,
+      year: props.jaar_ongeval,
+      description: parts.join(' — '),
+      streetName: props.straatnaam || '',
+      speedLimit: props.maximum_snelheid || null,
+      parties: props.aantal_partijen || null,
+      firstSeen: today, // Will be overwritten with existing value if known
+    },
+  };
+}
+
+async function fetchAccidents() {
+  const today = new Date().toISOString().split('T')[0];
+
+  try {
+    // Load existing data to preserve firstSeen dates
+    const existingKeys = new Map(); // key → { date, firstSeen }
+    if (existsSync(OUTPUT_PATH)) {
+      const existing = JSON.parse(readFileSync(OUTPUT_PATH, 'utf-8'));
+      for (const f of existing.features) {
+        const key = featureKey(f.geometry.coordinates, f.properties.year);
+        existingKeys.set(key, {
+          date: f.properties.date,
+          firstSeen: f.properties.firstSeen,
+        });
+      }
+      console.log(`Loaded ${existingKeys.size} existing accidents for comparison.`);
+    }
+
+    // Fetch fresh data from WFS
+    const allFeatures = [];
+    for (const layer of LAYERS) {
+      const raw = await fetchLayer(layer);
+      const transformed = raw.map(f => transformFeature(f, today)).filter(Boolean);
+      allFeatures.push(...transformed);
+    }
+
+    // Deduplicate and merge with existing dates
+    const seen = new Set();
+    const unique = [];
+    let newCount = 0;
+
+    for (const f of allFeatures) {
+      const key = featureKey(
+        f.geometry.coordinates,
+        f.properties.year,
+        f.properties.description,
+      );
+
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      const existing = existingKeys.get(key);
+      if (existing) {
+        // Preserve existing firstSeen and any day-level date we may have set
+        f.properties.firstSeen = existing.firstSeen;
+        if (existing.date && existing.date !== `${f.properties.year}-01-01`) {
+          f.properties.date = existing.date;
+        }
+      } else {
+        // New accident — stamp with today's date for day-level tracking
+        f.properties.date = today;
+        f.properties.firstSeen = today;
+        newCount++;
+      }
+
+      unique.push(f);
+    }
+
+    // Sort by date descending (most recent first for hero counter)
+    unique.sort((a, b) => b.properties.date.localeCompare(a.properties.date));
 
     const geojson = {
       type: 'FeatureCollection',
       metadata: {
-        source: 'STAR/BRON via Rijkswaterstaat open data',
-        lastUpdated: new Date().toISOString().split('T')[0],
-        featureCount: features.length,
+        source: 'STAR/BRON via Rijkswaterstaat WFS (geo.rijkswaterstaat.nl)',
+        lastUpdated: today,
+        featureCount: unique.length,
+        layers: LAYERS,
+        note: 'Historical dates are year-level (YYYY-01-01). New accidents detected via daily diff get exact date.',
       },
-      features,
+      features: unique,
     };
 
     writeFileSync(OUTPUT_PATH, JSON.stringify(geojson, null, 2), 'utf-8');
-    console.log(`Written ${features.length} accidents to ${OUTPUT_PATH}`);
+    console.log(`\nDone: ${unique.length} accidents (${newCount} new) → ${OUTPUT_PATH}`);
 
   } catch (err) {
     console.error(`FAILED to fetch accidents: ${err.message}`);
     console.error('Keeping existing accidents.geojson unchanged.');
     process.exit(1);
   }
-}
-
-function mapSeverity(raw) {
-  // TODO: Map actual STAR severity codes to our schema
-  const map = {
-    'UMS': 'materieel',
-    'LET': 'letsel',
-    'DOD': 'dodelijk',
-  };
-  return map[raw] || 'materieel';
 }
 
 fetchAccidents();
