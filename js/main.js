@@ -81,24 +81,31 @@ const CROW_LABELS = {
 function buildRankings(schools, accidents, zones, routes) {
   const rankings = [];
 
-  // Pre-compute route painpoints per school
-  const schoolPainpoints = {};
-  const schoolWorstStreet = {}; // track worst-scoring street per school
+  // Pre-compute worst segment per school from route data
+  const schoolWorstSegment = {};
   for (const route of routes.features) {
     const routeSchools = route.properties.schools || [route.properties.school];
-    const scores = route.properties.scores || {};
     const composite = route.properties.composite || 3;
     const streetName = route.properties.streetName;
+    const scores = route.properties.scores || {};
+    const accidentCount = route.properties.accidentCount || 0;
+    const accidentScore = route.properties.accidentScore || 3;
 
     for (const name of routeSchools) {
-      if (!schoolPainpoints[name]) schoolPainpoints[name] = {};
-      for (const [key, val] of Object.entries(scores)) {
-        if (!schoolPainpoints[name][key]) schoolPainpoints[name][key] = [];
-        schoolPainpoints[name][key].push(val);
-      }
-      // Track worst street
-      if (streetName && (!schoolWorstStreet[name] || composite < schoolWorstStreet[name].score)) {
-        schoolWorstStreet[name] = { street: streetName, score: composite };
+      if (!schoolWorstSegment[name] || composite < schoolWorstSegment[name].composite) {
+        // Collect reasons this segment is bad
+        const reasons = [];
+        for (const [key, val] of Object.entries(scores)) {
+          if (val < 2) reasons.push(CROW_LABELS[key] || key);
+        }
+        if (accidentScore < 2) reasons.push(`${accidentCount} ongevallen`);
+
+        schoolWorstSegment[name] = {
+          street: streetName,
+          composite,
+          reasons,
+          accidentCount,
+        };
       }
     }
   }
@@ -120,31 +127,24 @@ function buildRankings(schools, accidents, zones, routes) {
       }
     }
 
-    // Find worst CROW criteria (average score < 2 = painpoint)
-    const painpoints = [];
-    const sp = schoolPainpoints[schoolName];
-    if (sp) {
-      for (const [key, vals] of Object.entries(sp)) {
-        const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
-        if (avg < 2) painpoints.push({ key, avg, label: CROW_LABELS[key] || key });
-      }
-      painpoints.sort((a, b) => a.avg - b.avg);
-    }
-
-    const worstStreet = schoolWorstStreet[schoolName] || null;
+    const worst = schoolWorstSegment[schoolName] || null;
 
     rankings.push({
       name: schoolName,
       studentCount,
       accidentCount,
-      painpoints,
-      worstStreet,
+      worstSegment: worst,
       coordinates: school.geometry.coordinates,
     });
   }
 
-  // Sort by accident count descending
-  rankings.sort((a, b) => b.accidentCount - a.accidentCount);
+  // Sort by worst segment score ascending (most dangerous first), then by accident count
+  rankings.sort((a, b) => {
+    const aScore = a.worstSegment ? a.worstSegment.composite : 3;
+    const bScore = b.worstSegment ? b.worstSegment.composite : 3;
+    if (aScore !== bScore) return aScore - bScore;
+    return b.accidentCount - a.accidentCount;
+  });
   return rankings;
 }
 
@@ -170,17 +170,19 @@ function renderTable(rankings) {
     row.setAttribute('role', 'button');
     row.setAttribute('aria-label', `Toon ${school.name} op kaart`);
 
-    // Painpoints display with worst street
-    let painHtml = '<span class="speed-ok">Geen</span>';
-    if (school.painpoints.length > 0) {
-      const tags = school.painpoints
-        .slice(0, 2)
-        .map(p => `<span class="painpoint">${p.label}</span>`)
-        .join(' ');
-      const streetNote = school.worstStreet
-        ? `<br><small class="painpoint-street">${school.worstStreet.street}</small>`
+    // Worst segment display
+    let painHtml = '<span class="speed-ok">Geen knelpunten</span>';
+    if (school.worstSegment && school.worstSegment.reasons.length > 0) {
+      const streetName = school.worstSegment.street
+        ? `<strong class="painpoint-street">${escapeHtml(school.worstSegment.street)}</strong><br>`
         : '';
-      painHtml = tags + streetNote;
+      const tags = school.worstSegment.reasons
+        .slice(0, 3)
+        .map(r => `<span class="painpoint">${r}</span>`)
+        .join(' ');
+      painHtml = streetName + tags;
+    } else if (school.worstSegment && school.worstSegment.street) {
+      painHtml = `<span class="speed-ok">${escapeHtml(school.worstSegment.street)}</span>`;
     }
 
     row.innerHTML = `
