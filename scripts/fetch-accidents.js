@@ -201,7 +201,7 @@ async function fetchAccidents() {
                 year: null,
                 totalAccidents: totalAcc,
                 description: '',
-                firstSeen: today,
+                firstSeen: new Date(Date.now() - 86400000).toISOString().split('T')[0],
                 starId: point.id,
               },
             });
@@ -232,7 +232,9 @@ async function fetchAccidents() {
             // Preserve existing date tracking
             const existing = existingKeys.get(key);
             const date = existing?.date || `${year}-01-01`;
-            const firstSeen = existing?.firstSeen || today;
+            // New accidents get yesterday's date (cron runs at 05:00, accident likely happened day before)
+            const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+            const firstSeen = existing?.firstSeen || yesterday;
 
             features.push({
               type: 'Feature',
