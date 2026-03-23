@@ -70,7 +70,8 @@ function loadData() {
   console.log('Loading schools and wijken...');
   const schools = JSON.parse(readFileSync(join(DATA, 'schools.geojson'), 'utf-8'));
   const wijken = JSON.parse(readFileSync(join(DATA, 'wijken.geojson'), 'utf-8'));
-  const accidents = JSON.parse(readFileSync(join(DATA, 'accidents-filtered.geojson'), 'utf-8'));
+  // Use ALL accidents (not filtered to school zones) for road segment scoring
+  const accidents = JSON.parse(readFileSync(join(DATA, 'accidents.geojson'), 'utf-8'));
   console.log(`  ${schools.features.length} schools, ${wijken.features.length} wijken, ${accidents.features.length} accidents`);
   return { schools, wijken, accidents };
 }
@@ -374,11 +375,16 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
           }
         }
 
-        // Count accidents within 25m
+        // Count accidents within 25m of any point along the segment
         let accidentCount = 0;
+        const threshold = 0.00025; // ~25m in degrees
         for (const a of accidentPts) {
-          if (quickDist(mLon, mLat, a.lon, a.lat) < 0.0003) { // ~30m
-            accidentCount++;
+          // Check against all coordinate pairs in the segment
+          for (const c of coords) {
+            if (quickDist(c[0], c[1], a.lon, a.lat) < threshold) {
+              accidentCount++;
+              break; // count each accident only once per segment
+            }
           }
         }
 
@@ -454,7 +460,7 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
         else accidentScore = 1;
 
         // Final composite: CROW weighted 70%, accidents 30%
-        const composite = crowScore * 0.7 + accidentScore * 0.3;
+        const composite = crowScore * 0.3 + accidentScore * 0.7;
 
         // Label
         let label;
@@ -610,7 +616,7 @@ function mergeAndAttribute(segments, schools) {
 
     const crowScore = cellSchools.reduce((sum, s) => sum + s.crowScore, 0) / cellSchools.length;
     const accidentScore = cellSchools.reduce((sum, s) => sum + s.accidentScore, 0) / cellSchools.length;
-    const composite = crowScore * 0.7 + accidentScore * 0.3;
+    const composite = crowScore * 0.3 + accidentScore * 0.7;
     let label;
     if (composite >= 2.5) label = 'veilig';
     else if (composite >= 2) label = 'aandacht';
