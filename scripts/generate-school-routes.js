@@ -443,18 +443,18 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
           scores.snelheid = 2;
         }
 
-        // 6. Accident density
-        if (accidentCount === 0) {
-          scores.conflicten = 3;
-        } else if (accidentCount <= 2) {
-          scores.conflicten = 2;
-        } else {
-          scores.conflicten = 1;
-        }
+        // CROW composite (infrastructure only — 5 criteria, no accidents)
+        const crowValues = Object.values(scores);
+        const crowScore = crowValues.reduce((a, b) => a + b, 0) / crowValues.length;
 
-        // Composite score (average)
-        const values = Object.values(scores);
-        const composite = values.reduce((a, b) => a + b, 0) / values.length;
+        // Accident score (separate)
+        let accidentScore;
+        if (accidentCount === 0) accidentScore = 3;
+        else if (accidentCount <= 2) accidentScore = 2;
+        else accidentScore = 1;
+
+        // Final composite: CROW weighted 70%, accidents 30%
+        const composite = crowScore * 0.7 + accidentScore * 0.3;
 
         // Label
         let label;
@@ -468,6 +468,8 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
           wijk: route.wijk,
           wijkCode: route.wijkCode,
           scores,
+          crowScore: Math.round(crowScore * 100) / 100,
+          accidentScore: Math.round(accidentScore * 100) / 100,
           composite: Math.round(composite * 100) / 100,
           label,
           accidentCount,
@@ -575,11 +577,16 @@ function mergeAndAttribute(segments, schools) {
       // Find worst segment's street name
       const worstSeg = schoolSegs.reduce((worst, s) => s.composite < worst.composite ? s : worst, schoolSegs[0]);
 
+      const avgCrow = schoolSegs.reduce((sum, s) => sum + s.crowScore, 0) / schoolSegs.length;
+      const avgAccident = schoolSegs.reduce((sum, s) => sum + s.accidentScore, 0) / schoolSegs.length;
+
       cellSchools.push({
         school,
         wijken: [...uniqueWijken].sort(),
         routeShare: Math.round(routeShare * 100) / 100,
         scores: avgScores,
+        crowScore: Math.round(avgCrow * 100) / 100,
+        accidentScore: Math.round(avgAccident * 100) / 100,
         accidentCount: Math.max(...schoolSegs.map(s => s.accidentCount)),
         streetName: worstSeg.streetName,
         worstComposite: worstSeg.composite,
@@ -601,7 +608,9 @@ function mergeAndAttribute(segments, schools) {
       mergedScores[k] = Math.round(mergedScores[k] * 100) / 100;
     }
 
-    const composite = Object.values(mergedScores).reduce((a, b) => a + b, 0) / allScoreKeys.length;
+    const crowScore = cellSchools.reduce((sum, s) => sum + s.crowScore, 0) / cellSchools.length;
+    const accidentScore = cellSchools.reduce((sum, s) => sum + s.accidentScore, 0) / cellSchools.length;
+    const composite = crowScore * 0.7 + accidentScore * 0.3;
     let label;
     if (composite >= 2.5) label = 'veilig';
     else if (composite >= 2) label = 'aandacht';
@@ -614,6 +623,8 @@ function mergeAndAttribute(segments, schools) {
         schools: cellSchools.map(s => s.school),
         wijken: [...new Set(cellSchools.flatMap(s => s.wijken))].sort(),
         scores: mergedScores,
+        crowScore: Math.round(crowScore * 100) / 100,
+        accidentScore: Math.round(accidentScore * 100) / 100,
         composite: Math.round(composite * 100) / 100,
         label,
         accidentCount: Math.max(...cellSchools.map(s => s.accidentCount)),
@@ -683,7 +694,7 @@ async function main() {
       segmentCount: segments.length,
       corridorCount: corridors.length,
       scoring: {
-        criteria: ['scheiding', 'breedte', 'verharding', 'verlichting', 'snelheid', 'conflicten'],
+        criteria: ['scheiding', 'breedte', 'verharding', 'verlichting', 'snelheid'],
         scale: '1=onveilig (rood), 2=aandacht (oranje), 3=veilig (groen)',
         thresholds: { veilig: '≥2.5', aandacht: '2.0-2.49', onveilig: '<2.0' },
       },

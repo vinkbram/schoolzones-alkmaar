@@ -155,13 +155,19 @@ async function initMap() {
         const schoolsStr = (props.schools || [props.school]).join(', ');
         const wijkenStr = (props.wijken || []).join(', ');
 
+        const accEmoji = (props.accidentScore || 3) >= 2.5 ? '🟢' : (props.accidentScore || 3) >= 2 ? '🟠' : '🔴';
+
         layer.bindPopup(`
           <strong>${schoolsStr}</strong><br>
+          ${props.streetName ? `<em>${props.streetName}</em><br>` : ''}
           Route vanuit: ${wijkenStr}<br>
-          <strong>CROW-score: ${props.composite} (${props.label})</strong><br>
           <hr style="margin:4px 0">
-          ${scoreHtml}
-          ${props.accidentCount ? `<br>Ongevallen nabij: ${props.accidentCount}` : ''}
+          <strong>CROW-score: ${props.crowScore || '–'}</strong><br>
+          ${scoreHtml}<br>
+          ${accEmoji} Ongevallen: ${props.accidentCount || 0}
+          ${props.accidentScore ? ` (score: ${props.accidentScore})` : ''}<br>
+          <hr style="margin:4px 0">
+          <strong>Totaalscore: ${props.composite} (${props.label})</strong>
         `);
       },
     }); // routes not added to map by default — toggle via layer control

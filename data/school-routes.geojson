@@ -1,7 +1,7 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "generated": "2026-03-23T12:59:42.797Z",
+    "generated": "2026-03-23T13:07:54.408Z",
     "routeCount": 113,
     "segmentCount": 2226,
     "corridorCount": 479,
@@ -11,8 +11,7 @@
         "breedte",
         "verharding",
         "verlichting",
-        "snelheid",
-        "conflicten"
+        "snelheid"
       ],
       "scale": "1=onveilig (rood), 2=aandacht (oranje), 3=veilig (groen)",
       "thresholds": {
@@ -47,10 +46,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Rekerdijk"
@@ -121,11 +121,12 @@
           "breedte": 2.75,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.46,
-        "label": "aandacht",
+        "crowScore": 2.35,
+        "accidentScore": 3,
+        "composite": 2.54,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -191,10 +192,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Muiderwaard"
@@ -275,10 +277,11 @@
           "breedte": 2.75,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -347,10 +350,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Heukelspad"
@@ -425,10 +429,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Heukelspad"
@@ -502,11 +507,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.44,
-        "label": "aandacht",
+        "crowScore": 2.33,
+        "accidentScore": 3,
+        "composite": 2.53,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "Berenklauw"
       },
@@ -573,10 +579,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Heukelspad"
@@ -652,10 +659,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Sint Janskruid"
@@ -728,11 +736,12 @@
           "breedte": 2.25,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.42,
-        "label": "aandacht",
+        "crowScore": 2.3,
+        "accidentScore": 3,
+        "composite": 2.51,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "Bakkerstraat"
       },
@@ -812,10 +821,11 @@
           "breedte": 2.5,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -893,10 +903,11 @@
           "breedte": 2.83,
           "verharding": 2.17,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.64,
+        "crowScore": 2.57,
+        "accidentScore": 3,
+        "composite": 2.7,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -973,11 +984,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.42,
-        "label": "aandacht",
+        "crowScore": 2.3,
+        "accidentScore": 3,
+        "composite": 2.51,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -1051,10 +1063,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -1125,10 +1138,11 @@
           "breedte": 1,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -1203,10 +1217,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Spilstraat"
@@ -1277,10 +1292,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Graveurstraat"
@@ -1359,10 +1375,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -1447,10 +1464,11 @@
           "breedte": 3,
           "verharding": 2.33,
           "verlichting": 2.33,
-          "snelheid": 3,
-          "conflicten": 2.33
+          "snelheid": 3
         },
-        "composite": 2.61,
+        "crowScore": 2.67,
+        "accidentScore": 2.33,
+        "composite": 2.57,
         "label": "veilig",
         "accidentCount": 1,
         "streetName": null
@@ -1527,10 +1545,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Drevelstraat"
@@ -1607,10 +1626,11 @@
           "breedte": 2.67,
           "verharding": 2,
           "verlichting": 2.67,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Drevelstraat"
@@ -1689,10 +1709,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.37,
+        "crowScore": 2.24,
+        "accidentScore": 3,
+        "composite": 2.47,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Hof van Luxemburg"
@@ -1772,10 +1793,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Laan van Brussel"
@@ -1852,11 +1874,12 @@
           "breedte": 2.25,
           "verharding": 2.25,
           "verlichting": 2,
-          "snelheid": 2.5,
-          "conflicten": 3
+          "snelheid": 2.5
         },
-        "composite": 2.42,
-        "label": "aandacht",
+        "crowScore": 2.3,
+        "accidentScore": 3,
+        "composite": 2.51,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -1942,10 +1965,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Laan van Bath"
@@ -2016,10 +2040,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Th.P.H. Wortelbrug"
@@ -2090,11 +2115,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Looierij"
       },
@@ -2161,10 +2187,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -2238,10 +2265,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "De Klip"
@@ -2322,11 +2350,12 @@
           "breedte": 2.33,
           "verharding": 2.33,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
-        "label": "aandacht",
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "De Klip"
       },
@@ -2400,10 +2429,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -2486,10 +2516,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Vlaanderenstraat"
@@ -2564,10 +2595,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Sauerlandstraat"
@@ -2634,10 +2666,11 @@
           "breedte": 2.5,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Sauerlandstraat"
@@ -2720,10 +2753,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -2790,10 +2824,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -2864,10 +2899,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Laan van Athene"
@@ -2934,10 +2970,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -3008,10 +3045,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Laan van Athene"
@@ -3082,10 +3120,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -3156,10 +3195,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Laan van Athene"
@@ -3248,10 +3288,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Europaweg"
@@ -3335,10 +3376,11 @@
           "breedte": 2,
           "verharding": 2.25,
           "verlichting": 2,
-          "snelheid": 2.75,
-          "conflicten": 3
+          "snelheid": 2.75
         },
-        "composite": 2.36,
+        "crowScore": 2.22,
+        "accidentScore": 3,
+        "composite": 2.46,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Troyes"
@@ -3422,10 +3464,11 @@
           "breedte": 2,
           "verharding": 2.25,
           "verlichting": 2,
-          "snelheid": 2.5,
-          "conflicten": 3
+          "snelheid": 2.5
         },
-        "composite": 2.25,
+        "crowScore": 2.1,
+        "accidentScore": 3,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Darmstadt"
@@ -3492,10 +3535,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -3567,10 +3611,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Darmstadt"
@@ -3642,10 +3687,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -3724,10 +3770,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 1,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Gruttostraat"
@@ -3814,10 +3861,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -3892,10 +3940,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -3962,10 +4011,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -4036,11 +4086,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Vogelweg"
       },
@@ -4114,11 +4165,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.42,
-        "label": "aandacht",
+        "crowScore": 2.3,
+        "accidentScore": 3,
+        "composite": 2.51,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -4204,10 +4256,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Velduilstraat"
@@ -4282,10 +4335,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -4361,10 +4415,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -4450,10 +4505,11 @@
           "breedte": 3,
           "verharding": 2.33,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.72,
+        "crowScore": 2.67,
+        "accidentScore": 3,
+        "composite": 2.77,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -4525,10 +4581,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -4600,10 +4657,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -4677,10 +4735,11 @@
           "breedte": 3,
           "verharding": 2.39,
           "verlichting": 2.61,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.77,
+        "crowScore": 2.72,
+        "accidentScore": 3,
+        "composite": 2.8,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Elzasstraat"
@@ -4751,10 +4810,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Helena Kuipers-Rietbergstraat"
@@ -4825,10 +4885,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Daalmeerpad"
@@ -4899,10 +4960,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Daalmeerpad"
@@ -4973,11 +5035,12 @@
           "breedte": 3,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.42,
-        "label": "aandacht",
+        "crowScore": 2.3,
+        "accidentScore": 3,
+        "composite": 2.51,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "Laan van Keulen"
       },
@@ -5047,11 +5110,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Keulen"
       },
@@ -5125,10 +5189,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Keulen"
@@ -5199,10 +5264,11 @@
           "breedte": 2.5,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.25,
+        "crowScore": 2.1,
+        "accidentScore": 3,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Keulen"
@@ -5277,10 +5343,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Albatrosweg"
@@ -5355,10 +5422,11 @@
           "breedte": 1,
           "verharding": 2.6,
           "verlichting": 2.6,
-          "snelheid": 1.8,
-          "conflicten": 3
+          "snelheid": 1.8
         },
-        "composite": 2.07,
+        "crowScore": 1.88,
+        "accidentScore": 3,
+        "composite": 2.22,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Prinses Julianalaan"
@@ -5431,10 +5499,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kennemerstraatweg"
@@ -5503,10 +5572,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Kolverspad"
@@ -5581,10 +5651,11 @@
           "breedte": 2,
           "verharding": 2.88,
           "verlichting": 2.88,
-          "snelheid": 1.25,
-          "conflicten": 3
+          "snelheid": 1.25
         },
-        "composite": 2.21,
+        "crowScore": 2.05,
+        "accidentScore": 3,
+        "composite": 2.34,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kennemerstraatweg"
@@ -5668,10 +5739,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Varnebroek"
@@ -5751,10 +5823,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kennemersingel"
@@ -5833,10 +5906,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kennemersingel"
@@ -5908,10 +5982,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 2
+          "snelheid": 1
         },
-        "composite": 1.83,
+        "crowScore": 1.8,
+        "accidentScore": 2,
+        "composite": 1.86,
         "label": "onveilig",
         "accidentCount": 2,
         "streetName": "Geestersingel"
@@ -5985,10 +6060,11 @@
           "breedte": 3,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 2,
-          "conflicten": 1.67
+          "snelheid": 2
         },
-        "composite": 2.28,
+        "crowScore": 2.4,
+        "accidentScore": 1.67,
+        "composite": 2.18,
         "label": "aandacht",
         "accidentCount": 4,
         "streetName": "Geestersingel"
@@ -6068,11 +6144,12 @@
           "breedte": 2.11,
           "verharding": 2.39,
           "verlichting": 2.28,
-          "snelheid": 2.44,
-          "conflicten": 1
+          "snelheid": 2.44
         },
-        "composite": 2.05,
-        "label": "aandacht",
+        "crowScore": 2.27,
+        "accidentScore": 1,
+        "composite": 1.89,
+        "label": "onveilig",
         "accidentCount": 5,
         "streetName": "Geestersingel"
       },
@@ -6148,10 +6225,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -6228,10 +6306,11 @@
           "breedte": 3,
           "verharding": 2.92,
           "verlichting": 2.83,
-          "snelheid": 1.33,
-          "conflicten": 3
+          "snelheid": 1.33
         },
-        "composite": 2.4,
+        "crowScore": 2.28,
+        "accidentScore": 3,
+        "composite": 2.5,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Scharlo"
@@ -6309,10 +6388,11 @@
           "breedte": 1.8,
           "verharding": 2.4,
           "verlichting": 2.4,
-          "snelheid": 2.2,
-          "conflicten": 3
+          "snelheid": 2.2
         },
-        "composite": 2.23,
+        "crowScore": 2.08,
+        "accidentScore": 3,
+        "composite": 2.36,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Staringhstraat"
@@ -6382,10 +6462,11 @@
           "breedte": 2.67,
           "verharding": 2.67,
           "verlichting": 2.67,
-          "snelheid": 1.67,
-          "conflicten": 3
+          "snelheid": 1.67
         },
-        "composite": 2.39,
+        "crowScore": 2.27,
+        "accidentScore": 3,
+        "composite": 2.49,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -6458,10 +6539,11 @@
           "breedte": 2,
           "verharding": 2.8,
           "verlichting": 2.8,
-          "snelheid": 1.4,
-          "conflicten": 3
+          "snelheid": 1.4
         },
-        "composite": 2.23,
+        "crowScore": 2.08,
+        "accidentScore": 3,
+        "composite": 2.36,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -6536,10 +6618,11 @@
           "breedte": 2.92,
           "verharding": 2.92,
           "verlichting": 3,
-          "snelheid": 2.72,
-          "conflicten": 3
+          "snelheid": 2.72
         },
-        "composite": 2.87,
+        "crowScore": 2.84,
+        "accidentScore": 3,
+        "composite": 2.89,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -6617,10 +6700,11 @@
           "breedte": 2.6,
           "verharding": 2.95,
           "verlichting": 2.95,
-          "snelheid": 1.2,
-          "conflicten": 3
+          "snelheid": 1.2
         },
-        "composite": 2.32,
+        "crowScore": 2.18,
+        "accidentScore": 3,
+        "composite": 2.43,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -6692,10 +6776,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -6767,11 +6852,12 @@
           "breedte": 2,
           "verharding": 2.75,
           "verlichting": 2.75,
-          "snelheid": 2.25,
-          "conflicten": 3
+          "snelheid": 2.25
         },
-        "composite": 2.46,
-        "label": "aandacht",
+        "crowScore": 2.35,
+        "accidentScore": 3,
+        "composite": 2.54,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "Bergerweg"
       },
@@ -6841,10 +6927,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Oude Hoeverweg"
@@ -6923,10 +7010,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.56,
+        "crowScore": 2.47,
+        "accidentScore": 3,
+        "composite": 2.63,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Beethovensingel"
@@ -6998,10 +7086,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kalmanstraat"
@@ -7078,10 +7167,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2.4,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.4,
+        "crowScore": 2.28,
+        "accidentScore": 3,
+        "composite": 2.5,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Leharkade"
@@ -7158,10 +7248,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -7233,10 +7324,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -7304,10 +7396,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bernard Zweersstraat"
@@ -7386,10 +7479,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Leharkade"
@@ -7472,10 +7566,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Rekerdijk"
@@ -7549,10 +7644,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Rekerdijk"
@@ -7624,10 +7720,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Drechterbrug"
@@ -7700,10 +7797,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Rekerdijk"
@@ -7780,10 +7878,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2.33
+          "snelheid": 3
         },
-        "composite": 2.22,
+        "crowScore": 2.2,
+        "accidentScore": 2.33,
+        "composite": 2.24,
         "label": "aandacht",
         "accidentCount": 3,
         "streetName": null
@@ -7864,10 +7963,11 @@
           "breedte": 2,
           "verharding": 2.26,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.38,
+        "crowScore": 2.25,
+        "accidentScore": 3,
+        "composite": 2.48,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -7949,10 +8049,11 @@
           "breedte": 1.5,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -8026,10 +8127,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -8103,10 +8205,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bregwaard"
@@ -8183,10 +8286,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Drechterwaard"
@@ -8256,10 +8360,11 @@
           "breedte": 2.33,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 2.33,
-          "conflicten": 3
+          "snelheid": 2.33
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Noorderkade"
@@ -8338,10 +8443,11 @@
           "breedte": 3,
           "verharding": 2.75,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.96,
+        "crowScore": 2.95,
+        "accidentScore": 3,
+        "composite": 2.97,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -8414,10 +8520,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -8486,10 +8593,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -8578,10 +8686,11 @@
           "breedte": 2.4,
           "verharding": 2,
           "verlichting": 2.4,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.53,
+        "crowScore": 2.44,
+        "accidentScore": 3,
+        "composite": 2.61,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -8654,10 +8763,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2.5,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Akkerhoornbloemstraat"
@@ -8729,10 +8839,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -8805,10 +8916,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.25,
+        "crowScore": 2.1,
+        "accidentScore": 3,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Boterbloemstraat"
@@ -8881,10 +8993,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Kruseman van Eltenweg"
@@ -8957,10 +9070,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -9031,10 +9145,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -9106,10 +9221,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -9181,11 +9297,12 @@
           "breedte": 2.33,
           "verharding": 2.33,
           "verlichting": 2.33,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
-        "label": "aandacht",
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -9269,10 +9386,11 @@
           "breedte": 3,
           "verharding": 2.67,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.28,
+        "crowScore": 2.13,
+        "accidentScore": 3,
+        "composite": 2.39,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Gedempte Nieuwesloot"
@@ -9344,10 +9462,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -9419,10 +9538,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Kanaalkade"
@@ -9498,10 +9618,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kanaalkade"
@@ -9573,10 +9694,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Paternosterstraat"
@@ -9653,10 +9775,11 @@
           "breedte": 1.5,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -9727,10 +9850,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2.13,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -9810,10 +9934,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Kruseman van Eltenweg"
@@ -9887,10 +10012,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Blaeustraat"
@@ -9961,10 +10087,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -10039,10 +10166,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Halvemaansbrug"
@@ -10117,10 +10245,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -10187,10 +10316,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -10261,10 +10391,11 @@
           "breedte": 3,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Nieuwe Vaart"
@@ -10339,10 +10470,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -10413,9 +10545,10 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
+        "crowScore": 3,
+        "accidentScore": 3,
         "composite": 3,
         "label": "veilig",
         "accidentCount": 0,
@@ -10487,10 +10620,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Gravin Jacobastraat"
@@ -10571,10 +10705,11 @@
           "breedte": 3,
           "verharding": 2.75,
           "verlichting": 2.75,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.88,
+        "crowScore": 2.85,
+        "accidentScore": 3,
+        "composite": 2.89,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -10645,10 +10780,11 @@
           "breedte": 2.25,
           "verharding": 2.75,
           "verlichting": 2.75,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.79,
+        "crowScore": 2.75,
+        "accidentScore": 3,
+        "composite": 2.83,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -10737,10 +10873,11 @@
           "breedte": 3,
           "verharding": 2.07,
           "verlichting": 2.07,
-          "snelheid": 1.13,
-          "conflicten": 3
+          "snelheid": 1.13
         },
-        "composite": 2.07,
+        "crowScore": 1.88,
+        "accidentScore": 3,
+        "composite": 2.22,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Schinkelwaard"
@@ -10813,10 +10950,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 2.33,
-          "conflicten": 3
+          "snelheid": 2.33
         },
-        "composite": 2.28,
+        "crowScore": 2.13,
+        "accidentScore": 3,
+        "composite": 2.39,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Schinkelwaard"
@@ -10899,10 +11037,11 @@
           "breedte": 2.25,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 2.5,
-          "conflicten": 3
+          "snelheid": 2.5
         },
-        "composite": 2.38,
+        "crowScore": 2.25,
+        "accidentScore": 3,
+        "composite": 2.47,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Schinkelwaard"
@@ -10983,10 +11122,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Drechterwaard"
@@ -11061,10 +11201,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Koggewaard"
@@ -11133,10 +11274,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Drechterwaardbrug"
@@ -11211,10 +11353,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -11289,10 +11432,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Rinnewaard"
@@ -11374,10 +11518,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -11452,10 +11597,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -11535,10 +11681,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Willem Pijperstraat"
@@ -11614,10 +11761,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -11694,10 +11842,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Kruseman van Eltenweg"
@@ -11771,10 +11920,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Drechterwaard"
@@ -11858,10 +12008,11 @@
           "breedte": 2,
           "verharding": 2.46,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.49,
+        "accidentScore": 3,
+        "composite": 2.64,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -11931,10 +12082,11 @@
           "breedte": 2.84,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1.34,
-          "conflicten": 3
+          "snelheid": 1.34
         },
-        "composite": 2.06,
+        "crowScore": 1.87,
+        "accidentScore": 3,
+        "composite": 2.21,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Troyes"
@@ -12008,10 +12160,11 @@
           "breedte": 2.17,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.36,
+        "crowScore": 2.23,
+        "accidentScore": 3,
+        "composite": 2.46,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Dovenetel"
@@ -12092,10 +12245,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Vrouwenmantel"
@@ -12172,10 +12326,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -12256,10 +12411,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Heimanspad"
@@ -12338,10 +12494,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Heukelspad"
@@ -12426,10 +12583,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -12506,10 +12664,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -12576,10 +12735,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Geestersingel"
@@ -12651,10 +12811,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Noorderkade"
@@ -12739,10 +12900,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Noorderkade"
@@ -12811,10 +12973,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Noorderkade"
@@ -12883,10 +13046,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -12956,10 +13120,11 @@
           "breedte": 2.75,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 2.5,
-          "conflicten": 3
+          "snelheid": 2.5
         },
-        "composite": 2.63,
+        "crowScore": 2.55,
+        "accidentScore": 3,
+        "composite": 2.68,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Laan van Bath"
@@ -13030,10 +13195,11 @@
           "breedte": 2.61,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.77,
+        "crowScore": 2.72,
+        "accidentScore": 3,
+        "composite": 2.81,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Molentochtpad"
@@ -13113,11 +13279,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.48,
-        "label": "aandacht",
+        "crowScore": 2.38,
+        "accidentScore": 3,
+        "composite": 2.56,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "Faktorij"
       },
@@ -13199,9 +13366,10 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2.63
+          "snelheid": 3
         },
+        "crowScore": 2.6,
+        "accidentScore": 2.63,
         "composite": 2.61,
         "label": "veilig",
         "accidentCount": 1,
@@ -13281,10 +13449,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Molentochtpad"
@@ -13367,11 +13536,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.46,
-        "label": "aandacht",
+        "crowScore": 2.35,
+        "accidentScore": 3,
+        "composite": 2.55,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -13445,11 +13615,12 @@
           "breedte": 2.38,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.46,
-        "label": "aandacht",
+        "crowScore": 2.35,
+        "accidentScore": 3,
+        "composite": 2.55,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -13519,10 +13690,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Macedoniëstraat"
@@ -13589,10 +13761,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Macedoniëstraat"
@@ -13679,10 +13852,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Ardennenstraat"
@@ -13757,10 +13931,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Castiliëstraat"
@@ -13835,10 +14010,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2.2,
+        "accidentScore": 2,
+        "composite": 2.14,
         "label": "aandacht",
         "accidentCount": 1,
         "streetName": "Castiliëstraat"
@@ -13905,10 +14081,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kennemerstraatweg"
@@ -13975,10 +14152,11 @@
           "breedte": 2.5,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.25,
+        "crowScore": 2.1,
+        "accidentScore": 3,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kennemerstraatweg"
@@ -14049,10 +14227,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Heilooërdijk"
@@ -14123,10 +14302,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Heilooërdijk"
@@ -14201,10 +14381,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Heilooërdijk"
@@ -14283,10 +14464,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -14359,13 +14541,14 @@
           "breedte": 2,
           "verharding": 2.75,
           "verlichting": 2.75,
-          "snelheid": 3,
-          "conflicten": 2.25
+          "snelheid": 3
         },
-        "composite": 2.46,
+        "crowScore": 2.5,
+        "accidentScore": 2.25,
+        "composite": 2.42,
         "label": "aandacht",
         "accidentCount": 2,
-        "streetName": null
+        "streetName": "Heilooërdijk"
       },
       "geometry": {
         "type": "Polygon",
@@ -14431,10 +14614,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Heilooërdijk"
@@ -14498,10 +14682,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Ommering"
@@ -14585,10 +14770,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -14664,10 +14850,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Smaragdweg"
@@ -14739,10 +14926,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -14814,10 +15002,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.25,
+        "crowScore": 2.1,
+        "accidentScore": 3,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Smaragdweg"
@@ -14890,10 +15079,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Arcadialaan"
@@ -14973,10 +15163,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -15046,10 +15237,11 @@
           "breedte": 1.56,
           "verharding": 2.56,
           "verlichting": 2.56,
-          "snelheid": 1.89,
-          "conflicten": 3
+          "snelheid": 1.89
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -15125,10 +15317,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bokkebrug"
@@ -15199,10 +15392,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.25,
+        "crowScore": 2.1,
+        "accidentScore": 3,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Dirk Duivelsweg"
@@ -15274,10 +15468,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Wageweg"
@@ -15347,10 +15542,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Wageweg"
@@ -15420,10 +15616,11 @@
           "breedte": 1,
           "verharding": 2.84,
           "verlichting": 2.84,
-          "snelheid": 1.34,
-          "conflicten": 3
+          "snelheid": 1.34
         },
-        "composite": 2.03,
+        "crowScore": 1.84,
+        "accidentScore": 3,
+        "composite": 2.18,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bierkade"
@@ -15503,10 +15700,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -15582,10 +15780,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Limmerhoek"
@@ -15661,10 +15860,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1.25,
-          "conflicten": 3
+          "snelheid": 1.25
         },
-        "composite": 1.73,
+        "crowScore": 1.48,
+        "accidentScore": 3,
+        "composite": 1.93,
         "label": "onveilig",
         "accidentCount": 0,
         "streetName": "Korte Vondelstraat"
@@ -15737,10 +15937,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1.2,
-          "conflicten": 3
+          "snelheid": 1.2
         },
-        "composite": 1.72,
+        "crowScore": 1.46,
+        "accidentScore": 3,
+        "composite": 1.92,
         "label": "onveilig",
         "accidentCount": 0,
         "streetName": "Wolfsbrug"
@@ -15819,10 +16020,11 @@
           "breedte": 1,
           "verharding": 2.33,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.72,
+        "crowScore": 1.47,
+        "accidentScore": 3,
+        "composite": 1.93,
         "label": "onveilig",
         "accidentCount": 0,
         "streetName": "Vondelstraat"
@@ -15889,10 +16091,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -15967,10 +16170,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -16034,10 +16238,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -16105,10 +16310,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1.25,
-          "conflicten": 2
+          "snelheid": 1.25
         },
-        "composite": 1.73,
+        "crowScore": 1.68,
+        "accidentScore": 2,
+        "composite": 1.77,
         "label": "onveilig",
         "accidentCount": 2,
         "streetName": "Cort van der Lindenkade"
@@ -16184,9 +16390,10 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2
+          "snelheid": 3
         },
+        "crowScore": 2,
+        "accidentScore": 2,
         "composite": 2,
         "label": "aandacht",
         "accidentCount": 2,
@@ -16267,11 +16474,12 @@
           "breedte": 1.75,
           "verharding": 2.25,
           "verlichting": 2.25,
-          "snelheid": 1.25,
-          "conflicten": 3
+          "snelheid": 1.25
         },
-        "composite": 1.96,
-        "label": "onveilig",
+        "crowScore": 1.75,
+        "accidentScore": 3,
+        "composite": 2.13,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Vondelstraat"
       },
@@ -16361,11 +16569,12 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 1.92,
-        "label": "onveilig",
+        "crowScore": 1.7,
+        "accidentScore": 3,
+        "composite": 2.09,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Lodewijk van Velthemstraat"
       },
@@ -16436,10 +16645,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Heilooërdijk"
@@ -16506,10 +16716,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -16580,10 +16791,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -16654,10 +16866,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -16724,10 +16937,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -16802,10 +17016,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -16876,10 +17091,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -16950,10 +17166,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -17024,10 +17241,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Drechterwaard"
@@ -17102,11 +17320,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
       },
@@ -17184,10 +17403,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -17258,9 +17478,10 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
+        "crowScore": 3,
+        "accidentScore": 3,
         "composite": 3,
         "label": "veilig",
         "accidentCount": 0,
@@ -17348,10 +17569,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -17426,10 +17648,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Oudorperhoutpad"
@@ -17505,10 +17728,11 @@
           "breedte": 2.5,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -17579,10 +17803,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -17669,10 +17894,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Frieseweg"
@@ -17751,10 +17977,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Frieseweg"
@@ -17825,10 +18052,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Frieseweg"
@@ -17899,10 +18127,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -17977,10 +18206,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -18051,10 +18281,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -18129,10 +18360,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Munnikenweg"
@@ -18204,10 +18436,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Vrouwenmantel"
@@ -18282,10 +18515,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Troyes"
@@ -18356,10 +18590,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 1,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Gruttostraat"
@@ -18430,10 +18665,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Sneeuwgansstraat"
@@ -18514,10 +18750,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Sneeuwgansstraat"
@@ -18585,10 +18822,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Molentochtpad"
@@ -18656,10 +18894,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Molentochtpad"
@@ -18730,10 +18969,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Molentochtpad"
@@ -18807,10 +19047,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Molentochtpad"
@@ -18878,10 +19119,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -18960,10 +19202,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -19035,10 +19278,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -19102,10 +19346,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -19176,10 +19421,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Mahlerstraat"
@@ -19270,10 +19516,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Offenbachstraat"
@@ -19348,10 +19595,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Havinghastraat"
@@ -19418,10 +19666,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Jan Reyersz Clockbrug"
@@ -19492,10 +19741,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Havinghastraat"
@@ -19565,10 +19815,11 @@
           "breedte": 2.14,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 2.14,
-          "conflicten": 2.14
+          "snelheid": 2.14
         },
-        "composite": 2.07,
+        "crowScore": 2.06,
+        "accidentScore": 2.14,
+        "composite": 2.08,
         "label": "aandacht",
         "accidentCount": 3,
         "streetName": "James Wattstraat"
@@ -19653,11 +19904,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1.17,
-          "conflicten": 3
+          "snelheid": 1.17
         },
-        "composite": 1.89,
-        "label": "onveilig",
+        "crowScore": 1.67,
+        "accidentScore": 3,
+        "composite": 2.07,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Havinghastraat"
       },
@@ -19745,10 +19997,11 @@
           "breedte": 2.17,
           "verharding": 3,
           "verlichting": 2.92,
-          "snelheid": 1.17,
-          "conflicten": 3
+          "snelheid": 1.17
         },
-        "composite": 2.24,
+        "crowScore": 2.08,
+        "accidentScore": 3,
+        "composite": 2.36,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Helderseweg"
@@ -19825,10 +20078,11 @@
           "breedte": 3,
           "verharding": 2.77,
           "verlichting": 2.77,
-          "snelheid": 1.83,
-          "conflicten": 3
+          "snelheid": 1.83
         },
-        "composite": 2.51,
+        "crowScore": 2.41,
+        "accidentScore": 3,
+        "composite": 2.59,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Helderseweg"
@@ -19917,10 +20171,11 @@
           "breedte": 2.92,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1.67,
-          "conflicten": 3
+          "snelheid": 1.67
         },
-        "composite": 2.15,
+        "crowScore": 1.98,
+        "accidentScore": 3,
+        "composite": 2.29,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Oude Kanaaldijk"
@@ -19984,10 +20239,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kanaaldijk"
@@ -20055,10 +20311,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -20134,10 +20391,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -20221,10 +20479,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Schoenmakerstraat"
@@ -20304,10 +20563,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Steenhouwerbrug"
@@ -20379,10 +20639,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -20458,10 +20719,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -20533,10 +20795,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Thijssepad"
@@ -20608,10 +20871,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -20682,10 +20946,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -20756,10 +21021,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bakkerstraat"
@@ -20839,9 +21105,10 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
+        "crowScore": 3,
+        "accidentScore": 3,
         "composite": 3,
         "label": "veilig",
         "accidentCount": 0,
@@ -20905,10 +21172,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Daalmeerpad"
@@ -20979,10 +21247,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Saskerstraat"
@@ -21065,10 +21334,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Zonneweid"
@@ -21139,10 +21409,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Zonneweid"
@@ -21217,10 +21488,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Kanaaldijk"
@@ -21291,10 +21563,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Kanaaldijk"
@@ -21365,10 +21638,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -21443,10 +21717,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Sportlaan"
@@ -21518,10 +21793,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Sportlaan"
@@ -21580,10 +21856,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -21662,10 +21939,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "De Klip"
@@ -21740,10 +22018,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Weiersweid"
@@ -21822,10 +22101,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -21892,10 +22172,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Saskerbrug"
@@ -21978,10 +22259,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laantje"
@@ -22052,10 +22334,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laantje"
@@ -22126,10 +22409,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Tesselschadestraat"
@@ -22199,10 +22483,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Toussaintstraat"
@@ -22272,10 +22557,11 @@
           "breedte": 1,
           "verharding": 2.83,
           "verlichting": 3,
-          "snelheid": 1.33,
-          "conflicten": 3
+          "snelheid": 1.33
         },
-        "composite": 2.08,
+        "crowScore": 1.9,
+        "accidentScore": 3,
+        "composite": 2.23,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -22363,10 +22649,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -22438,10 +22725,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Van der Kaaijstraat"
@@ -22511,10 +22799,11 @@
           "breedte": 2.84,
           "verharding": 2.84,
           "verlichting": 2.33,
-          "snelheid": 2.33,
-          "conflicten": 2.34
+          "snelheid": 2.33
         },
-        "composite": 2.48,
+        "crowScore": 2.5,
+        "accidentScore": 2.34,
+        "composite": 2.45,
         "label": "aandacht",
         "accidentCount": 3,
         "streetName": "Groenelaantje"
@@ -22590,10 +22879,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kennemersingel"
@@ -22673,10 +22963,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -22757,10 +23048,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Geestersingel"
@@ -22842,10 +23134,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Geestersingel"
@@ -22927,10 +23220,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -23005,10 +23299,11 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 1
+          "snelheid": 1
         },
-        "composite": 1.67,
+        "crowScore": 1.8,
+        "accidentScore": 1,
+        "composite": 1.56,
         "label": "onveilig",
         "accidentCount": 3,
         "streetName": "Geestersingel"
@@ -23075,10 +23370,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Blekerslaan"
@@ -23154,10 +23450,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -23226,11 +23523,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.46,
-        "label": "aandacht",
+        "crowScore": 2.35,
+        "accidentScore": 3,
+        "composite": 2.54,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "Nieuwlandersingel"
       },
@@ -23297,10 +23595,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "1e Landdwarsstraat"
@@ -23374,10 +23673,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2.9
+          "snelheid": 3
         },
-        "composite": 2.32,
+        "crowScore": 2.2,
+        "accidentScore": 2.9,
+        "composite": 2.41,
         "label": "aandacht",
         "accidentCount": 1,
         "streetName": "Nieuwlandersingel"
@@ -23454,10 +23754,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2.75
+          "snelheid": 3
         },
-        "composite": 2.29,
+        "crowScore": 2.2,
+        "accidentScore": 2.75,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 1,
         "streetName": "Bleekersslootbrug"
@@ -23532,10 +23833,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Emmastraat"
@@ -23610,10 +23912,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -23680,10 +23983,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Blaeustraat"
@@ -23760,10 +24064,11 @@
           "breedte": 2,
           "verharding": 2.67,
           "verlichting": 2.67,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.56,
+        "crowScore": 2.47,
+        "accidentScore": 3,
+        "composite": 2.63,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -23837,10 +24142,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -23915,10 +24221,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Beethovensingel"
@@ -23999,9 +24306,10 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
+        "crowScore": 3,
+        "accidentScore": 3,
         "composite": 3,
         "label": "veilig",
         "accidentCount": 0,
@@ -24070,10 +24378,11 @@
           "breedte": 3,
           "verharding": 2.33,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.61,
+        "crowScore": 2.53,
+        "accidentScore": 3,
+        "composite": 2.67,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -24149,9 +24458,10 @@
           "breedte": 2.67,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
+        "crowScore": 2.93,
+        "accidentScore": 3,
         "composite": 2.95,
         "label": "veilig",
         "accidentCount": 0,
@@ -24220,10 +24530,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Pater Schiphorststraat"
@@ -24294,10 +24605,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 2
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.4,
+        "accidentScore": 2,
+        "composite": 2.28,
         "label": "aandacht",
         "accidentCount": 1,
         "streetName": "Pater Schiphorststraat"
@@ -24360,10 +24672,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -24430,10 +24743,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -24500,10 +24814,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bierkade"
@@ -24576,10 +24891,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -24650,10 +24966,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Baansingel"
@@ -24728,10 +25045,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -24806,10 +25124,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -24869,10 +25188,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Burgemeester Palingstraat"
@@ -24941,10 +25261,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Juliana van Stolberglaan"
@@ -25020,10 +25341,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Quintbrug"
@@ -25091,10 +25413,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Willem de Zwijgerlaan"
@@ -25165,10 +25488,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -25247,10 +25571,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Frederik Hendrikbrug"
@@ -25317,10 +25642,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Frederik Hendriklaan"
@@ -25397,10 +25723,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Frederik Hendriklaan"
@@ -25479,10 +25806,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Albertina Agnesstraat"
@@ -25553,10 +25881,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Amalia van Solmsstraat"
@@ -25635,10 +25964,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -25712,10 +26042,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Koornlaan"
@@ -25787,10 +26118,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Cabeljaustraat"
@@ -25865,11 +26197,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
       },
@@ -25935,10 +26268,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "N.G. Piersonstraat"
@@ -26012,11 +26346,12 @@
           "breedte": 2.84,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.47,
-        "label": "aandacht",
+        "crowScore": 2.37,
+        "accidentScore": 3,
+        "composite": 2.56,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -26086,10 +26421,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Doctor Schaepmanplein"
@@ -26170,10 +26506,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Doctor Schaepmankade"
@@ -26250,10 +26587,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Aalbersestraat"
@@ -26322,10 +26660,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -26401,10 +26740,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -26473,10 +26813,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Hooftstraat"
@@ -26562,10 +26903,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Hooftstraat"
@@ -26628,11 +26970,12 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Koelmalaan"
       },
@@ -26698,10 +27041,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Stalpaertstraat"
@@ -26772,10 +27116,11 @@
           "breedte": 2.5,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Koning Nobelpad"
@@ -26854,10 +27199,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Oosterhoutlaan"
@@ -26936,10 +27282,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Oosterhoutlaan"
@@ -27006,10 +27353,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Oosterhoutlaan"
@@ -27080,10 +27428,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Grimbeertpad"
@@ -27154,10 +27503,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Grimbeertpad"
@@ -27240,10 +27590,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2.2,
+        "accidentScore": 2,
+        "composite": 2.14,
         "label": "aandacht",
         "accidentCount": 1,
         "streetName": "Spieghelplein"
@@ -27326,10 +27677,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -27400,10 +27752,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Notweg"
@@ -27471,10 +27824,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -27562,10 +27916,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Iepenlaan"
@@ -27629,10 +27984,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -27700,10 +28056,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -27775,10 +28132,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -27849,10 +28207,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Jan de Heemstraat"
@@ -27927,10 +28286,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Jan de Heemstraat"
@@ -28009,10 +28369,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Bloemaertlaan"
@@ -28091,10 +28452,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Van Ostadelaan"
@@ -28177,10 +28539,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Blanckerhofweg"
@@ -28255,10 +28618,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Van Beyerenstraat"
@@ -28331,10 +28695,11 @@
           "breedte": 2,
           "verharding": 2.17,
           "verlichting": 2.17,
-          "snelheid": 3,
-          "conflicten": 2.83
+          "snelheid": 3
         },
-        "composite": 2.36,
+        "crowScore": 2.27,
+        "accidentScore": 2.83,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 1,
         "streetName": null
@@ -28408,10 +28773,11 @@
           "breedte": 1.59,
           "verharding": 2.75,
           "verlichting": 2.88,
-          "snelheid": 1.5,
-          "conflicten": 3
+          "snelheid": 1.5
         },
-        "composite": 2.18,
+        "crowScore": 2.02,
+        "accidentScore": 3,
+        "composite": 2.31,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -28493,10 +28859,11 @@
           "breedte": 2,
           "verharding": 2.75,
           "verlichting": 2.75,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.08,
+        "crowScore": 1.9,
+        "accidentScore": 3,
+        "composite": 2.23,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Pieter Breughelstraat"
@@ -28570,10 +28937,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Hobbemalaan"
@@ -28641,10 +29009,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Hobbemalaan"
@@ -28724,10 +29093,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -28799,10 +29169,11 @@
           "breedte": 2.67,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.28,
+        "crowScore": 2.13,
+        "accidentScore": 3,
+        "composite": 2.39,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Stationsweg"
@@ -28873,10 +29244,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Perronstraat"
@@ -28943,10 +29315,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -29018,10 +29391,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Faktorij"
@@ -29098,10 +29472,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -29184,11 +29559,12 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.42,
-        "label": "aandacht",
+        "crowScore": 2.3,
+        "accidentScore": 3,
+        "composite": 2.51,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": null
       },
@@ -29275,10 +29651,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Schoenmakerstraat"
@@ -29353,10 +29730,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -29427,10 +29805,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Stratenmakerhof"
@@ -29503,10 +29882,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -29586,10 +29966,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Wielingenweg"
@@ -29670,10 +30051,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -29757,10 +30139,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "A. Bonnemabrug"
@@ -29829,10 +30212,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -29917,10 +30301,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -29989,10 +30374,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kofschipstraat"
@@ -30075,10 +30461,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Wielingenweg"
@@ -30149,10 +30536,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Jollenpad"
@@ -30220,10 +30608,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Molentochtpad"
@@ -30299,11 +30688,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2.67,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.44,
-        "label": "aandacht",
+        "crowScore": 2.33,
+        "accidentScore": 3,
+        "composite": 2.53,
+        "label": "veilig",
         "accidentCount": 0,
         "streetName": "J.M.P. de Biestraat"
       },
@@ -30381,10 +30771,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Wielingenweg"
@@ -30464,10 +30855,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -30543,10 +30935,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -30626,10 +31019,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -30705,10 +31099,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -30788,10 +31183,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Herman Gorterpad"
@@ -30870,10 +31266,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Herman Gorterpad"
@@ -30945,10 +31342,11 @@
           "breedte": 2,
           "verharding": 2.25,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Louis Couperusstraat"
@@ -31024,11 +31422,12 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
       },
@@ -31099,11 +31498,12 @@
           "breedte": 1,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
       },
@@ -31182,10 +31582,11 @@
           "breedte": 2.5,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.08,
+        "crowScore": 1.9,
+        "accidentScore": 3,
+        "composite": 2.23,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Bergama"
@@ -31258,10 +31659,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -31332,10 +31734,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Wielingenweg"
@@ -31414,10 +31817,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -31488,10 +31892,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Keizersweide"
@@ -31554,10 +31959,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Bulleweide"
@@ -31628,10 +32034,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Zomersloot"
@@ -31698,10 +32105,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Baljuwweide"
@@ -31768,10 +32176,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Boompjes"
@@ -31846,10 +32255,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Schelpenakker"
@@ -31920,10 +32330,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Grasakker"
@@ -31994,10 +32405,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Damakker"
@@ -32073,10 +32485,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Steeslootpad"
@@ -32144,11 +32557,12 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.83,
-        "label": "onveilig",
+        "crowScore": 1.6,
+        "accidentScore": 3,
+        "composite": 2.02,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Steeslootpad"
       },
@@ -32223,10 +32637,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Robonsbosweg"
@@ -32291,10 +32706,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -32370,10 +32786,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -32444,10 +32861,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -32514,10 +32932,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Johan Wagenaarkade"
@@ -32592,10 +33011,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Johan Wagenaarkade"
@@ -32666,10 +33086,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -32740,10 +33161,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Johan Wagenaarkade"
@@ -32822,9 +33244,10 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
+        "crowScore": 3,
+        "accidentScore": 3,
         "composite": 3,
         "label": "veilig",
         "accidentCount": 0,
@@ -32904,10 +33327,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -32978,10 +33402,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Hogeschool Alkmaar"
@@ -33056,10 +33481,11 @@
           "breedte": 2.5,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Bergerweg"
@@ -33126,10 +33552,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Steeslootpad"
@@ -33203,10 +33630,11 @@
           "breedte": 3,
           "verharding": 2.5,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2.67
+          "snelheid": 3
         },
-        "composite": 2.7,
+        "crowScore": 2.7,
+        "accidentScore": 2.67,
+        "composite": 2.69,
         "label": "veilig",
         "accidentCount": 2,
         "streetName": "Gravin Jacobastraat"
@@ -33273,10 +33701,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2,
+        "crowScore": 1.8,
+        "accidentScore": 3,
+        "composite": 2.16,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Schinkelwaard"
@@ -33347,10 +33776,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -33421,10 +33851,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -33491,10 +33922,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -33565,10 +33997,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Frieseweg"
@@ -33635,10 +34068,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Frieseweg"
@@ -33713,10 +34147,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -33791,10 +34226,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -33865,10 +34301,11 @@
           "breedte": 3,
           "verharding": 3,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.83,
+        "crowScore": 2.8,
+        "accidentScore": 3,
+        "composite": 2.86,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -33940,10 +34377,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Mandenmakerstraat"
@@ -34022,10 +34460,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Breeuwerstraat"
@@ -34111,10 +34550,11 @@
           "breedte": 2.5,
           "verharding": 2.25,
           "verlichting": 2.25,
-          "snelheid": 2.5,
-          "conflicten": 3
+          "snelheid": 2.5
         },
-        "composite": 2.38,
+        "crowScore": 2.25,
+        "accidentScore": 3,
+        "composite": 2.47,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kanaaldijk"
@@ -34196,10 +34636,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.25,
+        "crowScore": 2.1,
+        "accidentScore": 3,
+        "composite": 2.37,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Kanaaldijk"
@@ -34269,10 +34710,11 @@
           "breedte": 2,
           "verharding": 2.5,
           "verlichting": 2.5,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -34347,10 +34789,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Oude Kanaaldijk"
@@ -34426,10 +34869,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Helderseweg"
@@ -34497,10 +34941,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Helderseweg"
@@ -34568,10 +35013,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -34639,10 +35085,11 @@
           "breedte": 2.5,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 2,
-          "conflicten": 3
+          "snelheid": 2
         },
-        "composite": 2.58,
+        "crowScore": 2.5,
+        "accidentScore": 3,
+        "composite": 2.65,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": "Helderseweg"
@@ -34710,10 +35157,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Helderseweg"
@@ -34780,10 +35228,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Laan van Bath"
@@ -34852,10 +35301,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2.33
+          "snelheid": 3
         },
-        "composite": 2.22,
+        "crowScore": 2.2,
+        "accidentScore": 2.33,
+        "composite": 2.24,
         "label": "aandacht",
         "accidentCount": 2,
         "streetName": null
@@ -34918,10 +35368,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.67,
+        "crowScore": 2.6,
+        "accidentScore": 3,
+        "composite": 2.72,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -34996,10 +35447,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -35066,10 +35518,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Nassaulaan"
@@ -35140,10 +35593,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Egmonderstraat"
@@ -35210,10 +35664,11 @@
           "breedte": 1,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 1.67,
+        "crowScore": 1.4,
+        "accidentScore": 3,
+        "composite": 1.88,
         "label": "onveilig",
         "accidentCount": 0,
         "streetName": "Verlaatjesbrug"
@@ -35283,10 +35738,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2
+          "snelheid": 3
         },
-        "composite": 2.17,
+        "crowScore": 2.2,
+        "accidentScore": 2,
+        "composite": 2.14,
         "label": "aandacht",
         "accidentCount": 2,
         "streetName": "Groenelaantje"
@@ -35369,10 +35825,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -35451,10 +35908,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -35529,10 +35987,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Elisabethtuinen"
@@ -35613,10 +36072,11 @@
           "breedte": 2,
           "verharding": 2.25,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.38,
+        "crowScore": 2.25,
+        "accidentScore": 3,
+        "composite": 2.47,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -35699,10 +36159,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Vondelstraat"
@@ -35767,11 +36228,12 @@
           "breedte": 1,
           "verharding": 2.75,
           "verlichting": 2,
-          "snelheid": 1.5,
-          "conflicten": 3
+          "snelheid": 1.5
         },
-        "composite": 1.96,
-        "label": "onveilig",
+        "crowScore": 1.75,
+        "accidentScore": 3,
+        "composite": 2.13,
+        "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Koelmalaan"
       },
@@ -35849,10 +36311,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Cort van der Lindenkade"
@@ -35932,10 +36395,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -36006,10 +36470,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Jan de Heemstraat"
@@ -36088,10 +36553,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Jan de Heemstraat"
@@ -36166,10 +36632,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Van Ostadelaan"
@@ -36251,10 +36718,11 @@
           "breedte": 2,
           "verharding": 2.6,
           "verlichting": 2.6,
-          "snelheid": 1.8,
-          "conflicten": 3
+          "snelheid": 1.8
         },
-        "composite": 2.23,
+        "crowScore": 2.08,
+        "accidentScore": 3,
+        "composite": 2.36,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Van Ostadelaan"
@@ -36338,10 +36806,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Fabritiusstraat"
@@ -36406,10 +36875,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -36476,10 +36946,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 1
+          "snelheid": 1
         },
-        "composite": 1.83,
+        "crowScore": 2,
+        "accidentScore": 1,
+        "composite": 1.7,
         "label": "onveilig",
         "accidentCount": 5,
         "streetName": "Van Ostadelaan"
@@ -36551,10 +37022,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Nicolaas Beetskade"
@@ -36621,10 +37093,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Willem de Zwijgerlaan"
@@ -36695,10 +37168,11 @@
           "breedte": 2,
           "verharding": 3,
           "verlichting": 3,
-          "snelheid": 1,
-          "conflicten": 3
+          "snelheid": 1
         },
-        "composite": 2.17,
+        "crowScore": 2,
+        "accidentScore": 3,
+        "composite": 2.3,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": "Willem de Zwijgerbrug"
@@ -36770,10 +37244,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 2.5
+          "snelheid": 3
         },
-        "composite": 2.25,
+        "crowScore": 2.2,
+        "accidentScore": 2.5,
+        "composite": 2.29,
         "label": "aandacht",
         "accidentCount": 1,
         "streetName": null
@@ -36845,10 +37320,11 @@
           "breedte": 3,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.5,
+        "crowScore": 2.4,
+        "accidentScore": 3,
+        "composite": 2.58,
         "label": "veilig",
         "accidentCount": 0,
         "streetName": null
@@ -36923,10 +37399,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
@@ -37003,10 +37480,11 @@
           "breedte": 2,
           "verharding": 2,
           "verlichting": 2,
-          "snelheid": 3,
-          "conflicten": 3
+          "snelheid": 3
         },
-        "composite": 2.33,
+        "crowScore": 2.2,
+        "accidentScore": 3,
+        "composite": 2.44,
         "label": "aandacht",
         "accidentCount": 0,
         "streetName": null
