@@ -7,20 +7,20 @@ const ALKMAAR_CENTER = [52.63, 4.77];
 const DEFAULT_ZOOM = 13;
 
 // Zone color scale: green (safe) → orange → red (dangerous)
-// Thresholds based on 250m zone data: median ~8, p75 ~22
+// Thresholds based on 100m zone data
 function zoneColor(accidentCount) {
   if (accidentCount === 0) return '#4CAF50';
-  if (accidentCount <= 5) return '#8BC34A';
-  if (accidentCount <= 15) return '#FF9800';
-  if (accidentCount <= 30) return '#E64A19';
+  if (accidentCount <= 1) return '#8BC34A';
+  if (accidentCount <= 3) return '#FF9800';
+  if (accidentCount <= 6) return '#E64A19';
   return '#B71C1C';
 }
 
 function zoneBorderColor(accidentCount) {
   if (accidentCount === 0) return '#388E3C';
-  if (accidentCount <= 5) return '#558B2F';
-  if (accidentCount <= 15) return '#E65100';
-  if (accidentCount <= 30) return '#BF360C';
+  if (accidentCount <= 1) return '#558B2F';
+  if (accidentCount <= 3) return '#E65100';
+  if (accidentCount <= 6) return '#BF360C';
   return '#7F0000';
 }
 
@@ -59,16 +59,18 @@ async function initMap() {
 
   try {
     // Fetch all data in parallel
-    const [zonesRes, schoolsRes, accidentsRes] = await Promise.all([
+    const [zonesRes, schoolsRes, accidentsRes, routesRes] = await Promise.all([
       fetch(`${DATA_BASE}/zones.geojson`),
       fetch(`${DATA_BASE}/schools.geojson`),
       fetch(`${DATA_BASE}/accidents-filtered.geojson`),
+      fetch(`${DATA_BASE}/school-routes.geojson`),
     ]);
 
-    const [zones, schools, accidents] = await Promise.all([
+    const [zones, schools, accidents, routes] = await Promise.all([
       zonesRes.json(),
       schoolsRes.json(),
       accidentsRes.json(),
+      routesRes.json(),
     ]);
 
     // Pre-compute accident stats per zone
@@ -106,8 +108,57 @@ async function initMap() {
       schoolMap[s.properties.name] = s.properties;
     }
 
-    // 0. Zone polygons — colored by accident count
-    L.geoJSON(zones, {
+    // Route corridor colors
+    const ROUTE_COLORS = {
+      veilig: { fill: '#388E3C', border: '#2E7D32' },
+      aandacht: { fill: '#F57C00', border: '#E65100' },
+      onveilig: { fill: '#D32F2F', border: '#B71C1C' },
+    };
+
+    // 0a. School route corridors — colored by CROW safety score
+    const routeLayer = L.geoJSON(routes, {
+      style: (feature) => {
+        const label = feature.properties.label || 'aandacht';
+        const colors = ROUTE_COLORS[label] || ROUTE_COLORS.aandacht;
+        return {
+          color: colors.border,
+          weight: 1,
+          fillColor: colors.fill,
+          fillOpacity: 0.25,
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const props = feature.properties;
+        const scoreLabels = {
+          scheiding: 'Scheiding van rijbaan',
+          breedte: 'Breedte fietspad',
+          verharding: 'Verharding',
+          verlichting: 'Verlichting',
+          snelheid: 'Snelheidscontext',
+          conflicten: 'Ongevallen nabijheid',
+        };
+
+        const scoreHtml = Object.entries(props.scores || {}).map(([key, val]) => {
+          const label = scoreLabels[key] || key;
+          const emoji = val >= 2.5 ? '🟢' : val >= 1.5 ? '🟠' : '🔴';
+          return `${emoji} ${label}: ${val.toFixed(1)}`;
+        }).join('<br>');
+
+        const wijkenStr = (props.wijken || []).join(', ');
+
+        layer.bindPopup(`
+          <strong>${props.school}</strong><br>
+          Route vanuit: ${wijkenStr}<br>
+          <strong>CROW-score: ${props.composite} (${props.label})</strong><br>
+          <hr style="margin:4px 0">
+          ${scoreHtml}
+          ${props.accidentCount ? `<br>Ongevallen nabij: ${props.accidentCount}` : ''}
+        `);
+      },
+    }).addTo(map);
+
+    // 0b. Zone polygons — colored by accident count
+    const zoneLayer = L.geoJSON(zones, {
       style: (feature) => {
         const stats = zoneStats[feature.properties.school] || { count: 0 };
         return {
@@ -246,6 +297,13 @@ async function initMap() {
         `);
       },
     }).addTo(map);
+
+    // Layer control
+    L.control.layers(null, {
+      'Fietsroutes (CROW)': routeLayer,
+      'Schoolgebieden (100m)': zoneLayer,
+      'Ongelukken': accidentCluster,
+    }, { collapsed: false }).addTo(map);
 
     // Hide loading
     loading.classList.add('map-container__loading--hidden');

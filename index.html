@@ -71,7 +71,7 @@
     <section id="kaart" class="section section--map">
       <div class="section__container">
         <h2 class="section__title">Ongelukken rondom Alkmaarse scholen</h2>
-        <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, binnen 250 meter van een school. Alleen ongelukken in schoolgebieden worden getoond.</p>
+        <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, binnen 100 meter van een school. Alleen ongelukken in schoolgebieden worden getoond.</p>
       </div>
       <div id="map" class="map-container" role="application" aria-label="Kaart met schoolgebieden en verkeersongelukken in Alkmaar">
         <div class="map-container__loading" id="map-loading">Kaart laden…</div>
@@ -79,9 +79,12 @@
       <div class="map-legend" id="map-legend">
         <h3 class="map-legend__title">Legenda</h3>
         <ul class="map-legend__list">
-          <li><span class="map-legend__swatch map-legend__swatch--zone-safe"></span> Schoolgebied (0-5 ongelukken)</li>
-          <li><span class="map-legend__swatch map-legend__swatch--zone-warn"></span> Schoolgebied (6-15)</li>
-          <li><span class="map-legend__swatch map-legend__swatch--zone-danger"></span> Schoolgebied (16+)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--route-safe"></span> Fietsroute — veilig (CROW)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--route-warn"></span> Fietsroute — aandacht</li>
+          <li><span class="map-legend__swatch map-legend__swatch--route-danger"></span> Fietsroute — onveilig</li>
+          <li><span class="map-legend__swatch map-legend__swatch--zone-safe"></span> Schoolgebied (0-1 ongelukken)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--zone-warn"></span> Schoolgebied (2-3)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--zone-danger"></span> Schoolgebied (4+)</li>
           <li><span class="map-legend__swatch map-legend__swatch--materieel"></span> Materiële schade</li>
           <li><span class="map-legend__swatch map-legend__swatch--letsel"></span> Letselongeval</li>
           <li><span class="map-legend__swatch map-legend__swatch--dodelijk"></span> Dodelijk ongeval</li>
@@ -94,7 +97,7 @@
     <section id="ranking" class="section section--alt">
       <div class="section__container">
         <h2 class="section__title">Overzicht per school</h2>
-        <p class="section__intro">Hoeveel verkeersongelukken vonden plaats binnen 250 meter van elke school?</p>
+        <p class="section__intro">Hoeveel verkeersongelukken vonden plaats binnen 100 meter van elke school?</p>
         <div class="table-wrapper">
           <table class="ranking-table" id="ranking-table">
             <thead>
@@ -144,7 +147,7 @@
         </ul>
         <h3>Methode</h3>
         <ul>
-          <li><strong>Schoolgebied:</strong> 250 meter buffer rondom elke schoolingang, berekend met Turf.js.</li>
+          <li><strong>Schoolgebied:</strong> 100 meter buffer rondom elke schoolingang, berekend met Turf.js.</li>
           <li><strong>Filtering:</strong> alleen ongelukken binnen een schoolgebied worden getoond.</li>
           <li><strong>Rangschikking:</strong> scholen worden gerangschikt op het aantal geregistreerde ongelukken binnen het schoolgebied.</li>
           <li><strong>Dagenteller:</strong> berekend op basis van de meest recente ongeluksdatum in de dataset.</li>

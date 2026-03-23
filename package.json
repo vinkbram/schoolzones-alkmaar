@@ -9,12 +9,22 @@
     "fetch-schools": "node scripts/fetch-schools.js",
     "generate-zones": "node scripts/generate-zones.js",
     "filter-accidents": "node scripts/filter-accidents.js",
+    "fetch-wijken": "node scripts/fetch-wijken.js",
+    "generate-school-routes": "node scripts/generate-school-routes.js",
     "update-data": "npm run fetch-accidents && npm run filter-accidents"
   },
   "devDependencies": {
     "@mapbox/vector-tile": "^2.0.4",
     "@turf/buffer": "^7.0.0",
+    "@turf/center": "^7.3.4",
+    "@turf/center-of-mass": "^7.3.4",
+    "@turf/distance": "^7.3.4",
     "@turf/helpers": "^7.0.0",
+    "@turf/length": "^7.3.4",
+    "@turf/line-chunk": "^7.3.4",
+    "@turf/nearest-point-on-line": "^7.3.4",
+    "@turf/points-within-polygon": "^7.3.4",
+    "@turf/simplify": "^7.3.4",
     "pbf": "^4.0.1"
   }
 }

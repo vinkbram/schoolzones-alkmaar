@@ -347,6 +347,21 @@ a:hover {
   flex-shrink: 0;
 }
 
+.map-legend__swatch--route-safe {
+  background: #388E3C;
+  border: 2px solid #2E7D32;
+  border-radius: 3px;
+}
+.map-legend__swatch--route-warn {
+  background: #F57C00;
+  border: 2px solid #E65100;
+  border-radius: 3px;
+}
+.map-legend__swatch--route-danger {
+  background: #D32F2F;
+  border: 2px solid #B71C1C;
+  border-radius: 3px;
+}
 .map-legend__swatch--zone-safe {
   background: #4CAF50;
   border: 2px solid #388E3C;

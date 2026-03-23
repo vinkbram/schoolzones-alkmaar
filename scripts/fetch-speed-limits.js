@@ -16,7 +16,7 @@ const DATA = join(__dirname, '..', 'data');
 const WKD_URL = 'https://geo.rijkswaterstaat.nl/arcgis/rest/services/GDR/maximum_snelheden_wegen/FeatureServer/5/query';
 
 // Buffer in meters around each school to search for roads
-const BUFFER_M = 250;
+const BUFFER_M = 100;
 
 async function querySpeedLimits(lon, lat) {
   // The FeatureServer expects geometry in WGS84 (wkid 4326)
