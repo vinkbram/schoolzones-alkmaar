@@ -2,7 +2,7 @@
 
 // fetch-speed-limits.js
 // Queries the Rijkswaterstaat WKD (Wegkenmerkendatabase) FeatureServer
-// for speed limits on road segments within 100m of each school.
+// for speed limits on road segments within 500m of each school.
 // Enriches schools.geojson with maxSpeed property.
 
 import { readFileSync, writeFileSync } from 'node:fs';
