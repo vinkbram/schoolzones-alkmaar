@@ -6,21 +6,22 @@ const DATA_BASE = './data';
 const ALKMAAR_CENTER = [52.63, 4.77];
 const DEFAULT_ZOOM = 13;
 
-// Zone color scale: green (0 accidents) → yellow → red (many)
+// Zone color scale: green (safe) → orange → red (dangerous)
+// Thresholds based on 250m zone data: median ~8, p75 ~22
 function zoneColor(accidentCount) {
   if (accidentCount === 0) return '#4CAF50';
-  if (accidentCount <= 1) return '#8BC34A';
-  if (accidentCount <= 2) return '#FFC107';
-  if (accidentCount <= 4) return '#FF9800';
-  return '#D32F2F';
+  if (accidentCount <= 5) return '#8BC34A';
+  if (accidentCount <= 15) return '#FF9800';
+  if (accidentCount <= 30) return '#E64A19';
+  return '#B71C1C';
 }
 
 function zoneBorderColor(accidentCount) {
   if (accidentCount === 0) return '#388E3C';
-  if (accidentCount <= 1) return '#689F38';
-  if (accidentCount <= 2) return '#F9A825';
-  if (accidentCount <= 4) return '#EF6C00';
-  return '#B71C1C';
+  if (accidentCount <= 5) return '#558B2F';
+  if (accidentCount <= 15) return '#E65100';
+  if (accidentCount <= 30) return '#BF360C';
+  return '#7F0000';
 }
 
 const SEVERITY_COLORS = {
@@ -187,7 +188,7 @@ async function initMap() {
         return L.circleMarker(latlng, {
           radius: isNew ? 10 : (SEVERITY_RADIUS[severity] || 5),
           fillColor: SEVERITY_COLORS[severity] || '#E57373',
-          color: isNew ? '#FFEB3B' : '#fff',
+          color: isNew ? '#00E5FF' : '#fff',
           weight: isNew ? 3 : 1,
           fillOpacity: isNew ? 1 : 0.8,
           className: isNew ? 'accident-new' : '',

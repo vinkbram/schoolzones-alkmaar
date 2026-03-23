@@ -15,16 +15,16 @@
 
 /* Cluster containing new accidents */
 .marker-cluster--new {
-  box-shadow: 0 0 0 4px #FFEB3B, 0 0 12px rgba(255, 235, 59, 0.6);
+  box-shadow: 0 0 0 4px #00E5FF, 0 0 12px rgba(0, 229, 255, 0.6);
   animation: cluster-pulse 1.5s ease-out infinite;
 }
 .marker-cluster--new div {
-  border: 2px solid #FFEB3B;
+  border: 2px solid #00E5FF;
 }
 @keyframes cluster-pulse {
-  0%   { box-shadow: 0 0 0 4px #FFEB3B, 0 0 12px rgba(255, 235, 59, 0.6); }
-  50%  { box-shadow: 0 0 0 6px #FFEB3B, 0 0 20px rgba(255, 235, 59, 0.4); }
-  100% { box-shadow: 0 0 0 4px #FFEB3B, 0 0 12px rgba(255, 235, 59, 0.6); }
+  0%   { box-shadow: 0 0 0 4px #00E5FF, 0 0 12px rgba(0, 229, 255, 0.6); }
+  50%  { box-shadow: 0 0 0 6px #00E5FF, 0 0 20px rgba(0, 229, 255, 0.4); }
+  100% { box-shadow: 0 0 0 4px #00E5FF, 0 0 12px rgba(0, 229, 255, 0.6); }
 }
 
 /* --- Custom Properties --- */
@@ -354,8 +354,8 @@ a:hover {
 }
 
 .map-legend__swatch--zone-warn {
-  background: #FFC107;
-  border: 2px solid #F9A825;
+  background: #FF9800;
+  border: 2px solid #E65100;
   border-radius: 3px;
 }
 
@@ -380,7 +380,7 @@ a:hover {
 }
 .map-legend__swatch--new {
   background: var(--clr-danger);
-  border: 3px solid #FFEB3B;
+  border: 3px solid #00E5FF;
   animation: pulse-ring 1.5s ease-out infinite;
 }
 
