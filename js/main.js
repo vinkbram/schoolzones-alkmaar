@@ -25,8 +25,11 @@ async function initCounter() {
     today.setHours(0, 0, 0, 0);
     const diffDays = Math.floor((today - mostRecent) / (1000 * 60 * 60 * 24));
 
+    const days = Math.max(0, diffDays);
     const counter = document.getElementById('day-counter');
-    counter.textContent = Math.max(0, diffDays).toString();
+    counter.textContent = days.toString();
+    const label = document.getElementById('day-counter-label');
+    if (label) label.textContent = days === 1 ? 'dag' : 'dagen';
   } catch (err) {
     console.error('Counter failed:', err);
     document.getElementById('day-counter').textContent = '?';

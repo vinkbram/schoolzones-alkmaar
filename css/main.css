@@ -192,9 +192,13 @@ a:hover {
   line-height: 1.5;
 }
 
-.hero__lead strong {
+.hero__vision {
+  text-align: center;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
   color: #FBBF24;
-  font-weight: 700;
+  margin: 1.5rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* ===========================
