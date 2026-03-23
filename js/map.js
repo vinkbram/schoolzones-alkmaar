@@ -148,6 +148,14 @@ async function initMap() {
       },
     }).addTo(map);
 
+    // Find most recent firstSeen date to highlight newest accidents
+    const allFirstSeen = accidents.features
+      .map(f => f.properties.firstSeen)
+      .filter(Boolean)
+      .sort()
+      .reverse();
+    const latestFirstSeen = allFirstSeen[0] || null;
+
     const accidentCluster = L.markerClusterGroup({
       maxClusterRadius: 40,
       disableClusteringAtZoom: 16,
@@ -168,12 +176,14 @@ async function initMap() {
     const accidentLayer = L.geoJSON(accidents, {
       pointToLayer: (feature, latlng) => {
         const severity = feature.properties.severity || 'materieel';
+        const isNew = latestFirstSeen && feature.properties.firstSeen === latestFirstSeen;
         return L.circleMarker(latlng, {
-          radius: SEVERITY_RADIUS[severity] || 5,
+          radius: isNew ? 10 : (SEVERITY_RADIUS[severity] || 5),
           fillColor: SEVERITY_COLORS[severity] || '#E57373',
-          color: '#fff',
-          weight: 1,
-          fillOpacity: 0.8,
+          color: isNew ? '#FFEB3B' : '#fff',
+          weight: isNew ? 3 : 1,
+          fillOpacity: isNew ? 1 : 0.8,
+          className: isNew ? 'accident-new' : '',
         });
       },
       onEachFeature: (feature, layer) => {

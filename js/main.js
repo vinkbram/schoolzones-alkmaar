@@ -10,7 +10,7 @@ async function initCounter() {
     const data = await res.json();
 
     const dates = data.features
-      .map(f => f.properties.date)
+      .map(f => f.properties.firstSeen || f.properties.date)
       .filter(Boolean)
       .sort()
       .reverse();

@@ -3,6 +3,16 @@
    main.css — modern, mobile-first
    =========================== */
 
+/* --- New accident pulse animation --- */
+.accident-new {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { stroke-opacity: 1; }
+  50%  { stroke-opacity: 0.4; }
+  100% { stroke-opacity: 1; }
+}
+
 /* --- Custom Properties --- */
 :root {
   --clr-danger: #E53935;
@@ -349,6 +359,11 @@ a:hover {
 .map-legend__swatch--dodelijk {
   background: var(--clr-danger-dark);
   border: 2px solid #000;
+}
+.map-legend__swatch--new {
+  background: var(--clr-danger);
+  border: 3px solid #FFEB3B;
+  animation: pulse-ring 1.5s ease-out infinite;
 }
 
 /* ===========================
