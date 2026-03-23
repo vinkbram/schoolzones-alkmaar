@@ -202,11 +202,12 @@ async function initMap() {
         };
 
         let dateStr = '';
-        if (props.date) {
+        const displayDate = props.firstSeen || props.date;
+        if (displayDate) {
           try {
-            dateStr = dateFormatter.format(new Date(props.date + 'T00:00:00'));
+            dateStr = dateFormatter.format(new Date(displayDate + 'T00:00:00'));
           } catch {
-            dateStr = props.date;
+            dateStr = displayDate;
           }
         }
 
