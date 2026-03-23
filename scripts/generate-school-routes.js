@@ -28,7 +28,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA = join(__dirname, '..', 'data');
 
 const OVERPASS_API = 'https://overpass-api.de/api/interpreter';
-const OSRM_API = 'https://router.project-osrm.org/route/v1/bike';
+const VALHALLA_API = 'https://valhalla1.openstreetmap.de/route';
 const BGT_API = 'https://api.pdok.nl/lv/bgt/ogc/v1_0/collections/wegdeel/items';
 const ALKMAAR_BBOX = [4.68, 52.55, 4.85, 52.70]; // [minLon, minLat, maxLon, maxLat]
 
@@ -75,10 +75,26 @@ function loadData() {
   return { schools, wijken, accidents };
 }
 
-// --- Step 2: Calculate OSRM bike routes ---
+// --- Step 2: Calculate bike routes via Valhalla ---
+
+// Decode Valhalla's encoded polyline (precision 6)
+function decodePolyline(encoded) {
+  const coords = [];
+  let lat = 0, lon = 0, i = 0;
+  while (i < encoded.length) {
+    let shift = 0, result = 0, byte;
+    do { byte = encoded.charCodeAt(i++) - 63; result |= (byte & 0x1f) << shift; shift += 5; } while (byte >= 0x20);
+    lat += (result & 1) ? ~(result >> 1) : (result >> 1);
+    shift = 0; result = 0;
+    do { byte = encoded.charCodeAt(i++) - 63; result |= (byte & 0x1f) << shift; shift += 5; } while (byte >= 0x20);
+    lon += (result & 1) ? ~(result >> 1) : (result >> 1);
+    coords.push([lon / 1e6, lat / 1e6]);
+  }
+  return coords;
+}
 
 async function fetchRoutes(schools, wijken) {
-  console.log('\nCalculating bike routes via OSRM...');
+  console.log('\nCalculating bike routes via Valhalla...');
   const routes = [];
   let skipped = 0;
 
@@ -98,29 +114,43 @@ async function fetchRoutes(schools, wijken) {
       }
 
       try {
-        const url = `${OSRM_API}/${wLon},${wLat};${sLon},${sLat}?geometries=geojson&overview=full`;
-        const data = await fetchJSON(url);
+        const body = JSON.stringify({
+          locations: [
+            { lon: wLon, lat: wLat },
+            { lon: sLon, lat: sLat },
+          ],
+          costing: 'bicycle',
+          costing_options: { bicycle: { use_roads: 0.0 } },
+        });
 
-        if (data.code !== 'Ok' || !data.routes.length) {
+        const data = await fetchJSON(VALHALLA_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body,
+        });
+
+        if (!data.trip?.legs?.[0]) {
           console.warn(`  No route: ${wijkName} → ${schoolName}`);
           continue;
         }
 
-        const route = data.routes[0];
+        const leg = data.trip.legs[0];
+        const coords = decodePolyline(leg.shape);
+
         routes.push({
           school: schoolName,
           wijk: wijkName,
           wijkCode: wijk.properties.wijkCode,
-          distanceKm: Math.round(route.distance / 10) / 100,
-          durationMin: Math.round(route.duration / 6) / 10,
-          geometry: route.geometry,
+          distanceKm: Math.round(data.trip.summary.length * 100) / 100,
+          durationMin: Math.round(data.trip.summary.time / 6) / 10,
+          geometry: { type: 'LineString', coordinates: coords },
         });
       } catch (err) {
         console.warn(`  Route failed: ${wijkName} → ${schoolName}: ${err.message}`);
       }
 
-      // Rate limit OSRM
-      await sleep(200);
+      // Rate limit Valhalla
+      await sleep(300);
     }
   }
 
@@ -597,7 +627,7 @@ function buildCorridors(features) {
 
   const corridors = features.map(f => {
     try {
-      const buffered = buffer(f, ROUTE_BUFFER_M / 1000, { units: 'kilometers' });
+      const buffered = buffer(f, ROUTE_BUFFER_M / 1000, { units: 'kilometers', steps: 1 });
       if (!buffered) return null;
 
       // Simplify to reduce file size
@@ -650,7 +680,7 @@ async function main() {
         scale: '1=onveilig (rood), 2=aandacht (oranje), 3=veilig (groen)',
         thresholds: { veilig: '≥2.3', aandacht: '1.5-2.29', onveilig: '<1.5' },
       },
-      sources: ['OSRM (bike routing)', 'OpenStreetMap (infrastructure)', 'BGT/PDOK (fietspad widths)', 'STAR (accidents)'],
+      sources: ['Valhalla (bike routing, use_roads=0)', 'OpenStreetMap (infrastructure)', 'BGT/PDOK (fietspad widths)', 'STAR (accidents)'],
     },
     features: corridors,
   };
