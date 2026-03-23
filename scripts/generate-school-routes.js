@@ -453,11 +453,10 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
         const crowValues = Object.values(scores);
         const crowScore = crowValues.reduce((a, b) => a + b, 0) / crowValues.length;
 
-        // Accident score (separate)
-        let accidentScore;
-        if (accidentCount === 0) accidentScore = 3;
-        else if (accidentCount <= 2) accidentScore = 2;
-        else accidentScore = 1;
+        // Accident score (separate) — continuous scale, more accidents = lower score
+        // 0 accidents = 3, then decays: score = max(0, 3 - accidentCount * 0.3)
+        // So: 1 acc=2.7, 2=2.4, 5=1.5, 10=0, 16=0
+        const accidentScore = Math.max(0, Math.round((3 - accidentCount * 0.3) * 100) / 100);
 
         // Final composite: CROW weighted 70%, accidents 30%
         const composite = crowScore * 0.3 + accidentScore * 0.7;
