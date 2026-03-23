@@ -125,7 +125,8 @@ async function initMap() {
     // 0a. School route corridors — colored by CROW safety score
     const routeLayer = L.geoJSON(routes, {
       style: (feature) => {
-        const label = feature.properties.label || 'aandacht';
+        const score = feature.properties.composite || 0;
+        const label = score >= 2.5 ? 'veilig' : score >= 2 ? 'aandacht' : 'onveilig';
         const colors = ROUTE_COLORS[label] || ROUTE_COLORS.aandacht;
         return {
           color: colors.border,
@@ -147,7 +148,7 @@ async function initMap() {
 
         const scoreHtml = Object.entries(props.scores || {}).map(([key, val]) => {
           const label = scoreLabels[key] || key;
-          const emoji = val >= 2.5 ? '🟢' : val >= 1.5 ? '🟠' : '🔴';
+          const emoji = val >= 2.5 ? '🟢' : val >= 2 ? '🟠' : '🔴';
           return `${emoji} ${label}: ${val.toFixed(1)}`;
         }).join('<br>');
 
@@ -163,7 +164,7 @@ async function initMap() {
           ${props.accidentCount ? `<br>Ongevallen nabij: ${props.accidentCount}` : ''}
         `);
       },
-    }).addTo(map);
+    }); // routes not added to map by default — toggle via layer control
 
     // 0b. Zone polygons — colored by accident count
     const zoneLayer = L.geoJSON(zones, {

@@ -83,15 +83,22 @@ function buildRankings(schools, accidents, zones, routes) {
 
   // Pre-compute route painpoints per school
   const schoolPainpoints = {};
+  const schoolWorstStreet = {}; // track worst-scoring street per school
   for (const route of routes.features) {
     const routeSchools = route.properties.schools || [route.properties.school];
     const scores = route.properties.scores || {};
+    const composite = route.properties.composite || 3;
+    const streetName = route.properties.streetName;
 
     for (const name of routeSchools) {
       if (!schoolPainpoints[name]) schoolPainpoints[name] = {};
       for (const [key, val] of Object.entries(scores)) {
         if (!schoolPainpoints[name][key]) schoolPainpoints[name][key] = [];
         schoolPainpoints[name][key].push(val);
+      }
+      // Track worst street
+      if (streetName && (!schoolWorstStreet[name] || composite < schoolWorstStreet[name].score)) {
+        schoolWorstStreet[name] = { street: streetName, score: composite };
       }
     }
   }
@@ -124,11 +131,14 @@ function buildRankings(schools, accidents, zones, routes) {
       painpoints.sort((a, b) => a.avg - b.avg);
     }
 
+    const worstStreet = schoolWorstStreet[schoolName] || null;
+
     rankings.push({
       name: schoolName,
       studentCount,
       accidentCount,
       painpoints,
+      worstStreet,
       coordinates: school.geometry.coordinates,
     });
   }
@@ -160,13 +170,17 @@ function renderTable(rankings) {
     row.setAttribute('role', 'button');
     row.setAttribute('aria-label', `Toon ${school.name} op kaart`);
 
-    // Painpoints display
+    // Painpoints display with worst street
     let painHtml = '<span class="speed-ok">Geen</span>';
     if (school.painpoints.length > 0) {
-      painHtml = school.painpoints
+      const tags = school.painpoints
         .slice(0, 2)
         .map(p => `<span class="painpoint">${p.label}</span>`)
         .join(' ');
+      const streetNote = school.worstStreet
+        ? `<br><small class="painpoint-street">${school.worstStreet.street}</small>`
+        : '';
+      painHtml = tags + streetNote;
     }
 
     row.innerHTML = `

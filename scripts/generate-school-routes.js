@@ -458,8 +458,8 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
 
         // Label
         let label;
-        if (composite >= 2.3) label = 'veilig';
-        else if (composite >= 1.5) label = 'aandacht';
+        if (composite >= 2.5) label = 'veilig';
+        else if (composite >= 2) label = 'aandacht';
         else label = 'onveilig';
 
         scoredSegments.push({
@@ -471,6 +471,7 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
           composite: Math.round(composite * 100) / 100,
           label,
           accidentCount,
+          streetName: osmProps.name || null,
           osmHighway: osmProps.highway || null,
           bgtWidth,
         });
@@ -571,12 +572,17 @@ function mergeAndAttribute(segments, schools) {
         avgScores[k] = Math.round(avgScores[k] * 100) / 100;
       }
 
+      // Find worst segment's street name
+      const worstSeg = schoolSegs.reduce((worst, s) => s.composite < worst.composite ? s : worst, schoolSegs[0]);
+
       cellSchools.push({
         school,
         wijken: [...uniqueWijken].sort(),
         routeShare: Math.round(routeShare * 100) / 100,
         scores: avgScores,
         accidentCount: Math.max(...schoolSegs.map(s => s.accidentCount)),
+        streetName: worstSeg.streetName,
+        worstComposite: worstSeg.composite,
       });
     }
 
@@ -597,8 +603,8 @@ function mergeAndAttribute(segments, schools) {
 
     const composite = Object.values(mergedScores).reduce((a, b) => a + b, 0) / allScoreKeys.length;
     let label;
-    if (composite >= 2.3) label = 'veilig';
-    else if (composite >= 1.5) label = 'aandacht';
+    if (composite >= 2.5) label = 'veilig';
+    else if (composite >= 2) label = 'aandacht';
     else label = 'onveilig';
 
     mergedFeatures.push({
@@ -611,6 +617,7 @@ function mergeAndAttribute(segments, schools) {
         composite: Math.round(composite * 100) / 100,
         label,
         accidentCount: Math.max(...cellSchools.map(s => s.accidentCount)),
+        streetName: cellSchools.reduce((w, s) => s.worstComposite < w.worstComposite ? s : w, cellSchools[0]).streetName,
       },
     });
   }
@@ -627,7 +634,7 @@ function buildCorridors(features) {
 
   const corridors = features.map(f => {
     try {
-      const buffered = buffer(f, ROUTE_BUFFER_M / 1000, { units: 'kilometers', steps: 1 });
+      const buffered = buffer(f, ROUTE_BUFFER_M / 1000, { units: 'kilometers' });
       if (!buffered) return null;
 
       // Simplify to reduce file size
@@ -678,7 +685,7 @@ async function main() {
       scoring: {
         criteria: ['scheiding', 'breedte', 'verharding', 'verlichting', 'snelheid', 'conflicten'],
         scale: '1=onveilig (rood), 2=aandacht (oranje), 3=veilig (groen)',
-        thresholds: { veilig: '≥2.3', aandacht: '1.5-2.29', onveilig: '<1.5' },
+        thresholds: { veilig: '≥2.5', aandacht: '2.0-2.49', onveilig: '<2.0' },
       },
       sources: ['Valhalla (bike routing, use_roads=0)', 'OpenStreetMap (infrastructure)', 'BGT/PDOK (fietspad widths)', 'STAR (accidents)'],
     },

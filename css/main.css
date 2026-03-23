@@ -478,6 +478,11 @@ a:hover {
   font-weight: 700;
 }
 
+.ranking-table .painpoint-street {
+  color: #757575;
+  font-style: italic;
+}
+
 .ranking-table .painpoint {
   display: inline-block;
   background: #FFF3E0;
