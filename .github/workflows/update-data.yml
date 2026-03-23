@@ -43,3 +43,9 @@ jobs:
           git add data/accidents.geojson data/accidents-filtered.geojson
           git commit -m "chore(data): update accident data [skip ci]"
           git push
+
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy . --project-name schoolgebieden-alkmaar --branch main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
