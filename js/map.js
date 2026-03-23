@@ -58,20 +58,27 @@ async function initMap() {
   }).addTo(map);
 
   try {
-    // Fetch all data in parallel
-    const [zonesRes, schoolsRes, accidentsRes, routesRes] = await Promise.all([
+    // Fetch core data in parallel
+    const [zonesRes, schoolsRes, accidentsRes] = await Promise.all([
       fetch(`${DATA_BASE}/zones.geojson`),
       fetch(`${DATA_BASE}/schools.geojson`),
       fetch(`${DATA_BASE}/accidents-filtered.geojson`),
-      fetch(`${DATA_BASE}/school-routes.geojson`),
     ]);
 
-    const [zones, schools, accidents, routes] = await Promise.all([
+    const [zones, schools, accidents] = await Promise.all([
       zonesRes.json(),
       schoolsRes.json(),
       accidentsRes.json(),
-      routesRes.json(),
     ]);
+
+    // Fetch routes separately (large file, non-blocking)
+    let routes = { features: [] };
+    try {
+      const routesRes = await fetch(`${DATA_BASE}/school-routes.geojson`);
+      if (routesRes.ok) routes = await routesRes.json();
+    } catch (e) {
+      console.warn('School routes failed to load:', e);
+    }
 
     // Pre-compute accident stats per zone
     const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
