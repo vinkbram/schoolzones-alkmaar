@@ -8,18 +8,10 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Schoolgebieden Alkmaar — Nul ongelukken bij scholen in 2030">
-  <meta property="og:description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht. Steun de oproep voor veilige schoolgebieden.">
+  <meta property="og:description" content="Kinderen moeten veilig naar school kunnen fietsen. Bekijk de data en steun de oproep voor veilige schoolgebieden.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://schoolzones-alkmaar.netlify.app">
-  <meta property="og:image" content="https://schoolzones-alkmaar.netlify.app/img/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://schoolgebieden-alkmaar.pages.dev">
   <meta property="og:locale" content="nl_NL">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Schoolgebieden Alkmaar — Nul ongelukken bij scholen in 2030">
-  <meta name="twitter:description" content="Verkeersongelukken bij Alkmaarse scholen in kaart gebracht. Steun de oproep voor veilige schoolgebieden.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +34,7 @@
 </head>
 <body>
 
-  <a href="#kaart" class="skip-link">Ga naar inhoud</a>
+  <a href="#knelpunten" class="skip-link">Ga naar inhoud</a>
 
   <!-- HERO BANNER -->
   <header id="hero" class="hero">
@@ -55,23 +47,34 @@
       </div>
       <div class="hero__right">
         <p class="hero__subtitle">
-          geleden vond het meest recente verkeersongeluk plaats bij een Alkmaarse school.
+          geleden vond het laatste verkeersongeluk plaats bij een Alkmaarse school.
         </p>
         <p class="hero__lead">
-          Schoolgebieden in Alkmaar zijn niet veilig. De data laat het zien.
+          Kinderen moeten veilig naar school kunnen fietsen.
         </p>
       </div>
     </div>
-    <p class="hero__vision"><strong>Nul ongelukken bij scholen in 2030.</strong></p>
+    <p class="hero__vision"><strong>Ons doel: nul verkeersongelukken bij scholen in 2030.</strong></p>
   </header>
 
   <main>
 
+    <!-- KNELPUNTEN — most dangerous road segments -->
+    <section id="knelpunten" class="section">
+      <div class="section__container">
+        <h2 class="section__title">Grootste knelpunten</h2>
+        <p class="section__intro">Deze wegdelen op schoolroutes vragen de meeste aandacht op basis van ongevalshistorie en infrastructuur.</p>
+        <div id="knelpunten-list" class="knelpunten-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
     <!-- INTERACTIEVE KAART -->
     <section id="kaart" class="section section--map">
       <div class="section__container">
-        <h2 class="section__title">Ongelukken rondom Alkmaarse scholen</h2>
-        <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021, binnen 100 meter van een school. Alleen ongelukken in schoolgebieden worden getoond.</p>
+        <h2 class="section__title">Bekijk de kaart</h2>
+        <p class="section__intro">Elke rode stip is een geregistreerd verkeersongeluk sinds 2021. Klik op een schoolgebied of route voor details.</p>
       </div>
       <div id="map" class="map-container" role="application" aria-label="Kaart met schoolgebieden en verkeersongelukken in Alkmaar">
         <div class="map-container__loading" id="map-loading">Kaart laden…</div>
@@ -79,7 +82,7 @@
       <div class="map-legend" id="map-legend">
         <h3 class="map-legend__title">Legenda</h3>
         <ul class="map-legend__list">
-          <li><span class="map-legend__swatch map-legend__swatch--route-safe"></span> Fietsroute — veilig (CROW)</li>
+          <li><span class="map-legend__swatch map-legend__swatch--route-safe"></span> Fietsroute — veilig</li>
           <li><span class="map-legend__swatch map-legend__swatch--route-warn"></span> Fietsroute — aandacht</li>
           <li><span class="map-legend__swatch map-legend__swatch--route-danger"></span> Fietsroute — onveilig</li>
           <li><span class="map-legend__swatch map-legend__swatch--zone-safe"></span> Schoolgebied (0-1 ongelukken)</li>
@@ -93,12 +96,12 @@
       </div>
     </section>
 
-    <!-- PER-SCHOOL RANKING -->
+    <!-- PER-SCHOOL OVERVIEW — top 10 visible, rest scrollable -->
     <section id="ranking" class="section section--alt">
       <div class="section__container">
-        <h2 class="section__title">Overzicht per school</h2>
-        <p class="section__intro">Hoeveel verkeersongelukken vonden plaats binnen 100 meter van elke school?</p>
-        <div class="table-wrapper">
+        <h2 class="section__title">Alle scholen</h2>
+        <p class="section__intro">Gesorteerd op de veiligheid van de schoolroute. Klik op een school om deze op de kaart te bekijken.</p>
+        <div class="table-wrapper" id="table-wrapper">
           <table class="ranking-table" id="ranking-table">
             <thead>
               <tr>
@@ -106,7 +109,7 @@
                 <th scope="col">School</th>
                 <th scope="col">Leerlingen</th>
                 <th scope="col">Ongelukken</th>
-                <th scope="col">Knelpunten route</th>
+                <th scope="col">Knelpunt</th>
               </tr>
             </thead>
             <tbody id="ranking-tbody">
@@ -114,15 +117,17 @@
             </tbody>
           </table>
         </div>
+        <button class="btn btn--expand" id="show-all-schools" style="display:none;">Toon alle scholen</button>
       </div>
     </section>
 
-    <!-- ACTIE-STUB -->
+    <!-- ACTIE -->
     <section id="actie" class="section section--actie">
       <div class="section__container">
         <h2 class="section__title">Doe mee</h2>
         <p class="actie__text">
-          Nul ongelukken bij scholen in 2030. Wij zijn in gesprek met de gemeente Alkmaar.
+          Samen werken we aan veilige schoolroutes in Alkmaar. Wij zijn in gesprek met de gemeente.
+          Deel deze pagina om het verschil te maken.
         </p>
         <div class="actie__share">
           <a href="#" class="btn btn--whatsapp" id="share-whatsapp" aria-label="Deel via WhatsApp">
@@ -142,18 +147,20 @@
       <div class="bronnen__content">
         <h3>Data</h3>
         <ul>
-          <li><strong>Verkeersongelukken:</strong> STAR-registratie (Stichting Wetenschappelijk Onderzoek Verkeersveiligheid), via Rijkswaterstaat open data. Periode: januari 2021 – heden.</li>
-          <li><strong>Scholen:</strong> Scholenopdekaart.nl (DUO / Ministerie van Onderwijs). Basisscholen en middelbare scholen met meer dan 100 leerlingen.</li>
+          <li><strong>Verkeersongelukken:</strong> STAR-registratie (SWOV), via Rijkswaterstaat open data. Periode: januari 2021 – heden.</li>
+          <li><strong>Scholen:</strong> DUO / Ministerie van Onderwijs. Basisscholen en middelbare scholen.</li>
+          <li><strong>Fietsinfrastructuur:</strong> OpenStreetMap (wegen, fietspaden, verlichting) en BGT/PDOK (fietspadbreedtes).</li>
+          <li><strong>Routes:</strong> Valhalla fietsrouter (OpenStreetMap).</li>
         </ul>
         <h3>Methode</h3>
         <ul>
-          <li><strong>Schoolgebied:</strong> 100 meter buffer rondom elke schoolingang, berekend met Turf.js.</li>
-          <li><strong>Filtering:</strong> alleen ongelukken binnen een schoolgebied worden getoond.</li>
-          <li><strong>Rangschikking:</strong> scholen worden gerangschikt op het aantal geregistreerde ongelukken binnen het schoolgebied.</li>
-          <li><strong>Dagenteller:</strong> berekend op basis van de meest recente ongeluksdatum in de dataset.</li>
+          <li><strong>Schoolgebied:</strong> 100 meter buffer rondom elke schoolingang.</li>
+          <li><strong>Fietsroutes:</strong> Berekend vanuit wijkcentra naar nabijgelegen scholen (&lt;2 km). Gescoord op CROW-richtlijnen (scheiding, breedte, verharding, verlichting, snelheid) en ongevalshistorie.</li>
+          <li><strong>Eindscore:</strong> 30% infrastructuur (CROW) + 70% ongevalshistorie.</li>
+          <li><strong>Dagenteller:</strong> gebaseerd op de datum waarop het meest recente ongeval werd geregistreerd.</li>
         </ul>
         <h3>Disclaimer</h3>
-        <p>STAR-data bevat alleen geregistreerde verkeersongelukken. Het werkelijke aantal incidenten ligt waarschijnlijk hoger. Coördinaten in de dataset hebben een nauwkeurigheid van ca. 10-50 meter.</p>
+        <p>STAR-data bevat alleen geregistreerde verkeersongelukken. Het werkelijke aantal incidenten ligt waarschijnlijk hoger. Coördinaten hebben een nauwkeurigheid van ca. 10–50 meter.</p>
       </div>
       </div>
     </section>

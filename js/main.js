@@ -1,4 +1,4 @@
-// main.js — Hero counter, ranking table, social sharing
+// main.js — Hero counter, knelpunten, ranking table, social sharing
 
 const DATA_BASE = './data';
 
@@ -36,6 +36,96 @@ async function initCounter() {
   }
 }
 
+// --- CROW Labels ---
+const CROW_LABELS = {
+  scheiding: 'Geen scheiding fiets/auto',
+  breedte: 'Te smal fietspad',
+  verharding: 'Slechte verharding',
+  verlichting: 'Geen verlichting',
+  snelheid: 'Hoge snelheid',
+};
+
+// --- Knelpunten Section ---
+async function initKnelpunten() {
+  try {
+    const routesRes = await fetch(`${DATA_BASE}/school-routes.geojson`);
+    if (!routesRes.ok) return;
+    const routes = await routesRes.json();
+
+    // Find the worst unique road segments across all schools
+    const streetWorst = new Map(); // streetName → { composite, accidentCount, schools, reasons }
+
+    for (const f of routes.features) {
+      const name = f.properties.streetName;
+      if (!name) continue;
+
+      const composite = f.properties.composite || 3;
+      const scores = f.properties.scores || {};
+      const accidentCount = f.properties.accidentCount || 0;
+      const accidentScore = f.properties.accidentScore || 3;
+      const schools = f.properties.schools || [];
+
+      const reasons = [];
+      for (const [key, val] of Object.entries(scores)) {
+        if (val < 2) reasons.push(CROW_LABELS[key] || key);
+      }
+      if (accidentScore < 2) reasons.push(`${accidentCount} ongevallen`);
+
+      const existing = streetWorst.get(name);
+      if (!existing || composite < existing.composite) {
+        streetWorst.set(name, {
+          composite,
+          accidentCount,
+          schools: [...new Set(schools)],
+          reasons,
+          crowScore: f.properties.crowScore || 0,
+          accidentScore: accidentScore,
+        });
+      } else {
+        // Merge schools
+        for (const s of schools) {
+          if (!existing.schools.includes(s)) existing.schools.push(s);
+        }
+        existing.accidentCount = Math.max(existing.accidentCount, accidentCount);
+      }
+    }
+
+    // Sort by composite ascending (worst first), take top 5
+    const sorted = [...streetWorst.entries()]
+      .sort((a, b) => a[1].composite - b[1].composite)
+      .slice(0, 5);
+
+    const container = document.getElementById('knelpunten-list');
+    if (!container || sorted.length === 0) return;
+
+    container.innerHTML = sorted.map(([street, data], i) => {
+      const schoolList = data.schools.slice(0, 3).join(', ');
+      const moreSchools = data.schools.length > 3 ? ` +${data.schools.length - 3}` : '';
+
+      const tags = data.reasons
+        .slice(0, 3)
+        .map(r => `<span class="painpoint">${r}</span>`)
+        .join(' ');
+
+      const scoreClass = data.composite < 1 ? 'knelpunt--critical' : data.composite < 2 ? 'knelpunt--danger' : 'knelpunt--warn';
+
+      return `
+        <div class="knelpunt ${scoreClass}">
+          <div class="knelpunt__rank">${i + 1}</div>
+          <div class="knelpunt__content">
+            <h3 class="knelpunt__street">${escapeHtml(street)}</h3>
+            <div class="knelpunt__tags">${tags}</div>
+            <p class="knelpunt__schools">Schoolroute voor: ${escapeHtml(schoolList)}${moreSchools}</p>
+          </div>
+          <div class="knelpunt__score">${data.composite.toFixed(1)}</div>
+        </div>
+      `;
+    }).join('');
+  } catch (err) {
+    console.error('Knelpunten failed:', err);
+  }
+}
+
 // --- Ranking Table ---
 async function initRanking() {
   try {
@@ -53,7 +143,6 @@ async function initRanking() {
     const accidents = await accidentsRes.json();
     const zones = await zonesRes.json();
 
-    // Load route data for painpoints
     let routes = { features: [] };
     try {
       const routesRes = await fetch(`${DATA_BASE}/school-routes.geojson`);
@@ -69,19 +158,9 @@ async function initRanking() {
   }
 }
 
-const CROW_LABELS = {
-  scheiding: 'Geen scheiding fiets/auto',
-  breedte: 'Te smal fietspad',
-  verharding: 'Slechte verharding',
-  verlichting: 'Geen verlichting',
-  snelheid: 'Hoge snelheid',
-  conflicten: 'Ongevallen nabij route',
-};
-
 function buildRankings(schools, accidents, zones, routes) {
   const rankings = [];
 
-  // Pre-compute worst segment per school from route data
   const schoolWorstSegment = {};
   for (const route of routes.features) {
     const routeSchools = route.properties.schools || [route.properties.school];
@@ -93,7 +172,6 @@ function buildRankings(schools, accidents, zones, routes) {
 
     for (const name of routeSchools) {
       if (!schoolWorstSegment[name] || composite < schoolWorstSegment[name].composite) {
-        // Collect reasons this segment is bad
         const reasons = [];
         for (const [key, val] of Object.entries(scores)) {
           if (val < 2) reasons.push(CROW_LABELS[key] || key);
@@ -114,7 +192,6 @@ function buildRankings(schools, accidents, zones, routes) {
     const schoolName = school.properties.name;
     const studentCount = school.properties.studentCount || 0;
 
-    // Find matching zone for this school
     const zone = zones.features.find(z => z.properties.school === schoolName);
 
     let accidentCount = 0;
@@ -138,15 +215,12 @@ function buildRankings(schools, accidents, zones, routes) {
     });
   }
 
-  // Sort by worst segment score ascending (most dangerous first), then by accident count
-  rankings.sort((a, b) => {
-    const aScore = a.worstSegment ? a.worstSegment.composite : 3;
-    const bScore = b.worstSegment ? b.worstSegment.composite : 3;
-    if (aScore !== bScore) return aScore - bScore;
-    return b.accidentCount - a.accidentCount;
-  });
+  // Sort by accident count descending (most accidents first)
+  rankings.sort((a, b) => b.accidentCount - a.accidentCount);
   return rankings;
 }
+
+const TOP_VISIBLE = 10;
 
 function renderTable(rankings) {
   const tbody = document.getElementById('ranking-tbody');
@@ -156,10 +230,9 @@ function renderTable(rankings) {
 
   rankings.forEach((school, i) => {
     const row = document.createElement('tr');
-    const isTop5 = i < 5;
 
-    if (isTop5) {
-      row.classList.add('ranking-table__row--highlight');
+    if (i >= TOP_VISIBLE) {
+      row.classList.add('ranking-table__row--hidden');
     }
 
     const riskClass = school.accidentCount >= 5 ? 'risk-high'
@@ -170,7 +243,6 @@ function renderTable(rankings) {
     row.setAttribute('role', 'button');
     row.setAttribute('aria-label', `Toon ${school.name} op kaart`);
 
-    // Worst segment display
     let painHtml = '<span class="speed-ok">Geen knelpunten</span>';
     if (school.worstSegment && school.worstSegment.reasons.length > 0) {
       const streetName = school.worstSegment.street
@@ -193,7 +265,6 @@ function renderTable(rankings) {
       <td>${painHtml}</td>
     `;
 
-    // Click/Enter to pan map to school
     const panToSchool = () => {
       const mapSection = document.getElementById('kaart');
       mapSection.scrollIntoView({ behavior: 'smooth' });
@@ -212,14 +283,28 @@ function renderTable(rankings) {
 
     tbody.appendChild(row);
   });
+
+  // Show "Toon alle scholen" button if there are more than TOP_VISIBLE
+  if (rankings.length > TOP_VISIBLE) {
+    const btn = document.getElementById('show-all-schools');
+    if (btn) {
+      btn.style.display = '';
+      btn.textContent = `Toon alle ${rankings.length} scholen`;
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ranking-table__row--hidden').forEach(r => {
+          r.classList.remove('ranking-table__row--hidden');
+        });
+        btn.style.display = 'none';
+      });
+    }
+  }
 }
 
 // --- Social Sharing ---
 function initSharing() {
   const pageUrl = window.location.href;
-  const shareText = 'Schoolgebieden in Alkmaar zijn niet veilig. Bekijk de data — nul ongelukken bij scholen in 2030.';
+  const shareText = 'Kinderen moeten veilig naar school kunnen fietsen. Bekijk de data over schoolroutes in Alkmaar.';
 
-  // WhatsApp
   const waBtn = document.getElementById('share-whatsapp');
   if (waBtn) {
     waBtn.href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + pageUrl)}`;
@@ -227,7 +312,6 @@ function initSharing() {
     waBtn.rel = 'noopener noreferrer';
   }
 
-  // Copy link
   const copyBtn = document.getElementById('share-copy');
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
@@ -240,7 +324,6 @@ function initSharing() {
           copyBtn.classList.remove('btn--copy--success');
         }, 2000);
       } catch {
-        // Fallback for older browsers
         const input = document.createElement('input');
         input.value = pageUrl;
         document.body.appendChild(input);
@@ -264,6 +347,7 @@ function escapeHtml(str) {
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
   initCounter();
+  initKnelpunten();
   initRanking();
   initSharing();
 });

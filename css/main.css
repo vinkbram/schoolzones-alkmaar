@@ -479,11 +479,11 @@ a:hover {
 }
 
 .ranking-table .painpoint-street {
-  color: #757575;
-  font-style: italic;
+  color: #424242;
+  font-style: normal;
 }
 
-.ranking-table .painpoint {
+.painpoint {
   display: inline-block;
   background: #FFF3E0;
   color: #E65100;
@@ -494,6 +494,97 @@ a:hover {
   margin: 0.1rem 0.15rem;
   white-space: nowrap;
 }
+
+.ranking-table__row--hidden {
+  display: none;
+}
+
+.btn--expand {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.75rem 2rem;
+  background: var(--clr-bg);
+  border: 2px solid var(--clr-border);
+  border-radius: var(--radius);
+  color: var(--clr-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn--expand:hover {
+  background: #E8E8E8;
+}
+
+/* --- Knelpunten Cards --- */
+.knelpunten-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.knelpunt {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border-left: 5px solid #E65100;
+}
+.knelpunt--critical {
+  border-left-color: var(--clr-danger);
+  background: #FFF5F5;
+}
+.knelpunt--danger {
+  border-left-color: #E65100;
+  background: #FFF8F0;
+}
+.knelpunt--warn {
+  border-left-color: #F9A825;
+  background: #FFFDE7;
+}
+
+.knelpunt__rank {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #BDBDBD;
+  min-width: 2rem;
+  text-align: center;
+}
+.knelpunt--critical .knelpunt__rank { color: var(--clr-danger); }
+.knelpunt--danger .knelpunt__rank { color: #E65100; }
+
+.knelpunt__content {
+  flex: 1;
+}
+
+.knelpunt__street {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--clr-text);
+}
+
+.knelpunt__tags {
+  margin-bottom: 0.35rem;
+}
+
+.knelpunt__schools {
+  font-size: 0.8rem;
+  color: #757575;
+  margin: 0;
+}
+
+.knelpunt__score {
+  font-size: 1.4rem;
+  font-weight: 800;
+  min-width: 2.5rem;
+  text-align: center;
+}
+.knelpunt--critical .knelpunt__score { color: var(--clr-danger); }
+.knelpunt--danger .knelpunt__score { color: #E65100; }
+.knelpunt--warn .knelpunt__score { color: #F9A825; }
 
 .ranking-table .speed-ok {
   color: var(--clr-safe);
