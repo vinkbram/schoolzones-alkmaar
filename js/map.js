@@ -151,10 +151,11 @@ async function initMap() {
           return `${emoji} ${label}: ${val.toFixed(1)}`;
         }).join('<br>');
 
+        const schoolsStr = (props.schools || [props.school]).join(', ');
         const wijkenStr = (props.wijken || []).join(', ');
 
         layer.bindPopup(`
-          <strong>${props.school}</strong><br>
+          <strong>${schoolsStr}</strong><br>
           Route vanuit: ${wijkenStr}<br>
           <strong>CROW-score: ${props.composite} (${props.label})</strong><br>
           <hr style="margin:4px 0">

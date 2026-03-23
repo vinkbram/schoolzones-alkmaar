@@ -463,8 +463,16 @@ function quickDist(lon1, lat1, lon2, lat2) {
 
 // --- Step 6: Merge overlapping segments and attribute to schools ---
 
-function mergeAndAttribute(segments) {
+function mergeAndAttribute(segments, schools) {
   console.log('\nMerging overlapping segments and attributing to schools...');
+
+  const MAX_SCHOOL_DIST_KM = 0.75; // 750m — segments beyond this aren't attributed
+
+  // Build school coordinate lookup
+  const schoolCoords = {};
+  for (const s of schools.features) {
+    schoolCoords[s.properties.name] = s.geometry.coordinates;
+  }
 
   // Group segments by spatial location (grid cell)
   const cellSize = 0.001; // ~100m grid
@@ -479,7 +487,6 @@ function mergeAndAttribute(segments) {
     grid.get(key).push(seg);
   }
 
-  // For each grid cell, find unique segments and count which schools use them
   const mergedFeatures = [];
   const schoolRouteCounts = {};
 
@@ -489,11 +496,12 @@ function mergeAndAttribute(segments) {
     const key = `${seg.school}__${seg.wijk}`;
     routesBySchool.set(key, true);
   }
-  // Count routes per school
   for (const [key] of routesBySchool) {
     const school = key.split('__')[0];
     schoolRouteCounts[school] = (schoolRouteCounts[school] || 0) + 1;
   }
+
+  let droppedDist = 0;
 
   for (const [, cellSegments] of grid) {
     // Group by school
@@ -503,17 +511,29 @@ function mergeAndAttribute(segments) {
       bySchool.get(seg.school).push(seg);
     }
 
-    // For each school group in this cell, take the representative segment
+    // Collect all schools this cell is attributed to (allows multi-school)
+    const cellSchools = [];
+
     for (const [school, schoolSegs] of bySchool) {
+      // Check distance from segment to school — must be within 750m
+      const rep = schoolSegs[0];
+      const mid = rep.geometry.coordinates[Math.floor(rep.geometry.coordinates.length / 2)];
+      const sCoords = schoolCoords[school];
+      if (sCoords) {
+        const dist = distance(point(mid), point(sCoords), { units: 'kilometers' });
+        if (dist > MAX_SCHOOL_DIST_KM) {
+          droppedDist += schoolSegs.length;
+          continue;
+        }
+      }
+
       const totalRoutes = schoolRouteCounts[school] || 1;
-      // Count unique wijk routes through this cell for this school
       const uniqueWijken = new Set(schoolSegs.map(s => s.wijk));
       const routeShare = uniqueWijken.size / totalRoutes;
 
-      // Only attribute if significant share of routes pass through
       if (routeShare < MIN_ROUTE_SHARE) continue;
 
-      // Average scores across all segments in this cell for this school
+      // Average scores
       const avgScores = {};
       const scoreKeys = Object.keys(schoolSegs[0].scores);
       for (const k of scoreKeys) {
@@ -521,32 +541,52 @@ function mergeAndAttribute(segments) {
         avgScores[k] = Math.round(avgScores[k] * 100) / 100;
       }
 
-      const composite = Object.values(avgScores).reduce((a, b) => a + b, 0) / scoreKeys.length;
-      let label;
-      if (composite >= 2.3) label = 'veilig';
-      else if (composite >= 1.5) label = 'aandacht';
-      else label = 'onveilig';
-
-      // Use the first segment's geometry as representative
-      const rep = schoolSegs[0];
-
-      mergedFeatures.push({
-        type: 'Feature',
-        geometry: rep.geometry,
-        properties: {
-          school,
-          wijken: [...uniqueWijken].sort(),
-          routeShare: Math.round(routeShare * 100) / 100,
-          scores: avgScores,
-          composite: Math.round(composite * 100) / 100,
-          label,
-          accidentCount: Math.max(...schoolSegs.map(s => s.accidentCount)),
-        },
+      cellSchools.push({
+        school,
+        wijken: [...uniqueWijken].sort(),
+        routeShare: Math.round(routeShare * 100) / 100,
+        scores: avgScores,
+        accidentCount: Math.max(...schoolSegs.map(s => s.accidentCount)),
       });
     }
+
+    // Skip cells not attributed to any school
+    if (cellSchools.length === 0) continue;
+
+    // Use representative geometry from first school's segments
+    const firstSchoolSegs = bySchool.get(cellSchools[0].school);
+    const repGeom = firstSchoolSegs[0].geometry;
+
+    // Merge scores across all attributed schools (weighted average)
+    const allScoreKeys = Object.keys(cellSchools[0].scores);
+    const mergedScores = {};
+    for (const k of allScoreKeys) {
+      mergedScores[k] = cellSchools.reduce((sum, s) => sum + s.scores[k], 0) / cellSchools.length;
+      mergedScores[k] = Math.round(mergedScores[k] * 100) / 100;
+    }
+
+    const composite = Object.values(mergedScores).reduce((a, b) => a + b, 0) / allScoreKeys.length;
+    let label;
+    if (composite >= 2.3) label = 'veilig';
+    else if (composite >= 1.5) label = 'aandacht';
+    else label = 'onveilig';
+
+    mergedFeatures.push({
+      type: 'Feature',
+      geometry: repGeom,
+      properties: {
+        schools: cellSchools.map(s => s.school),
+        wijken: [...new Set(cellSchools.flatMap(s => s.wijken))].sort(),
+        scores: mergedScores,
+        composite: Math.round(composite * 100) / 100,
+        label,
+        accidentCount: Math.max(...cellSchools.map(s => s.accidentCount)),
+      },
+    });
   }
 
   console.log(`  ${mergedFeatures.length} merged features (from ${segments.length} raw segments)`);
+  console.log(`  ${droppedDist} segments dropped (>750m from school)`);
   return mergedFeatures;
 }
 
@@ -591,8 +631,8 @@ async function main() {
   // Step 5: Score segments
   const segments = scoreSegments(routes, osmWays, bgtPaths, accidents);
 
-  // Step 6: Merge and attribute
-  const merged = mergeAndAttribute(segments);
+  // Step 6: Merge and attribute (750m max from school, multi-school)
+  const merged = mergeAndAttribute(segments, schools);
 
   // Step 7: Build corridors
   const corridors = buildCorridors(merged);
