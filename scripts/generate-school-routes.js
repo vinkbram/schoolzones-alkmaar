@@ -32,7 +32,7 @@ const OSRM_API = 'https://router.project-osrm.org/route/v1/bike';
 const BGT_API = 'https://api.pdok.nl/lv/bgt/ogc/v1_0/collections/wegdeel/items';
 const ALKMAAR_BBOX = [4.68, 52.55, 4.85, 52.70]; // [minLon, minLat, maxLon, maxLat]
 
-const MAX_DISTANCE_KM = 5;       // Skip wijk-school pairs further than this
+const MAX_DISTANCE_KM = 2;       // Skip wijk-school pairs further than this
 const ROUTE_BUFFER_M = 25;       // Corridor width (each side)
 const SEGMENT_LENGTH_M = 100;    // Chunk routes into segments for scoring
 const MIN_ROUTE_SHARE = 0.2;     // Segment must be on ≥20% of a school's routes to be attributed
@@ -124,7 +124,7 @@ async function fetchRoutes(schools, wijken) {
     }
   }
 
-  console.log(`  ${routes.length} routes calculated, ${skipped} pairs skipped (>5km)`);
+  console.log(`  ${routes.length} routes calculated, ${skipped} pairs skipped (>${MAX_DISTANCE_KM}km)`);
   return routes;
 }
 
