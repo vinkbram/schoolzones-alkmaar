@@ -478,6 +478,18 @@ a:hover {
   font-weight: 700;
 }
 
+.ranking-table .painpoint {
+  display: inline-block;
+  background: #FFF3E0;
+  color: #E65100;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin: 0.1rem 0.15rem;
+  white-space: nowrap;
+}
+
 .ranking-table .speed-ok {
   color: var(--clr-safe);
   font-weight: 600;

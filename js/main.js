@@ -53,7 +53,14 @@ async function initRanking() {
     const accidents = await accidentsRes.json();
     const zones = await zonesRes.json();
 
-    const rankings = buildRankings(schools, accidents, zones);
+    // Load route data for painpoints
+    let routes = { features: [] };
+    try {
+      const routesRes = await fetch(`${DATA_BASE}/school-routes.geojson`);
+      if (routesRes.ok) routes = await routesRes.json();
+    } catch (e) { /* non-blocking */ }
+
+    const rankings = buildRankings(schools, accidents, zones, routes);
     renderTable(rankings);
   } catch (err) {
     console.error('Ranking table failed:', err);
@@ -62,8 +69,32 @@ async function initRanking() {
   }
 }
 
-function buildRankings(schools, accidents, zones) {
+const CROW_LABELS = {
+  scheiding: 'Geen scheiding fiets/auto',
+  breedte: 'Te smal fietspad',
+  verharding: 'Slechte verharding',
+  verlichting: 'Geen verlichting',
+  snelheid: 'Hoge snelheid',
+  conflicten: 'Ongevallen nabij route',
+};
+
+function buildRankings(schools, accidents, zones, routes) {
   const rankings = [];
+
+  // Pre-compute route painpoints per school
+  const schoolPainpoints = {};
+  for (const route of routes.features) {
+    const routeSchools = route.properties.schools || [route.properties.school];
+    const scores = route.properties.scores || {};
+
+    for (const name of routeSchools) {
+      if (!schoolPainpoints[name]) schoolPainpoints[name] = {};
+      for (const [key, val] of Object.entries(scores)) {
+        if (!schoolPainpoints[name][key]) schoolPainpoints[name][key] = [];
+        schoolPainpoints[name][key].push(val);
+      }
+    }
+  }
 
   for (const school of schools.features) {
     const schoolName = school.properties.name;
@@ -82,12 +113,22 @@ function buildRankings(schools, accidents, zones) {
       }
     }
 
+    // Find worst CROW criteria (average score < 2 = painpoint)
+    const painpoints = [];
+    const sp = schoolPainpoints[schoolName];
+    if (sp) {
+      for (const [key, vals] of Object.entries(sp)) {
+        const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+        if (avg < 2) painpoints.push({ key, avg, label: CROW_LABELS[key] || key });
+      }
+      painpoints.sort((a, b) => a.avg - b.avg);
+    }
+
     rankings.push({
       name: schoolName,
       studentCount,
       accidentCount,
-      maxSpeed: school.properties.maxSpeed || null,
-      speedLimits: school.properties.speedLimits || [],
+      painpoints,
       coordinates: school.geometry.coordinates,
     });
   }
@@ -119,11 +160,13 @@ function renderTable(rankings) {
     row.setAttribute('role', 'button');
     row.setAttribute('aria-label', `Toon ${school.name} op kaart`);
 
-    // Speed limit display
-    let speedHtml = '–';
-    if (school.maxSpeed) {
-      const speedClass = school.maxSpeed > 30 ? 'speed-high' : 'speed-ok';
-      speedHtml = `<span class="${speedClass}">${school.maxSpeed} km/u</span>`;
+    // Painpoints display
+    let painHtml = '<span class="speed-ok">Geen</span>';
+    if (school.painpoints.length > 0) {
+      painHtml = school.painpoints
+        .slice(0, 2)
+        .map(p => `<span class="painpoint">${p.label}</span>`)
+        .join(' ');
     }
 
     row.innerHTML = `
@@ -131,7 +174,7 @@ function renderTable(rankings) {
       <td>${escapeHtml(school.name)}</td>
       <td>${formatter.format(school.studentCount)}</td>
       <td class="${riskClass}">${school.accidentCount}</td>
-      <td>${speedHtml}</td>
+      <td>${painHtml}</td>
     `;
 
     // Click/Enter to pan map to school
