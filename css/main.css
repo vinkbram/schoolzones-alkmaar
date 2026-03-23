@@ -13,6 +13,20 @@
   100% { stroke-opacity: 1; }
 }
 
+/* Cluster containing new accidents */
+.marker-cluster--new {
+  box-shadow: 0 0 0 4px #FFEB3B, 0 0 12px rgba(255, 235, 59, 0.6);
+  animation: cluster-pulse 1.5s ease-out infinite;
+}
+.marker-cluster--new div {
+  border: 2px solid #FFEB3B;
+}
+@keyframes cluster-pulse {
+  0%   { box-shadow: 0 0 0 4px #FFEB3B, 0 0 12px rgba(255, 235, 59, 0.6); }
+  50%  { box-shadow: 0 0 0 6px #FFEB3B, 0 0 20px rgba(255, 235, 59, 0.4); }
+  100% { box-shadow: 0 0 0 4px #FFEB3B, 0 0 12px rgba(255, 235, 59, 0.6); }
+}
+
 /* --- Custom Properties --- */
 :root {
   --clr-danger: #E53935;

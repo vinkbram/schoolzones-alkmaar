@@ -165,9 +165,16 @@ async function initMap() {
         let diameter = 36;
         if (count > 50) { size = 'large'; diameter = 52; }
         else if (count > 20) { size = 'medium'; diameter = 44; }
+
+        // Check if cluster contains any new accidents
+        const hasNew = latestFirstSeen && cluster.getAllChildMarkers().some(
+          m => m.feature && m.feature.properties.firstSeen === latestFirstSeen
+        );
+        const newClass = hasNew ? ' marker-cluster--new' : '';
+
         return L.divIcon({
           html: `<div><span>${count}</span></div>`,
-          className: `marker-cluster marker-cluster-${size}`,
+          className: `marker-cluster marker-cluster-${size}${newClass}`,
           iconSize: L.point(diameter, diameter),
         });
       },

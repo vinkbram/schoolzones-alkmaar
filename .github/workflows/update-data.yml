@@ -2,8 +2,8 @@ name: Update accident data
 
 on:
   schedule:
-    # 05:00 UTC = 06:00 CET
-    - cron: '0 5 * * *'
+    # 00:30 UTC = 01:30 CET
+    - cron: '30 0 * * *'
   workflow_dispatch:
 
 permissions:

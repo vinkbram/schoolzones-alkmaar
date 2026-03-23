@@ -25,7 +25,7 @@ for (const school of schools.features) {
 
   for (const entrance of entrances) {
     const pt = point(entrance);
-    const buffered = buffer(pt, 500, { units: 'meters' });
+    const buffered = buffer(pt, 250, { units: 'meters' });
     buffered.properties = {
       school: school.properties.name,
     };
@@ -36,7 +36,7 @@ for (const school of schools.features) {
 const output = featureCollection(zoneFeatures);
 output.metadata = {
   generated: new Date().toISOString(),
-  bufferMeters: 500,
+  bufferMeters: 250,
   schoolCount: schools.features.length,
   zoneCount: zoneFeatures.length,
 };
