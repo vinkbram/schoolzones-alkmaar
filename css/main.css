@@ -229,15 +229,6 @@ a:hover {
   margin-bottom: var(--space-sm);
   text-align: center;
   color: var(--clr-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.section__icon {
-  flex-shrink: 0;
-  opacity: 0.7;
 }
 
 .section__intro {
@@ -638,9 +629,6 @@ a:hover {
   color: var(--clr-white);
 }
 
-.section--actie .section__icon {
-  stroke: var(--clr-white);
-}
 
 .actie__text {
   font-size: clamp(1.05rem, 2.5vw, 1.25rem);
