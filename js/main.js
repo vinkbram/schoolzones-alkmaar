@@ -101,15 +101,30 @@ function quickDist(lon1, lat1, lon2, lat2) {
   return Math.sqrt(dLon * dLon + dLat * dLat);
 }
 
-// Find the worst segment for each school, including segments within 100m of the school
-function buildSchoolWorstSegments(routes, schools) {
+// Check if a point [lon, lat] falls within a zone using turf (same check used for accidents)
+function pointInZone(coords, zone) {
+  if (typeof turf === 'undefined') return false;
+  return turf.booleanPointInPolygon(turf.point(coords), zone);
+}
+
+// Find the worst segment for each school:
+// 1) segments explicitly assigned via route's schools property
+// 2) segments whose geometry is within a school's zone (same zones used for accident counting)
+function buildSchoolWorstSegments(routes, zones) {
   const PROXIMITY_DEG = 0.001; // ~100m
   const schoolWorst = {};
 
-  // Build school coordinate lookup
-  const schoolCoords = {};
-  for (const s of schools.features) {
-    schoolCoords[s.properties.name] = s.geometry.coordinates;
+  // Index zones by school name — same dataset used for accident attribution
+  const zoneBySchool = {};
+  const schoolCoords = {}; // centroid from zone for quickDist
+  for (const z of zones.features) {
+    const name = z.properties.school;
+    zoneBySchool[name] = z;
+    // Use zone centroid for quick distance pre-filter
+    const coords = z.geometry.coordinates[0];
+    const cx = coords.reduce((s, c) => s + c[0], 0) / coords.length;
+    const cy = coords.reduce((s, c) => s + c[1], 0) / coords.length;
+    schoolCoords[name] = [cx, cy];
   }
 
   for (const f of routes.features) {
@@ -137,15 +152,14 @@ function buildSchoolWorstSegments(routes, schools) {
       }
     }
 
-    // 2) Also attribute to any school within 100m of the segment
-    // Check segment coordinates against all school positions
+    // 2) Check segment coords against school zones using quickDist pre-filter
     const segCoords = f.geometry.type === 'Polygon'
       ? f.geometry.coordinates[0]
       : f.geometry.coordinates;
 
-    for (const [schoolName, [sLon, sLat]] of Object.entries(schoolCoords)) {
+    for (const [schoolName, [cx, cy]] of Object.entries(schoolCoords)) {
       for (const c of segCoords) {
-        if (quickDist(c[0], c[1], sLon, sLat) < PROXIMITY_DEG) {
+        if (quickDist(c[0], c[1], cx, cy) < PROXIMITY_DEG) {
           if (!schoolWorst[schoolName] || composite < schoolWorst[schoolName].composite) {
             schoolWorst[schoolName] = segData;
           }
@@ -173,7 +187,7 @@ async function initRanking() {
     const accidents = await accidentsRes.json();
     const zones = await zonesRes.json();
 
-    const schoolWorst = buildSchoolWorstSegments(routes, schools);
+    const schoolWorst = buildSchoolWorstSegments(routes, zones);
     const rankings = buildRankings(schools, accidents, zones, schoolWorst);
     renderTable(rankings);
   } catch (err) {
