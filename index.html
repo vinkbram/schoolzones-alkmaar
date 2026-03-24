@@ -22,8 +22,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin="anonymous">
-
-  <!-- Leaflet MarkerCluster CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
@@ -34,9 +32,9 @@
 </head>
 <body>
 
-  <a href="#knelpunten" class="skip-link">Ga naar inhoud</a>
+  <a href="#kaart" class="skip-link">Ga naar inhoud</a>
 
-  <!-- HERO BANNER -->
+  <!-- HERO -->
   <header id="hero" class="hero">
     <div class="hero__container">
       <div class="hero__left">
@@ -58,17 +56,6 @@
   </header>
 
   <main>
-
-    <!-- KNELPUNTEN — most dangerous road segments -->
-    <section id="knelpunten" class="section">
-      <div class="section__container">
-        <h2 class="section__title">Grootste knelpunten</h2>
-        <p class="section__intro">Deze wegdelen op schoolroutes vragen de meeste aandacht op basis van ongevalshistorie en infrastructuur.</p>
-        <div id="knelpunten-list" class="knelpunten-list">
-          <!-- Populated by JS -->
-        </div>
-      </div>
-    </section>
 
     <!-- INTERACTIEVE KAART -->
     <section id="kaart" class="section section--map">
@@ -96,11 +83,11 @@
       </div>
     </section>
 
-    <!-- PER-SCHOOL OVERVIEW — top 10 visible, rest scrollable -->
+    <!-- ALLE SCHOLEN -->
     <section id="ranking" class="section section--alt">
       <div class="section__container">
         <h2 class="section__title">Alle scholen</h2>
-        <p class="section__intro">Gesorteerd op de veiligheid van de schoolroute. Klik op een school om deze op de kaart te bekijken.</p>
+        <p class="section__intro">Gesorteerd op het aantal geregistreerde verkeersongelukken. Klik op een school om deze op de kaart te bekijken.</p>
         <div class="table-wrapper" id="table-wrapper">
           <table class="ranking-table" id="ranking-table">
             <thead>
@@ -109,19 +96,26 @@
                 <th scope="col">School</th>
                 <th scope="col">Leerlingen</th>
                 <th scope="col">Ongelukken</th>
-                <th scope="col">Knelpunt</th>
+                <th scope="col">Grootste knelpunt</th>
               </tr>
             </thead>
-            <tbody id="ranking-tbody">
-              <!-- Populated by JS -->
-            </tbody>
+            <tbody id="ranking-tbody"></tbody>
           </table>
         </div>
         <button class="btn btn--expand" id="show-all-schools" style="display:none;">Toon alle scholen</button>
       </div>
     </section>
 
-    <!-- ACTIE -->
+    <!-- WAT MOET ER VERANDEREN -->
+    <section id="knelpunten" class="section">
+      <div class="section__container">
+        <h2 class="section__title">Wat moet er veranderen?</h2>
+        <p class="section__intro">Op basis van ongevalshistorie en de kwaliteit van de fietsinfrastructuur identificeren we vijf wegdelen die als eerste aandacht verdienen.</p>
+        <div id="knelpunten-list" class="knelpunten-list"></div>
+      </div>
+    </section>
+
+    <!-- DOE MEE -->
     <section id="actie" class="section section--actie">
       <div class="section__container">
         <h2 class="section__title">Doe mee</h2>
@@ -130,17 +124,13 @@
           Deel deze pagina om het verschil te maken.
         </p>
         <div class="actie__share">
-          <a href="#" class="btn btn--whatsapp" id="share-whatsapp" aria-label="Deel via WhatsApp">
-            Deel via WhatsApp
-          </a>
-          <button class="btn btn--copy" id="share-copy" aria-label="Kopieer link">
-            Kopieer link
-          </button>
+          <a href="#" class="btn btn--whatsapp" id="share-whatsapp" aria-label="Deel via WhatsApp">Deel via WhatsApp</a>
+          <button class="btn btn--copy" id="share-copy" aria-label="Kopieer link">Kopieer link</button>
         </div>
       </div>
     </section>
 
-    <!-- BRONNEN & METHODOLOGIE -->
+    <!-- BRONNEN -->
     <section id="bronnen" class="section">
       <div class="section__container">
       <h2 class="section__title">Bronnen &amp; methodologie</h2>
@@ -175,15 +165,9 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin="anonymous"></script>
-
-  <!-- Leaflet MarkerCluster JS -->
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
     crossorigin="anonymous"></script>
-
-  <!-- Turf.js (browser bundle — used for point-in-polygon in ranking) -->
   <script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
-
-  <!-- App JS -->
   <script type="module" src="js/main.js"></script>
   <script type="module" src="js/map.js"></script>
 

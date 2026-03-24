@@ -1,4 +1,4 @@
-// main.js — Hero counter, knelpunten, ranking table, social sharing
+// main.js — Hero counter, ranking table, knelpunten, social sharing
 
 const DATA_BASE = './data';
 
@@ -45,111 +45,117 @@ const CROW_LABELS = {
   snelheid: 'Hoge snelheid',
 };
 
-// --- Knelpunten Section ---
-async function initKnelpunten() {
+// Natural language suggestions per CROW issue
+const CROW_SUGGESTIONS = {
+  scheiding: 'een vrijliggend fietspad aanleggen',
+  breedte: 'het fietspad verbreden',
+  verharding: 'de verharding verbeteren',
+  verlichting: 'straatverlichting plaatsen',
+  snelheid: 'de maximumsnelheid verlagen',
+};
+
+// --- Shared data loading ---
+let _routesData = null;
+let _schoolsData = null;
+
+async function loadRoutes() {
+  if (_routesData) return _routesData;
   try {
-    const routesRes = await fetch(`${DATA_BASE}/school-routes.geojson`);
-    if (!routesRes.ok) return;
-    const routes = await routesRes.json();
+    const res = await fetch(`${DATA_BASE}/school-routes.geojson`);
+    if (res.ok) _routesData = await res.json();
+  } catch (e) { /* non-blocking */ }
+  return _routesData || { features: [] };
+}
 
-    // Find the worst unique road segments across all schools
-    const streetWorst = new Map(); // streetName → { composite, accidentCount, schools, reasons }
+async function loadSchools() {
+  if (_schoolsData) return _schoolsData;
+  try {
+    const res = await fetch(`${DATA_BASE}/schools.geojson`);
+    if (res.ok) _schoolsData = await res.json();
+  } catch (e) { /* non-blocking */ }
+  return _schoolsData || { features: [] };
+}
 
-    for (const f of routes.features) {
-      const name = f.properties.streetName;
-      if (!name) continue;
+// Quick distance in degrees (~100m ≈ 0.001)
+function quickDist(lon1, lat1, lon2, lat2) {
+  const dLon = lon1 - lon2, dLat = lat1 - lat2;
+  return Math.sqrt(dLon * dLon + dLat * dLat);
+}
 
-      const composite = f.properties.composite || 3;
-      const scores = f.properties.scores || {};
-      const accidentCount = f.properties.accidentCount || 0;
-      const accidentScore = f.properties.accidentScore || 3;
-      const schools = f.properties.schools || [];
+// Find the worst segment for each school, including segments within 100m of the school
+function buildSchoolWorstSegments(routes, schools) {
+  const PROXIMITY_DEG = 0.001; // ~100m
+  const schoolWorst = {};
 
-      const reasons = [];
-      for (const [key, val] of Object.entries(scores)) {
-        if (val < 2) reasons.push(CROW_LABELS[key] || key);
-      }
-      if (accidentScore < 2) reasons.push(`${accidentCount} ongevallen`);
+  // Build school coordinate lookup
+  const schoolCoords = {};
+  for (const s of schools.features) {
+    schoolCoords[s.properties.name] = s.geometry.coordinates;
+  }
 
-      const existing = streetWorst.get(name);
-      if (!existing || composite < existing.composite) {
-        streetWorst.set(name, {
-          composite,
-          accidentCount,
-          schools: [...new Set(schools)],
-          reasons,
-          crowScore: f.properties.crowScore || 0,
-          accidentScore: accidentScore,
-        });
-      } else {
-        // Merge schools
-        for (const s of schools) {
-          if (!existing.schools.includes(s)) existing.schools.push(s);
-        }
-        existing.accidentCount = Math.max(existing.accidentCount, accidentCount);
+  for (const f of routes.features) {
+    const composite = f.properties.composite || 3;
+    const streetName = f.properties.streetName;
+    const scores = f.properties.scores || {};
+    const accidentCount = f.properties.accidentCount || 0;
+    const accidentScore = f.properties.accidentScore || 3;
+
+    // Collect reasons
+    const reasons = [];
+    const issueKeys = [];
+    for (const [key, val] of Object.entries(scores)) {
+      if (val < 2) { reasons.push(CROW_LABELS[key] || key); issueKeys.push(key); }
+    }
+    if (accidentScore < 2) reasons.push(`${accidentCount} ongevallen`);
+
+    const segData = { street: streetName, composite, reasons, issueKeys, accidentCount };
+
+    // 1) Attribute via route's schools property
+    const routeSchools = f.properties.schools || [];
+    for (const name of routeSchools) {
+      if (!schoolWorst[name] || composite < schoolWorst[name].composite) {
+        schoolWorst[name] = segData;
       }
     }
 
-    // Sort by composite ascending (worst first), take top 5
-    const sorted = [...streetWorst.entries()]
-      .sort((a, b) => a[1].composite - b[1].composite)
-      .slice(0, 5);
+    // 2) Also attribute to any school within 100m of the segment
+    // Check segment coordinates against all school positions
+    const segCoords = f.geometry.type === 'Polygon'
+      ? f.geometry.coordinates[0]
+      : f.geometry.coordinates;
 
-    const container = document.getElementById('knelpunten-list');
-    if (!container || sorted.length === 0) return;
-
-    container.innerHTML = sorted.map(([street, data], i) => {
-      const schoolList = data.schools.slice(0, 3).join(', ');
-      const moreSchools = data.schools.length > 3 ? ` +${data.schools.length - 3}` : '';
-
-      const tags = data.reasons
-        .slice(0, 3)
-        .map(r => `<span class="painpoint">${r}</span>`)
-        .join(' ');
-
-      const scoreClass = data.composite < 1 ? 'knelpunt--critical' : data.composite < 2 ? 'knelpunt--danger' : 'knelpunt--warn';
-
-      return `
-        <div class="knelpunt ${scoreClass}">
-          <div class="knelpunt__rank">${i + 1}</div>
-          <div class="knelpunt__content">
-            <h3 class="knelpunt__street">${escapeHtml(street)}</h3>
-            <div class="knelpunt__tags">${tags}</div>
-            <p class="knelpunt__schools">Schoolroute voor: ${escapeHtml(schoolList)}${moreSchools}</p>
-          </div>
-          <div class="knelpunt__score">${data.composite.toFixed(1)}</div>
-        </div>
-      `;
-    }).join('');
-  } catch (err) {
-    console.error('Knelpunten failed:', err);
+    for (const [schoolName, [sLon, sLat]] of Object.entries(schoolCoords)) {
+      for (const c of segCoords) {
+        if (quickDist(c[0], c[1], sLon, sLat) < PROXIMITY_DEG) {
+          if (!schoolWorst[schoolName] || composite < schoolWorst[schoolName].composite) {
+            schoolWorst[schoolName] = segData;
+          }
+          break;
+        }
+      }
+    }
   }
+
+  return schoolWorst;
 }
 
 // --- Ranking Table ---
 async function initRanking() {
   try {
-    const [schoolsRes, accidentsRes, zonesRes] = await Promise.all([
-      fetch(`${DATA_BASE}/schools.geojson`),
+    const [schools, routes] = await Promise.all([loadSchools(), loadRoutes()]);
+
+    const [accidentsRes, zonesRes] = await Promise.all([
       fetch(`${DATA_BASE}/accidents-filtered.geojson`),
       fetch(`${DATA_BASE}/zones.geojson`),
     ]);
 
-    if (!schoolsRes.ok || !accidentsRes.ok || !zonesRes.ok) {
-      throw new Error('Failed to load data');
-    }
+    if (!accidentsRes.ok || !zonesRes.ok) throw new Error('Failed to load data');
 
-    const schools = await schoolsRes.json();
     const accidents = await accidentsRes.json();
     const zones = await zonesRes.json();
 
-    let routes = { features: [] };
-    try {
-      const routesRes = await fetch(`${DATA_BASE}/school-routes.geojson`);
-      if (routesRes.ok) routes = await routesRes.json();
-    } catch (e) { /* non-blocking */ }
-
-    const rankings = buildRankings(schools, accidents, zones, routes);
+    const schoolWorst = buildSchoolWorstSegments(routes, schools);
+    const rankings = buildRankings(schools, accidents, zones, schoolWorst);
     renderTable(rankings);
   } catch (err) {
     console.error('Ranking table failed:', err);
@@ -158,35 +164,8 @@ async function initRanking() {
   }
 }
 
-function buildRankings(schools, accidents, zones, routes) {
+function buildRankings(schools, accidents, zones, schoolWorst) {
   const rankings = [];
-
-  const schoolWorstSegment = {};
-  for (const route of routes.features) {
-    const routeSchools = route.properties.schools || [route.properties.school];
-    const composite = route.properties.composite || 3;
-    const streetName = route.properties.streetName;
-    const scores = route.properties.scores || {};
-    const accidentCount = route.properties.accidentCount || 0;
-    const accidentScore = route.properties.accidentScore || 3;
-
-    for (const name of routeSchools) {
-      if (!schoolWorstSegment[name] || composite < schoolWorstSegment[name].composite) {
-        const reasons = [];
-        for (const [key, val] of Object.entries(scores)) {
-          if (val < 2) reasons.push(CROW_LABELS[key] || key);
-        }
-        if (accidentScore < 2) reasons.push(`${accidentCount} ongevallen`);
-
-        schoolWorstSegment[name] = {
-          street: streetName,
-          composite,
-          reasons,
-          accidentCount,
-        };
-      }
-    }
-  }
 
   for (const school of schools.features) {
     const schoolName = school.properties.name;
@@ -204,18 +183,16 @@ function buildRankings(schools, accidents, zones, routes) {
       }
     }
 
-    const worst = schoolWorstSegment[schoolName] || null;
-
     rankings.push({
       name: schoolName,
       studentCount,
       accidentCount,
-      worstSegment: worst,
+      worstSegment: schoolWorst[schoolName] || null,
       coordinates: school.geometry.coordinates,
     });
   }
 
-  // Sort by accident count descending (most accidents first)
+  // Sort by accident count descending
   rankings.sort((a, b) => b.accidentCount - a.accidentCount);
   return rankings;
 }
@@ -284,7 +261,6 @@ function renderTable(rankings) {
     tbody.appendChild(row);
   });
 
-  // Show "Toon alle scholen" button if there are more than TOP_VISIBLE
   if (rankings.length > TOP_VISIBLE) {
     const btn = document.getElementById('show-all-schools');
     if (btn) {
@@ -297,6 +273,96 @@ function renderTable(rankings) {
         btn.style.display = 'none';
       });
     }
+  }
+}
+
+// --- Knelpunten Section (natural language, top 5) ---
+async function initKnelpunten() {
+  try {
+    const [routes, schools] = await Promise.all([loadRoutes(), loadSchools()]);
+
+    // Aggregate worst score per street, collecting all issues and schools
+    const streetData = new Map();
+
+    for (const f of routes.features) {
+      const name = f.properties.streetName;
+      if (!name) continue;
+
+      const composite = f.properties.composite || 3;
+      const scores = f.properties.scores || {};
+      const accidentCount = f.properties.accidentCount || 0;
+      const accidentScore = f.properties.accidentScore || 3;
+      const routeSchools = f.properties.schools || [];
+
+      const issues = [];
+      for (const [key, val] of Object.entries(scores)) {
+        if (val < 2) issues.push(key);
+      }
+      const hasAccidentIssue = accidentScore < 2;
+
+      const existing = streetData.get(name);
+      if (!existing || composite < existing.composite) {
+        streetData.set(name, {
+          composite,
+          accidentCount,
+          schools: [...new Set(routeSchools)],
+          issues,
+          hasAccidentIssue,
+        });
+      } else {
+        for (const s of routeSchools) {
+          if (!existing.schools.includes(s)) existing.schools.push(s);
+        }
+        existing.accidentCount = Math.max(existing.accidentCount, accidentCount);
+      }
+    }
+
+    const sorted = [...streetData.entries()]
+      .sort((a, b) => a[1].composite - b[1].composite)
+      .slice(0, 5);
+
+    const container = document.getElementById('knelpunten-list');
+    if (!container || sorted.length === 0) return;
+
+    container.innerHTML = sorted.map(([street, data]) => {
+      // Build natural language description of what needs to happen
+      const suggestions = data.issues
+        .map(key => CROW_SUGGESTIONS[key])
+        .filter(Boolean);
+
+      let description = '';
+
+      if (data.hasAccidentIssue) {
+        description += `Op de ${escapeHtml(street)} zijn ${data.accidentCount} verkeersongelukken geregistreerd sinds 2021. `;
+      }
+
+      if (suggestions.length > 0) {
+        const lastSuggestion = suggestions.pop();
+        const suggestionText = suggestions.length > 0
+          ? suggestions.join(', ') + ' en ' + lastSuggestion
+          : lastSuggestion;
+        description += `Hier is het nodig om ${suggestionText}.`;
+      } else if (data.hasAccidentIssue) {
+        description += 'De oorzaak verdient nader onderzoek.';
+      }
+
+      const schoolList = data.schools.slice(0, 4).map(s => escapeHtml(s)).join(', ');
+      const moreSchools = data.schools.length > 4 ? ` en ${data.schools.length - 4} andere` : '';
+
+      const severityClass = data.composite < 1 ? 'knelpunt--critical' : data.composite < 2 ? 'knelpunt--danger' : 'knelpunt--warn';
+
+      return `
+        <div class="knelpunt ${severityClass}">
+          <div class="knelpunt__content">
+            <h3 class="knelpunt__street">${escapeHtml(street)}</h3>
+            <p class="knelpunt__description">${description}</p>
+            <p class="knelpunt__schools">Schoolroute voor: ${schoolList}${moreSchools}</p>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (err) {
+    console.error('Knelpunten failed:', err);
   }
 }
 
@@ -347,7 +413,7 @@ function escapeHtml(str) {
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
   initCounter();
-  initKnelpunten();
   initRanking();
+  initKnelpunten();
   initSharing();
 });

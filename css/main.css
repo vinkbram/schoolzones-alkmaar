@@ -524,9 +524,8 @@ a:hover {
 
 .knelpunt {
   display: flex;
-  align-items: center;
   gap: 1rem;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   border-radius: var(--radius);
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
@@ -545,46 +544,29 @@ a:hover {
   background: #FFFDE7;
 }
 
-.knelpunt__rank {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #BDBDBD;
-  min-width: 2rem;
-  text-align: center;
-}
-.knelpunt--critical .knelpunt__rank { color: var(--clr-danger); }
-.knelpunt--danger .knelpunt__rank { color: #E65100; }
-
 .knelpunt__content {
   flex: 1;
 }
 
 .knelpunt__street {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.4rem;
   color: var(--clr-text);
 }
 
-.knelpunt__tags {
-  margin-bottom: 0.35rem;
+.knelpunt__description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--clr-text-light);
+  margin: 0 0 0.5rem;
 }
 
 .knelpunt__schools {
   font-size: 0.8rem;
-  color: #757575;
+  color: var(--clr-text-muted);
   margin: 0;
 }
-
-.knelpunt__score {
-  font-size: 1.4rem;
-  font-weight: 800;
-  min-width: 2.5rem;
-  text-align: center;
-}
-.knelpunt--critical .knelpunt__score { color: var(--clr-danger); }
-.knelpunt--danger .knelpunt__score { color: #E65100; }
-.knelpunt--warn .knelpunt__score { color: #F9A825; }
 
 .ranking-table .speed-ok {
   color: var(--clr-safe);
