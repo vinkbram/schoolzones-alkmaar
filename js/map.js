@@ -300,21 +300,18 @@ async function initMap() {
       },
     });
 
-    accidentCluster.addLayer(accidentLayer);
-    map.addLayer(accidentCluster);
-
-    // 4. School markers (top layer)
+    // 4. School markers (added before accidents so accidents render on top)
     // Lucide "Pencil" for basisscholen, "GraduationCap" for middelbaar (MIT license)
-    const basisSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>';
-    const middelbaarSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>';
+    const basisSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>';
+    const middelbaarSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>';
 
-    const basisIcon = L.divIcon({ html: basisSvg, className: 'school-marker', iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14] });
-    const middelbaarIcon = L.divIcon({ html: middelbaarSvg, className: 'school-marker', iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14] });
+    const basisIcon = L.divIcon({ html: basisSvg, className: 'school-marker', iconSize: [20, 20], iconAnchor: [10, 10], popupAnchor: [0, -10] });
+    const middelbaarIcon = L.divIcon({ html: middelbaarSvg, className: 'school-marker', iconSize: [20, 20], iconAnchor: [10, 10], popupAnchor: [0, -10] });
 
     L.geoJSON(schools, {
       pointToLayer: (feature, latlng) => {
         const icon = feature.properties.type === 'middelbaar' ? middelbaarIcon : basisIcon;
-        return L.marker(latlng, { icon });
+        return L.marker(latlng, { icon, zIndexOffset: -1000 });
       },
       onEachFeature: (feature, layer) => {
         const props = feature.properties;
@@ -327,6 +324,10 @@ async function initMap() {
         `);
       },
     }).addTo(map);
+
+    // 5. Accidents (on top of school markers)
+    accidentCluster.addLayer(accidentLayer);
+    map.addLayer(accidentCluster);
 
     // Layer control
     L.control.layers(null, {
