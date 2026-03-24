@@ -4,10 +4,22 @@ const DATA_BASE = './data';
 
 // --- Day Counter ---
 async function initCounter() {
+  const hero = document.getElementById('hero');
   try {
     const res = await fetch(`${DATA_BASE}/accidents-filtered.geojson`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+
+    // Only show hero if we have at least one cron-detected accident
+    // (where firstSeen differs from the backfilled date field)
+    const hasCronDetected = data.features.some(f =>
+      f.properties.firstSeen && f.properties.date && f.properties.firstSeen !== f.properties.date
+    );
+
+    if (!hasCronDetected) {
+      hero.style.display = 'none';
+      return;
+    }
 
     const dates = data.features
       .map(f => f.properties.firstSeen || f.properties.date)
@@ -16,7 +28,7 @@ async function initCounter() {
       .reverse();
 
     if (dates.length === 0) {
-      document.getElementById('day-counter').textContent = '?';
+      hero.style.display = 'none';
       return;
     }
 
@@ -32,7 +44,7 @@ async function initCounter() {
     if (label) label.textContent = days === 1 ? 'dag' : 'dagen';
   } catch (err) {
     console.error('Counter failed:', err);
-    document.getElementById('day-counter').textContent = '?';
+    hero.style.display = 'none';
   }
 }
 
