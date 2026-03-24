@@ -153,14 +153,22 @@ async function initMap() {
 
         const scoreHtml = Object.entries(props.scores || {}).map(([key, val]) => {
           const label = scoreLabels[key] || key;
-          const emoji = val >= 2.5 ? '🟢' : val >= 2 ? '🟠' : '🔴';
-          return `${emoji} ${label}: ${val.toFixed(1)}`;
+          const dot = val >= 2.5
+            ? '<span style="color:#2E7D32">&#9679;</span>'
+            : val >= 2
+              ? '<span style="color:#E65100">&#9679;</span>'
+              : '<span style="color:#B71C1C">&#9679;</span>';
+          return `${dot} ${label}: ${val.toFixed(1)}`;
         }).join('<br>');
 
         const schoolsStr = (props.schools || [props.school]).join(', ');
         const wijkenStr = (props.wijken || []).join(', ');
 
-        const accEmoji = (props.accidentScore || 3) >= 2.5 ? '🟢' : (props.accidentScore || 3) >= 2 ? '🟠' : '🔴';
+        const accDot = (props.accidentScore || 3) >= 2.5
+          ? '<span style="color:#2E7D32">&#9679;</span>'
+          : (props.accidentScore || 3) >= 2
+            ? '<span style="color:#E65100">&#9679;</span>'
+            : '<span style="color:#B71C1C">&#9679;</span>';
 
         layer.bindPopup(`
           <strong>${schoolsStr}</strong><br>
@@ -169,7 +177,7 @@ async function initMap() {
           <hr style="margin:4px 0">
           <strong>CROW-score: ${props.crowScore || '–'}</strong><br>
           ${scoreHtml}<br>
-          ${accEmoji} Ongevallen: ${props.accidentCount || 0}
+          ${accDot} Ongevallen: ${props.accidentCount || 0}
           ${props.accidentScore ? ` (score: ${props.accidentScore})` : ''}<br>
           <hr style="margin:4px 0">
           <strong>Totaalscore: ${props.composite} (${props.label})</strong>
@@ -296,8 +304,10 @@ async function initMap() {
     map.addLayer(accidentCluster);
 
     // 4. School markers (top layer)
+    // Lucide "GraduationCap" icon (MIT license)
+    const schoolSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>';
     const schoolIcon = L.divIcon({
-      html: '🏫',
+      html: schoolSvg,
       className: 'school-marker',
       iconSize: [28, 28],
       iconAnchor: [14, 14],
