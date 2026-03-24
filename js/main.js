@@ -4,20 +4,27 @@ const DATA_BASE = './data';
 
 // --- Day Counter ---
 async function initCounter() {
-  const hero = document.getElementById('hero');
+  const counterBlock = document.getElementById('hero-counter-block');
+  const fallback = document.getElementById('hero-fallback');
+
+  function showFallback() {
+    if (counterBlock) counterBlock.style.display = 'none';
+    if (fallback) fallback.style.display = '';
+  }
+
   try {
     const res = await fetch(`${DATA_BASE}/accidents-filtered.geojson`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    // Only show hero if we have at least one cron-detected accident
+    // Only show day counter if we have at least one cron-detected accident
     // (where firstSeen differs from the backfilled date field)
     const hasCronDetected = data.features.some(f =>
       f.properties.firstSeen && f.properties.date && f.properties.firstSeen !== f.properties.date
     );
 
     if (!hasCronDetected) {
-      hero.style.display = 'none';
+      showFallback();
       return;
     }
 
@@ -28,7 +35,7 @@ async function initCounter() {
       .reverse();
 
     if (dates.length === 0) {
-      hero.style.display = 'none';
+      showFallback();
       return;
     }
 
@@ -44,7 +51,7 @@ async function initCounter() {
     if (label) label.textContent = days === 1 ? 'dag' : 'dagen';
   } catch (err) {
     console.error('Counter failed:', err);
-    hero.style.display = 'none';
+    showFallback();
   }
 }
 
@@ -362,9 +369,10 @@ async function initKnelpunten() {
       const moreSchools = data.schools.length > 4 ? ` en ${data.schools.length - 4} andere` : '';
 
       const severityClass = data.composite < 1 ? 'knelpunt--critical' : data.composite < 2 ? 'knelpunt--danger' : 'knelpunt--warn';
+      const severityLabel = data.composite < 1 ? 'Kritiek' : data.composite < 2 ? 'Gevaarlijk' : 'Aandacht nodig';
 
       return `
-        <div class="knelpunt ${severityClass}">
+        <div class="knelpunt ${severityClass}" role="article" aria-label="${escapeHtml(street)} — ${severityLabel}">
           <div class="knelpunt__content">
             <h3 class="knelpunt__street">${escapeHtml(street)}</h3>
             <p class="knelpunt__description">${description}</p>
@@ -402,14 +410,22 @@ function initSharing() {
           copyBtn.classList.remove('btn--copy--success');
         }, 2000);
       } catch {
-        const input = document.createElement('input');
-        input.value = pageUrl;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand('copy');
-        document.body.removeChild(input);
-        copyBtn.textContent = 'Gekopieerd!';
-        setTimeout(() => { copyBtn.textContent = 'Kopieer link'; }, 2000);
+        if (window.isSecureContext) {
+          // Clipboard API unavailable in secure context — inform user
+          copyBtn.textContent = 'Kopiëren mislukt';
+          setTimeout(() => { copyBtn.textContent = 'Kopieer link'; }, 2000);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = pageUrl;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          copyBtn.textContent = 'Gekopieerd!';
+          setTimeout(() => { copyBtn.textContent = 'Kopieer link'; }, 2000);
+        }
       }
     });
   }

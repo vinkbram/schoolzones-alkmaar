@@ -192,6 +192,13 @@ a:hover {
   line-height: 1.5;
 }
 
+.hero__fallback .hero__lead {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .hero__vision {
   text-align: center;
   font-size: clamp(1.3rem, 3vw, 1.8rem);
@@ -205,7 +212,7 @@ a:hover {
    SECTIONS
    =========================== */
 .section {
-  padding: var(--space-3xl) var(--space-md);
+  padding: clamp(2rem, 5vw, 6rem) var(--space-md);
 }
 
 .section--alt {
@@ -268,6 +275,12 @@ a:hover {
 
 .map-container__loading--hidden {
   display: none;
+}
+
+/* Leaflet popup sizing */
+.leaflet-popup-content {
+  max-width: 260px;
+  font-size: 0.85rem;
 }
 
 /* Marker Cluster overrides */
@@ -409,6 +422,22 @@ a:hover {
   border: 1px solid var(--clr-border);
   box-shadow: var(--shadow-md);
   background: var(--clr-white);
+  position: relative;
+}
+
+/* Scroll hint gradient on right edge (mobile) */
+@media (max-width: 599px) {
+  .table-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 24px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.9));
+    pointer-events: none;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
 }
 
 .ranking-table {
@@ -449,6 +478,10 @@ a:hover {
 
 .ranking-table tbody tr:hover {
   background: #F1F5F9;
+}
+
+.ranking-table tbody tr:active {
+  background: #E2E8F0;
 }
 
 .ranking-table tbody tr:last-child td {
@@ -699,7 +732,7 @@ a:hover {
    RESPONSIVE
    =========================== */
 
-/* Mobile: stack hero vertically */
+/* Mobile: stack hero, hide non-essential table columns, compact legend */
 @media (max-width: 599px) {
   .hero__container {
     flex-direction: column;
@@ -708,6 +741,34 @@ a:hover {
 
   .hero__right {
     text-align: center;
+  }
+
+  /* Hide Leerlingen and Grootste knelpunt columns on small screens */
+  .ranking-table th:nth-child(3),
+  .ranking-table td:nth-child(3),
+  .ranking-table th:nth-child(5),
+  .ranking-table td:nth-child(5) {
+    display: none;
+  }
+
+  /* Legend: 2 columns */
+  .map-legend__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm) var(--space-md);
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 899px) {
+  .map-container {
+    height: 55vh;
+  }
+
+  .ranking-table th:nth-child(5),
+  .ranking-table td:nth-child(5) {
+    display: none;
   }
 }
 

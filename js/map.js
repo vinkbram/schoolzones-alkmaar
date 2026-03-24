@@ -48,8 +48,13 @@ async function initMap() {
   map = L.map('map', {
     center: ALKMAAR_CENTER,
     zoom: DEFAULT_ZOOM,
-    scrollWheelZoom: true,
+    scrollWheelZoom: false,
+    tap: true,
   });
+
+  // Enable scroll zoom only after user clicks/focuses the map
+  map.once('focus', () => map.scrollWheelZoom.enable());
+  map.once('click', () => map.scrollWheelZoom.enable());
 
   // OpenStreetMap tiles
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
