@@ -611,6 +611,19 @@ a:hover {
   margin: 0;
 }
 
+.knelpunt__streetview {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--clr-text-light);
+  text-decoration: underline;
+}
+
+.knelpunt__streetview:hover {
+  color: var(--clr-text);
+}
+
 .ranking-table .speed-ok {
   color: var(--clr-safe);
   font-weight: 600;

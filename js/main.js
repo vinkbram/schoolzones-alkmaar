@@ -333,6 +333,13 @@ async function initKnelpunten() {
       }
       const hasAccidentIssue = accidentScore < 2;
 
+      // Compute segment centroid for Street View link
+      const coords = f.geometry.type === 'Polygon'
+        ? f.geometry.coordinates[0]
+        : f.geometry.coordinates;
+      const cLon = coords.reduce((s, c) => s + c[0], 0) / coords.length;
+      const cLat = coords.reduce((s, c) => s + c[1], 0) / coords.length;
+
       const existing = streetData.get(name);
       if (!existing || composite < existing.composite) {
         streetData.set(name, {
@@ -341,6 +348,8 @@ async function initKnelpunten() {
           schools: [...new Set(routeSchools)],
           issues,
           hasAccidentIssue,
+          lat: cLat,
+          lon: cLon,
         });
       } else {
         for (const s of routeSchools) {
@@ -391,6 +400,7 @@ async function initKnelpunten() {
             <h3 class="knelpunt__street">${escapeHtml(street)}</h3>
             <p class="knelpunt__description">${description}</p>
             <p class="knelpunt__schools">Schoolroute voor: ${schoolList}${moreSchools}</p>
+            <a class="knelpunt__streetview" href="https://www.google.com/maps/@${data.lat},${data.lon},3a,75y,90t/data=!3m4!1e1!3m2!1s!2e0" target="_blank" rel="noopener noreferrer">Bekijk op Street View</a>
           </div>
         </div>
       `;
