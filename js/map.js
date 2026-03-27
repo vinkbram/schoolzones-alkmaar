@@ -269,29 +269,7 @@ async function initMap() {
       };
     });
 
-    // --- Assign each location to a school zone (first match) ---
-    const locationZone = {};
-    if (typeof turf !== 'undefined') {
-      for (const loc of locationFeatures) {
-        const pt = turf.point(loc.geometry.coordinates);
-        for (const zone of zones.features) {
-          if (turf.booleanPointInPolygon(pt, zone)) {
-            locationZone[loc.properties.starId] = zone.properties.school;
-            break;
-          }
-        }
-      }
-    }
-
-    // Group locations by zone
-    const byZone = {};
-    for (const loc of locationFeatures) {
-      const zoneName = locationZone[loc.properties.starId] || '_unzoned';
-      if (!byZone[zoneName]) byZone[zoneName] = [];
-      byZone[zoneName].push(loc);
-    }
-
-    // Shared cluster icon factory
+    // Cluster icon factory — sums yearCount for correct accident totals
     function clusterIcon(cluster) {
       const markers = cluster.getAllChildMarkers();
       const count = markers.reduce(
@@ -318,7 +296,7 @@ async function initMap() {
       });
     }
 
-    // Shared marker rendering
+    // Marker rendering
     function accidentPointToLayer(feature, latlng) {
       const props = feature.properties;
       const isNew = latestFirstSeen && props.firstSeen === latestFirstSeen;
@@ -393,22 +371,19 @@ async function initMap() {
       `);
     }
 
-    // One cluster group per school zone — accidents never merge across schools
-    const accidentCluster = L.layerGroup();
-    for (const [, features] of Object.entries(byZone)) {
-      const zoneCluster = L.markerClusterGroup({
-        maxClusterRadius: 80,
-        disableClusteringAtZoom: 16,
-        iconCreateFunction: clusterIcon,
-      });
-      zoneCluster.addLayer(
-        L.geoJSON({ type: 'FeatureCollection', features }, {
-          pointToLayer: accidentPointToLayer,
-          onEachFeature: accidentPopup,
-        })
-      );
-      accidentCluster.addLayer(zoneCluster);
-    }
+    // Single cluster group — merges naturally at far zoom, shows "1" for single accidents
+    const accidentCluster = L.markerClusterGroup({
+      maxClusterRadius: 60,
+      disableClusteringAtZoom: 16,
+      singleMarkerMode: true,
+      iconCreateFunction: clusterIcon,
+    });
+    accidentCluster.addLayer(
+      L.geoJSON({ type: 'FeatureCollection', features: locationFeatures }, {
+        pointToLayer: accidentPointToLayer,
+        onEachFeature: accidentPopup,
+      })
+    );
 
     // 4. School markers (added before accidents so accidents render on top)
     // Lucide "Pencil" for basisscholen, "GraduationCap" for middelbaar (MIT license)
