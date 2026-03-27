@@ -273,13 +273,16 @@ async function initMap() {
       maxClusterRadius: 40,
       disableClusteringAtZoom: 16,
       iconCreateFunction: (cluster) => {
-        const count = cluster.getChildCount();
+        const markers = cluster.getAllChildMarkers();
+        // Sum actual accident records, not aggregated location markers
+        const count = markers.reduce(
+          (sum, m) => sum + (m.feature ? m.feature.properties.yearCount : 1), 0
+        );
         let size = 'small';
         let diameter = 36;
         if (count > 50) { size = 'large'; diameter = 52; }
         else if (count > 20) { size = 'medium'; diameter = 44; }
 
-        const markers = cluster.getAllChildMarkers();
         const hasFatal = markers.some(
           m => m.feature && m.feature.properties.hasFatal
         );
