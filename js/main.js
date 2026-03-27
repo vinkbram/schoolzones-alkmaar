@@ -400,7 +400,7 @@ async function initKnelpunten() {
             <h3 class="knelpunt__street">${escapeHtml(street)}</h3>
             <p class="knelpunt__description">${description}</p>
             <p class="knelpunt__schools">Schoolroute voor: ${schoolList}${moreSchools}</p>
-            <a class="knelpunt__streetview" href="https://www.google.com/maps/@${data.lat},${data.lon},3a,75y,90t/data=!3m4!1e1!3m2!1s!2e0" target="_blank" rel="noopener noreferrer">Bekijk op Street View</a>
+            <a class="knelpunt__streetview" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(street + ', Alkmaar')}" target="_blank" rel="noopener noreferrer">Bekijk op Google Maps</a>
           </div>
         </div>
       `;
