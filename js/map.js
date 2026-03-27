@@ -269,114 +269,146 @@ async function initMap() {
       };
     });
 
-    const accidentCluster = L.markerClusterGroup({
-      maxClusterRadius: 40,
-      disableClusteringAtZoom: 16,
-      iconCreateFunction: (cluster) => {
-        const markers = cluster.getAllChildMarkers();
-        // Sum actual accident records, not aggregated location markers
-        const count = markers.reduce(
-          (sum, m) => sum + (m.feature ? m.feature.properties.yearCount : 1), 0
-        );
-        let size = 'small';
-        let diameter = 36;
-        if (count > 50) { size = 'large'; diameter = 52; }
-        else if (count > 20) { size = 'medium'; diameter = 44; }
-
-        const hasFatal = markers.some(
-          m => m.feature && m.feature.properties.hasFatal
-        );
-        const hasNew = latestFirstSeen && markers.some(
-          m => m.feature && m.feature.properties.firstSeen === latestFirstSeen
-        );
-        const fatalClass = hasFatal ? ' marker-cluster--fatal' : '';
-        const newClass = hasNew ? ' marker-cluster--new' : '';
-
-        return L.divIcon({
-          html: `<div><span>${count}</span></div>`,
-          className: `marker-cluster marker-cluster-${size}${fatalClass}${newClass}`,
-          iconSize: L.point(diameter, diameter),
-        });
-      },
-    });
-
-    const accidentLayer = L.geoJSON({ type: 'FeatureCollection', features: locationFeatures }, {
-      pointToLayer: (feature, latlng) => {
-        const props = feature.properties;
-        const isNew = latestFirstSeen && props.firstSeen === latestFirstSeen;
-
-        if (props.hasFatal) {
-          // Fatal: dark-red circle with white X — unmissable
-          const s = 24;
-          const svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}" xmlns="http://www.w3.org/2000/svg">` +
-            `<circle cx="${s/2}" cy="${s/2}" r="${s/2-1}" fill="#212121" stroke="${isNew ? '#00E5FF' : '#fff'}" stroke-width="${isNew ? 3 : 2}"/>` +
-            `<line x1="8" y1="8" x2="16" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
-            `<line x1="16" y1="8" x2="8" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
-            `</svg>`;
-          return L.marker(latlng, {
-            icon: L.divIcon({
-              html: svg,
-              className: 'accident-fatal' + (isNew ? ' accident-new' : ''),
-              iconSize: [s, s],
-              iconAnchor: [s / 2, s / 2],
-              popupAnchor: [0, -s / 2],
-            }),
-            zIndexOffset: 1000,
-          });
-        }
-
-        // Non-fatal: circle marker, slightly larger for multi-year locations
-        const sev = props.worstSeverity || 'materieel';
-        const base = SEVERITY_RADIUS[sev] || 5;
-        const radius = props.yearCount > 1 ? base + 2 : base;
-
-        return L.circleMarker(latlng, {
-          radius: isNew ? radius + 2 : radius,
-          fillColor: SEVERITY_COLORS[sev] || '#E57373',
-          color: isNew ? '#00E5FF' : '#fff',
-          weight: isNew ? 3 : 1,
-          fillOpacity: isNew ? 1 : 0.8,
-          className: isNew ? 'accident-new' : '',
-        });
-      },
-      onEachFeature: (feature, layer) => {
-        const props = feature.properties;
-        const records = props.records;
-
-        // STAR-style bar chart: continuous timeline 2021–2026
-        const allYears = [2021, 2022, 2023, 2024, 2025, 2026];
-        const recByYear = {};
-        for (const r of records) recByYear[r.year] = r;
-
-        const maxCount = Math.max(...records.map(r => r.count || 1), 1);
-        const chartH = 60;
-
-        const bars = allYears.map(yr => {
-          const r = recByYear[yr];
-          if (!r) {
-            return `<div class="chart-bar"><div class="chart-bar__fill"></div><span class="chart-bar__label">${yr}</span></div>`;
+    // --- Assign each location to a school zone (first match) ---
+    const locationZone = {};
+    if (typeof turf !== 'undefined') {
+      for (const loc of locationFeatures) {
+        const pt = turf.point(loc.geometry.coordinates);
+        for (const zone of zones.features) {
+          if (turf.booleanPointInPolygon(pt, zone)) {
+            locationZone[loc.properties.starId] = zone.properties.school;
+            break;
           }
-          const h = Math.max(4, ((r.count || 1) / maxCount) * chartH);
-          const c = SEVERITY_COLORS[r.severity] || '#E57373';
-          return `<div class="chart-bar"><div class="chart-bar__fill" style="height:${h}px;background:${c}"></div><span class="chart-bar__label">${yr}</span></div>`;
-        }).join('');
+        }
+      }
+    }
 
-        const title = props.hasFatal ? 'Dodelijk ongeval'
-          : props.worstSeverity === 'letsel' ? 'Letselongeval' : 'Materiële schade';
+    // Group locations by zone
+    const byZone = {};
+    for (const loc of locationFeatures) {
+      const zoneName = locationZone[loc.properties.starId] || '_unzoned';
+      if (!byZone[zoneName]) byZone[zoneName] = [];
+      byZone[zoneName].push(loc);
+    }
 
-        layer.bindPopup(`
-          <div class="accident-chart">
-            <strong>${title}</strong>
-            <div class="accident-chart__bars" style="height:${chartH}px">${bars}</div>
-            <div class="accident-chart__legend">
-              <span><i style="background:#212121"></i> Dodelijk</span>
-              <span><i style="background:#E53935"></i> Letsel</span>
-              <span><i style="background:#FFA726"></i> Materieel</span>
-            </div>
+    // Shared cluster icon factory
+    function clusterIcon(cluster) {
+      const markers = cluster.getAllChildMarkers();
+      const count = markers.reduce(
+        (sum, m) => sum + (m.feature ? m.feature.properties.yearCount : 1), 0
+      );
+      let size = 'small';
+      let diameter = 36;
+      if (count > 50) { size = 'large'; diameter = 52; }
+      else if (count > 20) { size = 'medium'; diameter = 44; }
+
+      const hasFatal = markers.some(
+        m => m.feature && m.feature.properties.hasFatal
+      );
+      const hasNew = latestFirstSeen && markers.some(
+        m => m.feature && m.feature.properties.firstSeen === latestFirstSeen
+      );
+      const fatalClass = hasFatal ? ' marker-cluster--fatal' : '';
+      const newClass = hasNew ? ' marker-cluster--new' : '';
+
+      return L.divIcon({
+        html: `<div><span>${count}</span></div>`,
+        className: `marker-cluster marker-cluster-${size}${fatalClass}${newClass}`,
+        iconSize: L.point(diameter, diameter),
+      });
+    }
+
+    // Shared marker rendering
+    function accidentPointToLayer(feature, latlng) {
+      const props = feature.properties;
+      const isNew = latestFirstSeen && props.firstSeen === latestFirstSeen;
+
+      if (props.hasFatal) {
+        const s = 24;
+        const svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}" xmlns="http://www.w3.org/2000/svg">` +
+          `<circle cx="${s/2}" cy="${s/2}" r="${s/2-1}" fill="#212121" stroke="${isNew ? '#00E5FF' : '#fff'}" stroke-width="${isNew ? 3 : 2}"/>` +
+          `<line x1="8" y1="8" x2="16" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
+          `<line x1="16" y1="8" x2="8" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
+          `</svg>`;
+        return L.marker(latlng, {
+          icon: L.divIcon({
+            html: svg,
+            className: 'accident-fatal' + (isNew ? ' accident-new' : ''),
+            iconSize: [s, s],
+            iconAnchor: [s / 2, s / 2],
+            popupAnchor: [0, -s / 2],
+          }),
+          zIndexOffset: 1000,
+        });
+      }
+
+      const sev = props.worstSeverity || 'materieel';
+      const base = SEVERITY_RADIUS[sev] || 5;
+      const radius = props.yearCount > 1 ? base + 2 : base;
+
+      return L.circleMarker(latlng, {
+        radius: isNew ? radius + 2 : radius,
+        fillColor: SEVERITY_COLORS[sev] || '#E57373',
+        color: isNew ? '#00E5FF' : '#fff',
+        weight: isNew ? 3 : 1,
+        fillOpacity: isNew ? 1 : 0.8,
+        className: isNew ? 'accident-new' : '',
+      });
+    }
+
+    function accidentPopup(feature, layer) {
+      const props = feature.properties;
+      const records = props.records;
+
+      const allYears = [2021, 2022, 2023, 2024, 2025, 2026];
+      const recByYear = {};
+      for (const r of records) recByYear[r.year] = r;
+
+      const maxCount = Math.max(...records.map(r => r.count || 1), 1);
+      const chartH = 60;
+
+      const bars = allYears.map(yr => {
+        const r = recByYear[yr];
+        if (!r) {
+          return `<div class="chart-bar"><div class="chart-bar__fill"></div><span class="chart-bar__label">${yr}</span></div>`;
+        }
+        const h = Math.max(4, ((r.count || 1) / maxCount) * chartH);
+        const c = SEVERITY_COLORS[r.severity] || '#E57373';
+        return `<div class="chart-bar"><div class="chart-bar__fill" style="height:${h}px;background:${c}"></div><span class="chart-bar__label">${yr}</span></div>`;
+      }).join('');
+
+      const title = props.hasFatal ? 'Dodelijk ongeval'
+        : props.worstSeverity === 'letsel' ? 'Letselongeval' : 'Materiële schade';
+
+      layer.bindPopup(`
+        <div class="accident-chart">
+          <strong>${title}</strong>
+          <div class="accident-chart__bars" style="height:${chartH}px">${bars}</div>
+          <div class="accident-chart__legend">
+            <span><i style="background:#212121"></i> Dodelijk</span>
+            <span><i style="background:#E53935"></i> Letsel</span>
+            <span><i style="background:#FFA726"></i> Materieel</span>
           </div>
-        `);
-      },
-    });
+        </div>
+      `);
+    }
+
+    // One cluster group per school zone — accidents never merge across schools
+    const accidentCluster = L.layerGroup();
+    for (const [, features] of Object.entries(byZone)) {
+      const zoneCluster = L.markerClusterGroup({
+        maxClusterRadius: 80,
+        disableClusteringAtZoom: 16,
+        iconCreateFunction: clusterIcon,
+      });
+      zoneCluster.addLayer(
+        L.geoJSON({ type: 'FeatureCollection', features }, {
+          pointToLayer: accidentPointToLayer,
+          onEachFeature: accidentPopup,
+        })
+      );
+      accidentCluster.addLayer(zoneCluster);
+    }
 
     // 4. School markers (added before accidents so accidents render on top)
     // Lucide "Pencil" for basisscholen, "GraduationCap" for middelbaar (MIT license)
@@ -404,7 +436,6 @@ async function initMap() {
     }).addTo(map);
 
     // 5. Accidents (on top of school markers)
-    accidentCluster.addLayer(accidentLayer);
     map.addLayer(accidentCluster);
 
     // Layer control
