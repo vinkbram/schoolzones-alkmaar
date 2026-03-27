@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT = join(__dirname, '..', 'data', 'schools.geojson');
 
-const DUO_PO_ADDRESSES = 'https://duo.nl/open_onderwijsdata/images/01.-hoofdvestigingen-basisonderwijs.csv';
+const DUO_PO_ADDRESSES = 'https://duo.nl/open_onderwijsdata/images/02.-alle-schoolvestigingen-basisonderwijs.csv';
 const DUO_VO_ADDRESSES = 'https://duo.nl/open_onderwijsdata/images/02.-alle-vestigingen-vo.csv';
 const DUO_PO_STUDENTS = 'https://duo.nl/open_onderwijsdata/images/01.-leerlingen-po-soort-po-cluster-leeftijd-2025-2026.csv';
 const DUO_VO_STUDENTS = 'https://duo.nl/open_onderwijsdata/images/01.-leerlingen-vo-per-vestiging-naar-onderwijstype-2025.csv';
@@ -132,11 +132,21 @@ async function main() {
   // Collect all schools to geocode
   const schools = [];
 
+  // PO: deduplicate vestigingen at same address
+  const seenPOAddresses = new Set();
   for (const row of poAddresses) {
+    const addrKey = `${row.STRAATNAAM} ${row['HUISNUMMER-TOEVOEGING']}`;
+    if (seenPOAddresses.has(addrKey)) {
+      console.log(`  Skipping duplicate PO vestiging: ${row.VESTIGINGSNAAM || row.INSTELLINGSNAAM} at ${addrKey}`);
+      continue;
+    }
+    seenPOAddresses.add(addrKey);
+
+    const vestigingsnaam = row.VESTIGINGSNAAM || row.INSTELLINGSNAAM;
     const address = `${row.STRAATNAAM} ${row['HUISNUMMER-TOEVOEGING']}, ${row.POSTCODE} ${row.PLAATSNAAM}`;
     schools.push({
-      name: shortName(row.INSTELLINGSNAAM),
-      officialName: row.INSTELLINGSNAAM,
+      name: shortName(vestigingsnaam),
+      officialName: vestigingsnaam,
       type: 'basisschool',
       address,
       studentCount: poStudentCounts[row.INSTELLINGSCODE] || 0,
