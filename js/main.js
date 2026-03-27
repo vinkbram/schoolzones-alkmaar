@@ -317,8 +317,11 @@ async function initKnelpunten() {
     // Aggregate worst score per street, collecting all issues and schools
     const streetData = new Map();
 
+    // Normalize bridge/segment names to their parent road
+    const STREET_ALIASES = { 'Bokkebrug': 'Kanaalkade' };
+
     for (const f of routes.features) {
-      const name = f.properties.streetName;
+      const name = STREET_ALIASES[f.properties.streetName] || f.properties.streetName;
       if (!name) continue;
 
       const composite = f.properties.composite || 3;
