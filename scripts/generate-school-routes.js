@@ -831,7 +831,11 @@ async function main() {
   };
 
   const outPath = join(DATA, 'school-routes.geojson');
-  writeFileSync(outPath, JSON.stringify(output, null, 2), 'utf-8');
+  // Compact JSON with coordinates rounded to 5dp (~1m precision)
+  const json = JSON.stringify(output, (k, v) =>
+    typeof v === 'number' ? Math.round(v * 100000) / 100000 : v
+  );
+  writeFileSync(outPath, json, 'utf-8');
 
   // Stats
   const labels = { veilig: 0, aandacht: 0, onveilig: 0 };
