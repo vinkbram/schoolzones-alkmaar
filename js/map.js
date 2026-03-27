@@ -25,9 +25,9 @@ function zoneBorderColor(accidentCount) {
 }
 
 const SEVERITY_COLORS = {
-  materieel: '#E57373',
-  letsel: '#D32F2F',
-  dodelijk: '#B71C1C',
+  materieel: '#FFA726',
+  letsel: '#E53935',
+  dodelijk: '#212121',
 };
 
 const SEVERITY_RADIUS = {
@@ -306,7 +306,7 @@ async function initMap() {
           // Fatal: dark-red circle with white X — unmissable
           const s = 24;
           const svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}" xmlns="http://www.w3.org/2000/svg">` +
-            `<circle cx="${s/2}" cy="${s/2}" r="${s/2-1}" fill="#B71C1C" stroke="${isNew ? '#00E5FF' : '#fff'}" stroke-width="${isNew ? 3 : 2}"/>` +
+            `<circle cx="${s/2}" cy="${s/2}" r="${s/2-1}" fill="#212121" stroke="${isNew ? '#00E5FF' : '#fff'}" stroke-width="${isNew ? 3 : 2}"/>` +
             `<line x1="8" y1="8" x2="16" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
             `<line x1="16" y1="8" x2="8" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
             `</svg>`;
@@ -366,9 +366,9 @@ async function initMap() {
             <strong>${title}</strong>
             <div class="accident-chart__bars" style="height:${chartH}px">${bars}</div>
             <div class="accident-chart__legend">
-              <span><i style="background:#B71C1C"></i> Dodelijk</span>
-              <span><i style="background:#D32F2F"></i> Letsel</span>
-              <span><i style="background:#E57373"></i> Materieel</span>
+              <span><i style="background:#212121"></i> Dodelijk</span>
+              <span><i style="background:#E53935"></i> Letsel</span>
+              <span><i style="background:#FFA726"></i> Materieel</span>
             </div>
           </div>
         `);

@@ -303,10 +303,10 @@ a:hover {
 
 /* Cluster containing fatal accidents */
 .marker-cluster--fatal {
-  box-shadow: 0 0 0 3px #B71C1C, 0 0 10px rgba(183, 28, 28, 0.5) !important;
+  box-shadow: 0 0 0 3px #212121, 0 0 10px rgba(33, 33, 33, 0.5) !important;
 }
 .marker-cluster--fatal div {
-  background-color: rgba(183, 28, 28, 0.95) !important;
+  background-color: rgba(33, 33, 33, 0.95) !important;
 }
 
 /* STAR-style bar chart popup */
@@ -316,7 +316,7 @@ a:hover {
 }
 .accident-chart strong {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .accident-chart__bars {
   display: flex;
@@ -324,6 +324,7 @@ a:hover {
   gap: 3px;
   border-bottom: 1px solid #ddd;
   margin-bottom: 4px;
+  overflow: hidden;
 }
 .chart-bar {
   display: flex;
@@ -468,21 +469,18 @@ a:hover {
 }
 
 .map-legend__swatch--materieel {
-  background: #FFCDD2;
-  border: 2px solid #E57373;
+  background: #FFA726;
 }
 
 .map-legend__swatch--letsel {
-  background: var(--clr-danger);
+  background: #E53935;
 }
 
 .map-legend__swatch--dodelijk {
-  background: var(--clr-danger-dark);
-  border: 2px solid #000;
+  background: #212121;
 }
 .map-legend__swatch--dodelijk-x {
-  background: var(--clr-danger-dark);
-  border: 2px solid #fff;
+  background: #212121;
   position: relative;
 }
 .map-legend__swatch--dodelijk-x::before,
