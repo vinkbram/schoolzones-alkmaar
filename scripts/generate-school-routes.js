@@ -17,6 +17,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import buffer from '@turf/buffer';
+import difference from '@turf/difference';
 import distance from '@turf/distance';
 import length from '@turf/length';
 import lineChunk from '@turf/line-chunk';
@@ -336,13 +337,13 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
   let routeIdx = 0;
 
   for (const route of routes) {
-    routeIdx++;
     if (routeIdx % 50 === 0) console.log(`  Scoring route ${routeIdx}/${routes.length}...`);
 
     try {
       const line = lineString(route.geometry.coordinates);
       const chunks = lineChunk(line, SEGMENT_LENGTH_M / 1000, { units: 'kilometers' });
 
+      let chunkIdx = 0;
       for (const chunk of chunks.features) {
         const coords = chunk.geometry.coordinates;
         const mid = coords[Math.floor(coords.length / 2)];
@@ -472,6 +473,8 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
           school: route.school,
           wijk: route.wijk,
           wijkCode: route.wijkCode,
+          routeId: routeIdx,
+          segmentIndex: chunkIdx,
           scores,
           crowScore: Math.round(crowScore * 100) / 100,
           accidentScore: Math.round(accidentScore * 100) / 100,
@@ -482,10 +485,12 @@ function scoreSegments(routes, osmWays, bgtPaths, accidents) {
           osmHighway: osmProps.highway || null,
           bgtWidth,
         });
+        chunkIdx++;
       }
     } catch (err) {
       // Skip malformed routes
     }
+    routeIdx++;
   }
 
   console.log(`  ${scoredSegments.length} segments scored`);
@@ -504,7 +509,8 @@ function quickDist(lon1, lat1, lon2, lat2) {
 function mergeAndAttribute(segments, schools) {
   console.log('\nMerging overlapping segments and attributing to schools...');
 
-  const MAX_SCHOOL_DIST_KM = 0.75; // 750m — segments beyond this aren't attributed
+  const MAX_SCHOOL_DIST_KM = 0.75;
+  const DEDUP_PRECISION = 4; // toFixed(4) ≈ 11m grid for overlap detection
 
   // Build school coordinate lookup
   const schoolCoords = {};
@@ -512,48 +518,42 @@ function mergeAndAttribute(segments, schools) {
     schoolCoords[s.properties.name] = s.geometry.coordinates;
   }
 
-  // Group segments by spatial location (grid cell)
-  const cellSize = 0.001; // ~100m grid
-  const grid = new Map();
-
-  for (const seg of segments) {
-    const coords = seg.geometry.coordinates;
-    const mid = coords[Math.floor(coords.length / 2)];
-    const key = `${Math.round(mid[0] / cellSize)},${Math.round(mid[1] / cellSize)}`;
-
-    if (!grid.has(key)) grid.set(key, []);
-    grid.get(key).push(seg);
-  }
-
-  const mergedFeatures = [];
+  // Count total routes per school (for route-share filter)
   const schoolRouteCounts = {};
-
-  // Count total routes per school
   const routesBySchool = new Map();
   for (const seg of segments) {
-    const key = `${seg.school}__${seg.wijk}`;
-    routesBySchool.set(key, true);
+    routesBySchool.set(`${seg.school}__${seg.wijk}`, true);
   }
   for (const [key] of routesBySchool) {
     const school = key.split('__')[0];
     schoolRouteCounts[school] = (schoolRouteCounts[school] || 0) + 1;
   }
 
+  // Group spatially-overlapping segments by road position (~11m precision)
+  const roadGroups = new Map();
+  for (const seg of segments) {
+    const coords = seg.geometry.coordinates;
+    const mid = coords[Math.floor(coords.length / 2)];
+    const key = `${mid[0].toFixed(DEDUP_PRECISION)},${mid[1].toFixed(DEDUP_PRECISION)}`;
+    if (!roadGroups.has(key)) roadGroups.set(key, []);
+    roadGroups.get(key).push(seg);
+  }
+
+  const mergedFeatures = [];
   let droppedDist = 0;
 
-  for (const [, cellSegments] of grid) {
-    // Group by school
+  for (const [, groupSegs] of roadGroups) {
+    // Group by school within this road position
     const bySchool = new Map();
-    for (const seg of cellSegments) {
+    for (const seg of groupSegs) {
       if (!bySchool.has(seg.school)) bySchool.set(seg.school, []);
       bySchool.get(seg.school).push(seg);
     }
 
-    // Collect all schools this cell is attributed to (allows multi-school)
-    const cellSchools = [];
+    const qualifiedSchools = [];
 
     for (const [school, schoolSegs] of bySchool) {
-      // Check distance from segment to school — must be within 750m
+      // Distance filter: segment must be within 750m of school
       const rep = schoolSegs[0];
       const mid = rep.geometry.coordinates[Math.floor(rep.geometry.coordinates.length / 2)];
       const sCoords = schoolCoords[school];
@@ -565,13 +565,13 @@ function mergeAndAttribute(segments, schools) {
         }
       }
 
+      // Route-share filter
       const totalRoutes = schoolRouteCounts[school] || 1;
       const uniqueWijken = new Set(schoolSegs.map(s => s.wijk));
       const routeShare = uniqueWijken.size / totalRoutes;
-
       if (routeShare < MIN_ROUTE_SHARE) continue;
 
-      // Average scores
+      // Average scores across all segments from this school at this position
       const avgScores = {};
       const scoreKeys = Object.keys(schoolSegs[0].scores);
       for (const k of scoreKeys) {
@@ -579,16 +579,13 @@ function mergeAndAttribute(segments, schools) {
         avgScores[k] = Math.round(avgScores[k] * 100) / 100;
       }
 
-      // Find worst segment's street name
-      const worstSeg = schoolSegs.reduce((worst, s) => s.composite < worst.composite ? s : worst, schoolSegs[0]);
-
+      const worstSeg = schoolSegs.reduce((w, s) => s.composite < w.composite ? s : w, schoolSegs[0]);
       const avgCrow = schoolSegs.reduce((sum, s) => sum + s.crowScore, 0) / schoolSegs.length;
       const avgAccident = schoolSegs.reduce((sum, s) => sum + s.accidentScore, 0) / schoolSegs.length;
 
-      cellSchools.push({
+      qualifiedSchools.push({
         school,
         wijken: [...uniqueWijken].sort(),
-        routeShare: Math.round(routeShare * 100) / 100,
         scores: avgScores,
         crowScore: Math.round(avgCrow * 100) / 100,
         accidentScore: Math.round(avgAccident * 100) / 100,
@@ -598,23 +595,26 @@ function mergeAndAttribute(segments, schools) {
       });
     }
 
-    // Skip cells not attributed to any school
-    if (cellSchools.length === 0) continue;
+    if (qualifiedSchools.length === 0) continue;
 
-    // Use representative geometry from first school's segments
-    const firstSchoolSegs = bySchool.get(cellSchools[0].school);
-    const repGeom = firstSchoolSegs[0].geometry;
+    // Pick representative geometry — prefer the segment with the best route ordering
+    // (earliest routeId, lowest segmentIndex) to preserve contiguity
+    const repSeg = groupSegs.reduce((best, s) => {
+      if (s.routeId < best.routeId) return s;
+      if (s.routeId === best.routeId && s.segmentIndex < best.segmentIndex) return s;
+      return best;
+    }, groupSegs[0]);
 
-    // Merge scores across all attributed schools (weighted average)
-    const allScoreKeys = Object.keys(cellSchools[0].scores);
+    // Merge scores across all attributed schools
+    const allScoreKeys = Object.keys(qualifiedSchools[0].scores);
     const mergedScores = {};
     for (const k of allScoreKeys) {
-      mergedScores[k] = cellSchools.reduce((sum, s) => sum + s.scores[k], 0) / cellSchools.length;
+      mergedScores[k] = qualifiedSchools.reduce((sum, s) => sum + s.scores[k], 0) / qualifiedSchools.length;
       mergedScores[k] = Math.round(mergedScores[k] * 100) / 100;
     }
 
-    const crowScore = cellSchools.reduce((sum, s) => sum + s.crowScore, 0) / cellSchools.length;
-    const accidentScore = cellSchools.reduce((sum, s) => sum + s.accidentScore, 0) / cellSchools.length;
+    const crowScore = qualifiedSchools.reduce((sum, s) => sum + s.crowScore, 0) / qualifiedSchools.length;
+    const accidentScore = qualifiedSchools.reduce((sum, s) => sum + s.accidentScore, 0) / qualifiedSchools.length;
     const composite = crowScore * 0.3 + accidentScore * 0.7;
     let label;
     if (composite >= 2.5) label = 'veilig';
@@ -623,47 +623,126 @@ function mergeAndAttribute(segments, schools) {
 
     mergedFeatures.push({
       type: 'Feature',
-      geometry: repGeom,
+      geometry: repSeg.geometry,
       properties: {
-        schools: cellSchools.map(s => s.school),
-        wijken: [...new Set(cellSchools.flatMap(s => s.wijken))].sort(),
+        schools: qualifiedSchools.map(s => s.school),
+        wijken: [...new Set(qualifiedSchools.flatMap(s => s.wijken))].sort(),
         scores: mergedScores,
         crowScore: Math.round(crowScore * 100) / 100,
         accidentScore: Math.round(accidentScore * 100) / 100,
         composite: Math.round(composite * 100) / 100,
         label,
-        accidentCount: Math.max(...cellSchools.map(s => s.accidentCount)),
-        streetName: cellSchools.reduce((w, s) => s.worstComposite < w.worstComposite ? s : w, cellSchools[0]).streetName,
+        accidentCount: Math.max(...qualifiedSchools.map(s => s.accidentCount)),
+        streetName: qualifiedSchools.reduce((w, s) => s.worstComposite < w.worstComposite ? s : w, qualifiedSchools[0]).streetName,
+        _routeId: repSeg.routeId,
+        _segmentIndex: repSeg.segmentIndex,
       },
     });
   }
+
+  // Sort by route order so adjacent segments stay together
+  mergedFeatures.sort((a, b) => {
+    if (a.properties._routeId !== b.properties._routeId) return a.properties._routeId - b.properties._routeId;
+    return a.properties._segmentIndex - b.properties._segmentIndex;
+  });
 
   console.log(`  ${mergedFeatures.length} merged features (from ${segments.length} raw segments)`);
   console.log(`  ${droppedDist} segments dropped (>750m from school)`);
   return mergedFeatures;
 }
 
-// --- Step 7: Buffer into corridor polygons ---
+// --- Step 7: Buffer into corridor polygons, clip overlaps ---
+
+function getBBox(feature) {
+  const coords = feature.geometry.type === 'Polygon'
+    ? feature.geometry.coordinates[0]
+    : feature.geometry.type === 'MultiPolygon'
+      ? feature.geometry.coordinates.flat(1).flat()
+      : feature.geometry.coordinates;
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  const pts = feature.geometry.type === 'MultiPolygon'
+    ? feature.geometry.coordinates.flatMap(p => p[0])
+    : coords;
+  for (const [x, y] of pts) {
+    if (x < minX) minX = x;
+    if (x > maxX) maxX = x;
+    if (y < minY) minY = y;
+    if (y > maxY) maxY = y;
+  }
+  return [minX, minY, maxX, maxY];
+}
+
+function bboxOverlaps(a, b) {
+  const [ax1, ay1, ax2, ay2] = getBBox(a);
+  const [bx1, by1, bx2, by2] = getBBox(b);
+  return ax1 <= bx2 && ax2 >= bx1 && ay1 <= by2 && ay2 >= by1;
+}
 
 function buildCorridors(features) {
   console.log('\nBuffering into corridor polygons...');
 
-  const corridors = features.map(f => {
+  // Sort by composite ascending — worst-scoring segments get priority (never clipped away)
+  const sorted = [...features].sort((a, b) =>
+    a.properties.composite - b.properties.composite
+  );
+
+  const corridors = [];
+
+  for (const f of sorted) {
     try {
-      const buffered = buffer(f, ROUTE_BUFFER_M / 1000, { units: 'kilometers' });
-      if (!buffered) return null;
+      let buffered = buffer(f, ROUTE_BUFFER_M / 1000, { units: 'kilometers' });
+      if (!buffered) continue;
 
-      // Simplify to reduce file size
-      const simplified = simplify(buffered, { tolerance: 0.00005, highQuality: true });
+      // Clip against previously emitted corridors to remove overlap
+      for (const prev of corridors) {
+        if (!bboxOverlaps(buffered, prev)) continue;
+        try {
+          const clipped = difference(featureCollection([buffered, prev]));
+          if (clipped) {
+            buffered = clipped;
+          } else {
+            buffered = null; // completely contained by a prior segment
+            break;
+          }
+        } catch { /* if clipping fails, keep unclipped */ }
+      }
 
-      simplified.properties = f.properties;
-      return simplified;
+      if (!buffered) continue;
+
+      // For MultiPolygons from clipping, drop tiny slivers (< 50m²)
+      if (buffered.geometry.type === 'MultiPolygon') {
+        const kept = buffered.geometry.coordinates.filter(poly => {
+          // Quick area estimate from coordinate span
+          const ring = poly[0];
+          let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+          for (const [x, y] of ring) {
+            if (x < minX) minX = x; if (x > maxX) maxX = x;
+            if (y < minY) minY = y; if (y > maxY) maxY = y;
+          }
+          const spanM = (maxX - minX) * 111000 * Math.cos(minY * Math.PI / 180) *
+                        (maxY - minY) * 111000;
+          return spanM > 50; // keep parts > ~50 m²
+        });
+        if (kept.length === 0) continue;
+        if (kept.length === 1) {
+          buffered.geometry = { type: 'Polygon', coordinates: kept[0] };
+        } else {
+          buffered.geometry.coordinates = kept;
+        }
+      }
+
+      const simplified = simplify(buffered, { tolerance: 0.00008, highQuality: true });
+      simplified.properties = { ...f.properties };
+      delete simplified.properties._routeId;
+      delete simplified.properties._segmentIndex;
+
+      corridors.push(simplified);
     } catch {
-      return null;
+      // Skip malformed
     }
-  }).filter(Boolean);
+  }
 
-  console.log(`  ${corridors.length} corridor polygons`);
+  console.log(`  ${corridors.length} corridor polygons (non-overlapping)`);
   return corridors;
 }
 

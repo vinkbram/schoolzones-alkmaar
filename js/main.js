@@ -318,7 +318,7 @@ async function initKnelpunten() {
     const streetData = new Map();
 
     // Normalize bridge/segment names to their parent road
-    const STREET_ALIASES = { 'Bokkebrug': 'Kanaalkade' };
+    const STREET_ALIASES = { 'Bokkebrug': 'Kanaalkade', 'Oude Hoeverweg': 'Van Ostadelaan' };
 
     for (const f of routes.features) {
       const name = STREET_ALIASES[f.properties.streetName] || f.properties.streetName;
