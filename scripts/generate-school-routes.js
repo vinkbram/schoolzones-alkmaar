@@ -651,18 +651,63 @@ function mergeAndAttribute(segments, schools) {
   return mergedFeatures;
 }
 
-// --- Step 7: Buffer into corridor polygons, clip overlaps ---
+// --- Step 7: Build flat-ended corridor polygons ---
+// Each segment becomes a clean quad with perpendicular ends.
+// Adjacent segments share the perpendicular line = straight cuts, no gaps.
+
+function offsetPoint(lon, lat, perpLon, perpLat, meters) {
+  const R = 6371000;
+  const toRad = Math.PI / 180;
+  const mPerDegLon = R * toRad * Math.cos(lat * toRad);
+  const mPerDegLat = R * toRad;
+  return [
+    lon + (meters / mPerDegLon) * perpLon,
+    lat + (meters / mPerDegLat) * perpLat,
+  ];
+}
+
+function buildFlatCorridor(lineCoords, bufferM) {
+  if (lineCoords.length < 2) return null;
+
+  const left = [];
+  const right = [];
+
+  for (let i = 0; i < lineCoords.length; i++) {
+    const [lon, lat] = lineCoords[i];
+
+    // Direction: average of incoming and outgoing vectors
+    let dx = 0, dy = 0;
+    if (i < lineCoords.length - 1) {
+      dx += lineCoords[i + 1][0] - lon;
+      dy += lineCoords[i + 1][1] - lat;
+    }
+    if (i > 0) {
+      dx += lon - lineCoords[i - 1][0];
+      dy += lat - lineCoords[i - 1][1];
+    }
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len === 0) continue;
+
+    // Perpendicular (rotate 90°)
+    const px = -dy / len;
+    const py = dx / len;
+
+    left.push(offsetPoint(lon, lat, px, py, bufferM));
+    right.push(offsetPoint(lon, lat, px, py, -bufferM));
+  }
+
+  if (left.length < 2) return null;
+
+  // Close: left forward, right reversed
+  const ring = [...left, ...right.reverse(), left[0]];
+  return { type: 'Polygon', coordinates: [ring] };
+}
 
 function getBBox(feature) {
-  const coords = feature.geometry.type === 'Polygon'
-    ? feature.geometry.coordinates[0]
-    : feature.geometry.type === 'MultiPolygon'
-      ? feature.geometry.coordinates.flat(1).flat()
-      : feature.geometry.coordinates;
-  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
   const pts = feature.geometry.type === 'MultiPolygon'
     ? feature.geometry.coordinates.flatMap(p => p[0])
-    : coords;
+    : feature.geometry.coordinates[0];
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
   for (const [x, y] of pts) {
     if (x < minX) minX = x;
     if (x > maxX) maxX = x;
@@ -679,9 +724,9 @@ function bboxOverlaps(a, b) {
 }
 
 function buildCorridors(features) {
-  console.log('\nBuffering into corridor polygons...');
+  console.log('\nBuilding flat-ended corridor polygons...');
 
-  // Sort by composite ascending — worst-scoring segments get priority (never clipped away)
+  // Sort by composite ascending — worst-scoring segments get priority
   const sorted = [...features].sort((a, b) =>
     a.properties.composite - b.properties.composite
   );
@@ -690,59 +735,57 @@ function buildCorridors(features) {
 
   for (const f of sorted) {
     try {
-      let buffered = buffer(f, ROUTE_BUFFER_M / 1000, { units: 'kilometers' });
-      if (!buffered) continue;
+      const geom = buildFlatCorridor(f.geometry.coordinates, ROUTE_BUFFER_M);
+      if (!geom) continue;
 
-      // Clip against previously emitted corridors to remove overlap
+      let feature = { type: 'Feature', geometry: geom, properties: { ...f.properties } };
+
+      // Clip against previously emitted corridors (handles different-route overlap)
       for (const prev of corridors) {
-        if (!bboxOverlaps(buffered, prev)) continue;
+        if (!bboxOverlaps(feature, prev)) continue;
         try {
-          const clipped = difference(featureCollection([buffered, prev]));
+          const clipped = difference(featureCollection([feature, prev]));
           if (clipped) {
-            buffered = clipped;
+            clipped.properties = feature.properties;
+            feature = clipped;
           } else {
-            buffered = null; // completely contained by a prior segment
+            feature = null;
             break;
           }
-        } catch { /* if clipping fails, keep unclipped */ }
+        } catch { /* keep unclipped */ }
       }
 
-      if (!buffered) continue;
+      if (!feature) continue;
 
-      // For MultiPolygons from clipping, drop tiny slivers (< 50m²)
-      if (buffered.geometry.type === 'MultiPolygon') {
-        const kept = buffered.geometry.coordinates.filter(poly => {
-          // Quick area estimate from coordinate span
+      // Drop tiny slivers from MultiPolygon clipping
+      if (feature.geometry.type === 'MultiPolygon') {
+        const kept = feature.geometry.coordinates.filter(poly => {
           const ring = poly[0];
-          let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+          let mnX = Infinity, mxX = -Infinity, mnY = Infinity, mxY = -Infinity;
           for (const [x, y] of ring) {
-            if (x < minX) minX = x; if (x > maxX) maxX = x;
-            if (y < minY) minY = y; if (y > maxY) maxY = y;
+            if (x < mnX) mnX = x; if (x > mxX) mxX = x;
+            if (y < mnY) mnY = y; if (y > mxY) mxY = y;
           }
-          const spanM = (maxX - minX) * 111000 * Math.cos(minY * Math.PI / 180) *
-                        (maxY - minY) * 111000;
-          return spanM > 50; // keep parts > ~50 m²
+          return (mxX - mnX) * 111000 * Math.cos(mnY * Math.PI / 180) *
+                 (mxY - mnY) * 111000 > 50;
         });
         if (kept.length === 0) continue;
         if (kept.length === 1) {
-          buffered.geometry = { type: 'Polygon', coordinates: kept[0] };
+          feature.geometry = { type: 'Polygon', coordinates: kept[0] };
         } else {
-          buffered.geometry.coordinates = kept;
+          feature.geometry.coordinates = kept;
         }
       }
 
-      const simplified = simplify(buffered, { tolerance: 0.00008, highQuality: true });
-      simplified.properties = { ...f.properties };
-      delete simplified.properties._routeId;
-      delete simplified.properties._segmentIndex;
-
-      corridors.push(simplified);
+      delete feature.properties._routeId;
+      delete feature.properties._segmentIndex;
+      corridors.push(feature);
     } catch {
       // Skip malformed
     }
   }
 
-  console.log(`  ${corridors.length} corridor polygons (non-overlapping)`);
+  console.log(`  ${corridors.length} corridor polygons`);
   return corridors;
 }
 
