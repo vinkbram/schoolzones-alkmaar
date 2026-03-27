@@ -293,6 +293,70 @@ a:hover {
   font-size: 0.85rem;
 }
 
+/* Fatal accident marker */
+.accident-fatal {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+
+/* Cluster containing fatal accidents */
+.marker-cluster--fatal {
+  box-shadow: 0 0 0 3px #B71C1C, 0 0 10px rgba(183, 28, 28, 0.5) !important;
+}
+.marker-cluster--fatal div {
+  background-color: rgba(183, 28, 28, 0.95) !important;
+}
+
+/* STAR-style bar chart popup */
+.accident-chart {
+  min-width: 140px;
+  padding: 2px;
+}
+.accident-chart strong {
+  display: block;
+  margin-bottom: 6px;
+}
+.accident-chart__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 4px;
+}
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 18px;
+}
+.chart-bar__fill {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.2s;
+}
+.chart-bar__label {
+  font-size: 9px;
+  color: #888;
+  margin-top: 3px;
+}
+.accident-chart__legend {
+  display: flex;
+  gap: 8px;
+  font-size: 9px;
+  color: #888;
+}
+.accident-chart__legend i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 1px;
+}
+
 /* Marker Cluster overrides */
 .marker-cluster-small {
   background-color: rgba(239, 68, 68, 0.5);
@@ -416,6 +480,24 @@ a:hover {
   background: var(--clr-danger-dark);
   border: 2px solid #000;
 }
+.map-legend__swatch--dodelijk-x {
+  background: var(--clr-danger-dark);
+  border: 2px solid #fff;
+  position: relative;
+}
+.map-legend__swatch--dodelijk-x::before,
+.map-legend__swatch--dodelijk-x::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+}
+.map-legend__swatch--dodelijk-x::before { transform: translate(-50%, -50%) rotate(45deg); }
+.map-legend__swatch--dodelijk-x::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 .map-legend__swatch--new {
   background: var(--clr-danger);
   border: 3px solid #00E5FF;

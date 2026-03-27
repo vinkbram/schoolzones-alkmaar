@@ -236,6 +236,39 @@ async function initMap() {
       .reverse();
     const latestFirstSeen = allFirstSeen[0] || null;
 
+    // --- Aggregate accidents by location (starId) ---
+    // Multiple year-records at the same coordinates become one marker
+    // with a STAR-style bar chart popup showing the timeline.
+    const byStarId = {};
+    for (const f of accidents.features) {
+      const id = f.properties.starId;
+      if (!byStarId[id]) byStarId[id] = { coords: f.geometry.coordinates, records: [] };
+      byStarId[id].records.push(f.properties);
+    }
+
+    const severityRank = { dodelijk: 3, letsel: 2, materieel: 1 };
+    const locationFeatures = Object.values(byStarId).map(loc => {
+      loc.records.sort((a, b) => (a.year || 0) - (b.year || 0));
+      const worst = loc.records.reduce((w, r) =>
+        (severityRank[r.severity] || 0) > (severityRank[w] || 0) ? r.severity : w, 'materieel');
+      const latestFS = loc.records.reduce((latest, r) =>
+        r.firstSeen && (!latest || r.firstSeen > latest) ? r.firstSeen : latest, null);
+
+      return {
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: loc.coords },
+        properties: {
+          worstSeverity: worst,
+          hasFatal: worst === 'dodelijk',
+          totalCount: loc.records.reduce((s, r) => s + (r.count || 1), 0),
+          yearCount: loc.records.length,
+          records: loc.records,
+          firstSeen: latestFS,
+          starId: loc.records[0].starId,
+        },
+      };
+    });
+
     const accidentCluster = L.markerClusterGroup({
       maxClusterRadius: 40,
       disableClusteringAtZoom: 16,
@@ -246,27 +279,57 @@ async function initMap() {
         if (count > 50) { size = 'large'; diameter = 52; }
         else if (count > 20) { size = 'medium'; diameter = 44; }
 
-        // Check if cluster contains any new accidents
-        const hasNew = latestFirstSeen && cluster.getAllChildMarkers().some(
+        const markers = cluster.getAllChildMarkers();
+        const hasFatal = markers.some(
+          m => m.feature && m.feature.properties.hasFatal
+        );
+        const hasNew = latestFirstSeen && markers.some(
           m => m.feature && m.feature.properties.firstSeen === latestFirstSeen
         );
+        const fatalClass = hasFatal ? ' marker-cluster--fatal' : '';
         const newClass = hasNew ? ' marker-cluster--new' : '';
 
         return L.divIcon({
           html: `<div><span>${count}</span></div>`,
-          className: `marker-cluster marker-cluster-${size}${newClass}`,
+          className: `marker-cluster marker-cluster-${size}${fatalClass}${newClass}`,
           iconSize: L.point(diameter, diameter),
         });
       },
     });
 
-    const accidentLayer = L.geoJSON(accidents, {
+    const accidentLayer = L.geoJSON({ type: 'FeatureCollection', features: locationFeatures }, {
       pointToLayer: (feature, latlng) => {
-        const severity = feature.properties.severity || 'materieel';
-        const isNew = latestFirstSeen && feature.properties.firstSeen === latestFirstSeen;
+        const props = feature.properties;
+        const isNew = latestFirstSeen && props.firstSeen === latestFirstSeen;
+
+        if (props.hasFatal) {
+          // Fatal: dark-red circle with white X — unmissable
+          const s = 24;
+          const svg = `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}" xmlns="http://www.w3.org/2000/svg">` +
+            `<circle cx="${s/2}" cy="${s/2}" r="${s/2-1}" fill="#B71C1C" stroke="${isNew ? '#00E5FF' : '#fff'}" stroke-width="${isNew ? 3 : 2}"/>` +
+            `<line x1="8" y1="8" x2="16" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
+            `<line x1="16" y1="8" x2="8" y2="16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>` +
+            `</svg>`;
+          return L.marker(latlng, {
+            icon: L.divIcon({
+              html: svg,
+              className: 'accident-fatal' + (isNew ? ' accident-new' : ''),
+              iconSize: [s, s],
+              iconAnchor: [s / 2, s / 2],
+              popupAnchor: [0, -s / 2],
+            }),
+            zIndexOffset: 1000,
+          });
+        }
+
+        // Non-fatal: circle marker, slightly larger for multi-year locations
+        const sev = props.worstSeverity || 'materieel';
+        const base = SEVERITY_RADIUS[sev] || 5;
+        const radius = props.yearCount > 1 ? base + 2 : base;
+
         return L.circleMarker(latlng, {
-          radius: isNew ? 10 : (SEVERITY_RADIUS[severity] || 5),
-          fillColor: SEVERITY_COLORS[severity] || '#E57373',
+          radius: isNew ? radius + 2 : radius,
+          fillColor: SEVERITY_COLORS[sev] || '#E57373',
           color: isNew ? '#00E5FF' : '#fff',
           weight: isNew ? 3 : 1,
           fillOpacity: isNew ? 1 : 0.8,
@@ -275,28 +338,40 @@ async function initMap() {
       },
       onEachFeature: (feature, layer) => {
         const props = feature.properties;
-        const severityLabel = {
-          materieel: 'Materiële schade',
-          letsel: 'Letselongeval',
-          dodelijk: 'Dodelijk ongeval',
-        };
+        const records = props.records;
 
-        let dateStr = '';
-        const displayDate = props.firstSeen || props.date;
-        if (displayDate) {
-          try {
-            dateStr = dateFormatter.format(new Date(displayDate + 'T00:00:00'));
-          } catch {
-            dateStr = displayDate;
+        // STAR-style bar chart: continuous timeline 2021–2026
+        const allYears = [2021, 2022, 2023, 2024, 2025, 2026];
+        const recByYear = {};
+        for (const r of records) recByYear[r.year] = r;
+
+        const maxCount = Math.max(...records.map(r => r.count || 1), 1);
+        const chartH = 60;
+
+        const bars = allYears.map(yr => {
+          const r = recByYear[yr];
+          if (!r) {
+            return `<div class="chart-bar"><div class="chart-bar__fill"></div><span class="chart-bar__label">${yr}</span></div>`;
           }
-        }
+          const h = Math.max(4, ((r.count || 1) / maxCount) * chartH);
+          const c = SEVERITY_COLORS[r.severity] || '#E57373';
+          return `<div class="chart-bar"><div class="chart-bar__fill" style="height:${h}px;background:${c}"></div><span class="chart-bar__label">${yr}</span></div>`;
+        }).join('');
 
-        const popup = `
-          <strong>${severityLabel[props.severity] || 'Ongeluk'}</strong><br>
-          ${dateStr ? `Datum: ${dateStr}<br>` : ''}
-          ${props.description ? `<em>${props.description}</em>` : ''}
-        `;
-        layer.bindPopup(popup);
+        const title = props.hasFatal ? 'Dodelijk ongeval'
+          : props.worstSeverity === 'letsel' ? 'Letselongeval' : 'Materiële schade';
+
+        layer.bindPopup(`
+          <div class="accident-chart">
+            <strong>${title}</strong>
+            <div class="accident-chart__bars" style="height:${chartH}px">${bars}</div>
+            <div class="accident-chart__legend">
+              <span><i style="background:#B71C1C"></i> Dodelijk</span>
+              <span><i style="background:#D32F2F"></i> Letsel</span>
+              <span><i style="background:#E57373"></i> Materieel</span>
+            </div>
+          </div>
+        `);
       },
     });
 
