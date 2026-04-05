@@ -28,6 +28,14 @@ async function initCounter() {
       return;
     }
 
+    // Show last-updated timestamp in footer
+    const updatedEl = document.getElementById('data-last-updated');
+    if (updatedEl && data.metadata && data.metadata.lastUpdated) {
+      const d = new Date(data.metadata.lastUpdated + 'T00:00:00');
+      const fmt = new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+      updatedEl.textContent = `Laatste data-update: ${fmt.format(d)}`;
+    }
+
     const dates = data.features
       .map(f => f.properties.firstSeen || f.properties.date)
       .filter(Boolean)

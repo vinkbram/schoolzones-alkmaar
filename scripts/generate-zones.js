@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // generate-zones.js
-// Reads data/schools.geojson, creates 100m buffers around each entrance,
+// Reads data/schools.geojson, creates 250m buffers around each entrance,
 // writes data/zones.geojson.
 
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -25,7 +25,7 @@ for (const school of schools.features) {
 
   for (const entrance of entrances) {
     const pt = point(entrance);
-    const buffered = buffer(pt, 100, { units: 'meters' });
+    const buffered = buffer(pt, 250, { units: 'meters' });
     buffered.properties = {
       school: school.properties.name,
     };
@@ -36,7 +36,7 @@ for (const school of schools.features) {
 const output = featureCollection(zoneFeatures);
 output.metadata = {
   generated: new Date().toISOString(),
-  bufferMeters: 100,
+  bufferMeters: 250,
   schoolCount: schools.features.length,
   zoneCount: zoneFeatures.length,
 };

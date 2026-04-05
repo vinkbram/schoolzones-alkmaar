@@ -831,6 +831,12 @@ a:hover {
   font-size: 0.85rem;
   border-top: 1px solid var(--clr-border);
 }
+.footer__updated {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  opacity: 0.6;
+}
 
 /* ===========================
    RESPONSIVE
