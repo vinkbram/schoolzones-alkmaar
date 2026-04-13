@@ -434,7 +434,7 @@ async function initMap() {
     // Layer control
     L.control.layers(null, {
       'Fietsroutes (CROW)': routeLayer,
-      'Schoolgebieden (250m)': zoneLayer,
+      'Schoolgebieden (100m)': zoneLayer,
       'Ongelukken': accidentCluster,
     }, { collapsed: false }).addTo(map);
 

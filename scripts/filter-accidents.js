@@ -2,7 +2,7 @@
 
 // filter-accidents.js
 // Filters accidents.geojson to only include accidents that fall within
-// a school zone (250m around school entrance) — from zones.geojson.
+// a school zone (100m around school entrance) — from zones.geojson.
 //
 // This keeps the dataset focused on school-relevant incidents and reduces
 // the data shipped to the browser.
@@ -51,8 +51,8 @@ function main() {
     return inside;
   }
 
-  // Filter accidents to 250m school zones
-  console.log('\nFiltering accidents to school zones (250m)...');
+  // Filter accidents to 100m school zones
+  console.log('\nFiltering accidents to school zones (100m)...');
   const filtered = [];
 
   for (const accident of accidents.features) {
@@ -67,7 +67,7 @@ function main() {
     }
   }
 
-  console.log(`  In school zone (250m): ${filtered.length}`);
+  console.log(`  In school zone (100m): ${filtered.length}`);
   console.log(`  Excluded: ${accidents.features.length - filtered.length}`);
 
   const output = {
@@ -75,7 +75,7 @@ function main() {
     metadata: {
       ...accidents.metadata,
       featureCount: filtered.length,
-      filterNote: `Filtered to accidents within 250m school zones (${filtered.length}). Original: ${accidents.features.length} accidents.`,
+      filterNote: `Filtered to accidents within 100m school zones (${filtered.length}). Original: ${accidents.features.length} accidents.`,
     },
     features: filtered,
   };
