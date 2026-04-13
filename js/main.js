@@ -230,6 +230,7 @@ function buildRankings(schools, accidents, zones, schoolWorst) {
       accidentCount,
       worstSegment: schoolWorst[schoolName] || null,
       coordinates: school.geometry.coordinates,
+      private: school.properties.private || false,
     });
   }
 
@@ -277,7 +278,7 @@ function renderTable(rankings) {
 
     row.innerHTML = `
       <td>${i + 1}</td>
-      <td>${escapeHtml(school.name)}</td>
+      <td>${escapeHtml(school.name)}${school.private ? ' <span class="school-private-badge">*</span>' : ''}</td>
       <td>${formatter.format(school.studentCount)}</td>
       <td class="${riskClass}">${school.accidentCount}</td>
       <td>${painHtml}</td>

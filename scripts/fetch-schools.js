@@ -230,10 +230,44 @@ async function main() {
     if (i % 10 === 9) await new Promise(r => setTimeout(r, 500));
   }
 
+  // Manually-added particuliere (private, niet-bekostigd) schools
+  // These are not in DUO's bekostigd datasets.
+  const privateSchools = [
+    {
+      name: 'Luzac College Alkmaar',
+      type: 'middelbaar',
+      address: 'Wilhelminalaan 1, 1815JC Alkmaar',
+      studentCount: 65,
+      private: true,
+    },
+  ];
+
+  console.log(`\nAdding ${privateSchools.length} particuliere scholen...`);
+  for (const ps of privateSchools) {
+    const coords = await geocode(ps.address);
+    if (!coords) {
+      console.warn(`  FAILED: ${ps.name} — ${ps.address}`);
+      continue;
+    }
+    console.log(`  ${ps.name} → [${coords[0].toFixed(4)}, ${coords[1].toFixed(4)}]`);
+    features.push({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: coords },
+      properties: {
+        name: ps.name,
+        type: ps.type,
+        studentCount: ps.studentCount,
+        plaats: 'ALKMAAR',
+        entrances: [coords],
+        private: true,
+      },
+    });
+  }
+
   const geojson = {
     type: 'FeatureCollection',
     metadata: {
-      source: 'DUO open onderwijsdata + PDOK geocoding',
+      source: 'DUO open onderwijsdata + PDOK geocoding + handmatig (particulier)',
       lastUpdated: new Date().toISOString().split('T')[0],
       schoolCount: features.length,
     },

@@ -393,18 +393,36 @@ async function initMap() {
     const basisIcon = L.divIcon({ html: basisSvg, className: 'school-marker', iconSize: [20, 20], iconAnchor: [10, 10], popupAnchor: [0, -10] });
     const middelbaarIcon = L.divIcon({ html: middelbaarSvg, className: 'school-marker', iconSize: [20, 20], iconAnchor: [10, 10], popupAnchor: [0, -10] });
 
+    // Asterisk icon for particuliere (private) schools
+    function privateIcon(baseSvg) {
+      return L.divIcon({
+        html: `<div class="school-marker--private">${baseSvg}<span class="school-marker__asterisk">*</span></div>`,
+        className: 'school-marker',
+        iconSize: [20, 20],
+        iconAnchor: [10, 10],
+        popupAnchor: [0, -10],
+      });
+    }
+    const privateBasisIcon = privateIcon(basisSvg);
+    const privateMiddelbaarIcon = privateIcon(middelbaarSvg);
+
     L.geoJSON(schools, {
       pointToLayer: (feature, latlng) => {
-        const icon = feature.properties.type === 'middelbaar' ? middelbaarIcon : basisIcon;
+        const isPrivate = feature.properties.private;
+        const isMid = feature.properties.type === 'middelbaar';
+        const icon = isPrivate
+          ? (isMid ? privateMiddelbaarIcon : privateBasisIcon)
+          : (isMid ? middelbaarIcon : basisIcon);
         return L.marker(latlng, { icon, zIndexOffset: -1000 });
       },
       onEachFeature: (feature, layer) => {
         const props = feature.properties;
         const typeLabel = props.type === 'middelbaar' ? 'Middelbare school' : 'Basisschool';
+        const privateLabel = props.private ? ' (particulier)' : '';
         const formatter = new Intl.NumberFormat('nl-NL');
         layer.bindPopup(`
           <strong>${props.name}</strong><br>
-          ${typeLabel}<br>
+          ${typeLabel}${privateLabel}<br>
           ${props.studentCount ? `${formatter.format(props.studentCount)} leerlingen` : ''}
         `);
       },

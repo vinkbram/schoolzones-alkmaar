@@ -286,6 +286,27 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+.school-marker--private {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.school-private-badge {
+  color: var(--clr-accent);
+  font-weight: 800;
+  font-size: 0.9em;
+}
+.school-marker__asterisk {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--clr-accent);
+  text-shadow: 0 0 2px var(--clr-white);
+}
 
 /* Leaflet popup sizing */
 .leaflet-popup-content {
@@ -500,6 +521,17 @@ a:hover {
   background: var(--clr-danger);
   border: 3px solid #00E5FF;
   animation: pulse-ring 1.5s ease-out infinite;
+}
+.map-legend__swatch--private {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-accent);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 /* ===========================

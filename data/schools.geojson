@@ -1,9 +1,9 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "source": "DUO open onderwijsdata + PDOK geocoding",
+    "source": "DUO open onderwijsdata + PDOK geocoding + handmatig (particulier)",
     "lastUpdated": "2026-03-27",
-    "schoolCount": 47
+    "schoolCount": 48
   },
   "features": [
     {
@@ -1038,6 +1038,29 @@
             52.64843402
           ]
         ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.74112616,
+          52.62883935
+        ]
+      },
+      "properties": {
+        "name": "Luzac College Alkmaar",
+        "type": "middelbaar",
+        "studentCount": 65,
+        "plaats": "ALKMAAR",
+        "entrances": [
+          [
+            4.74112616,
+            52.62883935
+          ]
+        ],
+        "private": true
       }
     }
   ]
