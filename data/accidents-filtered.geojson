@@ -2,12 +2,12 @@
   "type": "FeatureCollection",
   "metadata": {
     "source": "STAR via star-verkeersongevallen.nl (via.software API)",
-    "lastUpdated": "2026-06-12",
+    "lastUpdated": "2026-06-13",
     "dataRange": "20210101 - 20260611",
-    "featureCount": 107,
+    "featureCount": 99,
     "locationCount": 3988,
     "note": "Dates are year-level from STAR. New locations detected via daily diff get exact first-seen date.",
-    "filterNote": "Filtered to accidents within 100m school zones (107). Original: 5257 accidents."
+    "filterNote": "Filtered to accidents within 100m school zones (99). Original: 5267 accidents."
   },
   "features": [
     {
@@ -15,68 +15,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.72211480140686,
-          52.63306614635246
-        ]
-      },
-      "properties": {
-        "date": "2026-01-01",
-        "severity": "letsel",
-        "year": 2026,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2026-01-01",
-        "starId": 88382,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.738197326660156,
-          52.634511679004504
-        ]
-      },
-      "properties": {
-        "date": "2026-01-01",
-        "severity": "letsel",
-        "year": 2026,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2026-04-29",
-        "starId": 90328,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739586710929871,
-          52.634169834378184
-        ]
-      },
-      "properties": {
-        "date": "2026-01-01",
-        "severity": "letsel",
-        "year": 2026,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2026-04-22",
-        "starId": 90529,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739865660667419,
-          52.63259731469529
+          4.739120006561279,
+          52.63378891864832
         ]
       },
       "properties": {
@@ -85,8 +25,8 @@
         "year": 2026,
         "count": 1,
         "description": "",
-        "firstSeen": "2026-01-01",
-        "starId": 90571,
+        "firstSeen": "2026-06-12",
+        "starId": 90454,
         "area": "schoolzone"
       }
     },
@@ -95,28 +35,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.740766882896423,
-          52.62945861782785
-        ]
-      },
-      "properties": {
-        "date": "2026-01-01",
-        "severity": "letsel",
-        "year": 2026,
-        "count": 2,
-        "description": "",
-        "firstSeen": "2026-04-10",
-        "starId": 90707,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739908576011658,
-          52.61838021401786
+          4.739307761192322,
+          52.63431959520989
         ]
       },
       "properties": {
@@ -125,8 +45,68 @@
         "year": 2026,
         "count": 1,
         "description": "",
-        "firstSeen": "2026-05-04",
-        "starId": 90542,
+        "firstSeen": "2026-06-12",
+        "starId": 90483,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.741330146789551,
+          52.628416676979214
+        ]
+      },
+      "properties": {
+        "date": "2026-01-01",
+        "severity": "materieel",
+        "year": 2026,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90783,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.748132228851318,
+          52.620536196052655
+        ]
+      },
+      "properties": {
+        "date": "2026-01-01",
+        "severity": "letsel",
+        "year": 2026,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 91830,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.751946330070496,
+          52.64083369524019
+        ]
+      },
+      "properties": {
+        "date": "2026-01-01",
+        "severity": "letsel",
+        "year": 2026,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 92498,
         "area": "schoolzone"
       }
     },
@@ -155,8 +135,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7233593463897705,
-          52.634996768223175
+          4.890342950820923,
+          52.600841818131016
+        ]
+      },
+      "properties": {
+        "date": "2026-01-01",
+        "severity": "letsel",
+        "year": 2026,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 113312,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.72211480140686,
+          52.63306614635246
         ]
       },
       "properties": {
@@ -165,8 +165,8 @@
         "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 88512,
+        "firstSeen": "2026-06-12",
+        "starId": 88382,
         "area": "schoolzone"
       }
     },
@@ -181,7 +181,7 @@
       },
       "properties": {
         "date": "2025-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2025,
         "count": 1,
         "description": "",
@@ -195,18 +195,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.731234312057495,
-          52.6358236864385
+          4.737553596496582,
+          52.634104720813184
         ]
       },
       "properties": {
         "date": "2025-01-01",
         "severity": "materieel",
         "year": 2025,
-        "count": 2,
+        "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 89513,
+        "firstSeen": "2026-06-12",
+        "starId": 90250,
         "area": "schoolzone"
       }
     },
@@ -215,8 +215,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.738696217536926,
-          52.63457679196381
+          4.73835825920105,
+          52.63446935552895
         ]
       },
       "properties": {
@@ -225,28 +225,8 @@
         "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90387,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.7390663623809814,
-          52.63149684287657
-        ]
-      },
-      "properties": {
-        "date": "2025-01-01",
-        "severity": "letsel",
-        "year": 2025,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90441,
+        "firstSeen": "2026-06-12",
+        "starId": 90347,
         "area": "schoolzone"
       }
     },
@@ -261,9 +241,9 @@
       },
       "properties": {
         "date": "2025-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2025,
-        "count": 3,
+        "count": 1,
         "description": "",
         "firstSeen": "2025-01-01",
         "starId": 90446,
@@ -275,18 +255,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739173650741577,
-          52.634186112754264
+          4.739125370979309,
+          52.63346660274817
         ]
       },
       "properties": {
         "date": "2025-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2025,
-        "count": 3,
+        "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90462,
+        "firstSeen": "2026-06-12",
+        "starId": 90453,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.739120006561279,
+          52.63378891864832
+        ]
+      },
+      "properties": {
+        "date": "2025-01-01",
+        "severity": "materieel",
+        "year": 2025,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90454,
         "area": "schoolzone"
       }
     },
@@ -301,7 +301,7 @@
       },
       "properties": {
         "date": "2025-01-01",
-        "severity": "dodelijk",
+        "severity": "letsel",
         "year": 2025,
         "count": 1,
         "description": "",
@@ -315,8 +315,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739307761192322,
-          52.63431959520989
+          4.739506244659424,
+          52.63292940430472
         ]
       },
       "properties": {
@@ -325,8 +325,8 @@
         "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90483,
+        "firstSeen": "2026-06-12",
+        "starId": 90517,
         "area": "schoolzone"
       }
     },
@@ -335,8 +335,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739586710929871,
-          52.634169834378184
+          4.741067290306091,
+          52.62815618789065
         ]
       },
       "properties": {
@@ -345,88 +345,8 @@
         "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90529,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739865660667419,
-          52.63259731469529
-        ]
-      },
-      "properties": {
-        "date": "2025-01-01",
-        "severity": "materieel",
-        "year": 2025,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90571,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.740251898765564,
-          52.632213129453504
-        ]
-      },
-      "properties": {
-        "date": "2025-01-01",
-        "severity": "materieel",
-        "year": 2025,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90629,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.741378426551819,
-          52.62917208656762
-        ]
-      },
-      "properties": {
-        "date": "2025-01-01",
-        "severity": "letsel",
-        "year": 2025,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90791,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.741619825363159,
-          52.62869670102003
-        ]
-      },
-      "properties": {
-        "date": "2025-01-01",
-        "severity": "letsel",
-        "year": 2025,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90827,
+        "firstSeen": "2026-06-12",
+        "starId": 90744,
         "area": "schoolzone"
       }
     },
@@ -443,7 +363,7 @@
         "date": "2025-01-01",
         "severity": "letsel",
         "year": 2025,
-        "count": 1,
+        "count": 2,
         "description": "",
         "firstSeen": "2025-01-01",
         "starId": 90848,
@@ -455,18 +375,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7410887479782104,
-          52.61863750446278
+          4.741968512535095,
+          52.62903207629216
         ]
       },
       "properties": {
         "date": "2025-01-01",
         "severity": "materieel",
         "year": 2025,
-        "count": 1,
+        "count": 2,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90731,
+        "firstSeen": "2026-06-12",
+        "starId": 90875,
         "area": "schoolzone"
       }
     },
@@ -475,8 +395,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.74185585975647,
-          52.61947124538821
+          4.742220640182495,
+          52.629106965565
         ]
       },
       "properties": {
@@ -485,8 +405,8 @@
         "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 90841,
+        "firstSeen": "2026-06-12",
+        "starId": 90918,
         "area": "schoolzone"
       }
     },
@@ -495,8 +415,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.748556017875671,
-          52.62104423678272
+          4.739908576011658,
+          52.61838021401786
+        ]
+      },
+      "properties": {
+        "date": "2025-01-01",
+        "severity": "materieel",
+        "year": 2025,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90542,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.74884033203125,
+          52.62156529807302
         ]
       },
       "properties": {
@@ -505,8 +445,8 @@
         "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 91900,
+        "firstSeen": "2026-06-12",
+        "starId": 91947,
         "area": "schoolzone"
       }
     },
@@ -523,7 +463,7 @@
         "date": "2025-01-01",
         "severity": "materieel",
         "year": 2025,
-        "count": 1,
+        "count": 2,
         "description": "",
         "firstSeen": "2025-01-01",
         "starId": 91973,
@@ -535,8 +475,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7491031885147095,
-          52.62187141868861
+          4.761092662811279,
+          52.665696200535564
+        ]
+      },
+      "properties": {
+        "date": "2025-01-01",
+        "severity": "materieel",
+        "year": 2025,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 94041,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.759177565574646,
+          52.65361491901754
         ]
       },
       "properties": {
@@ -545,8 +505,8 @@
         "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 91995,
+        "firstSeen": "2026-06-12",
+        "starId": 93761,
         "area": "schoolzone"
       }
     },
@@ -555,38 +515,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.749387502670288,
-          52.6164911998884
+          4.764515161514282,
+          52.643154576955766
         ]
       },
       "properties": {
         "date": "2025-01-01",
-        "severity": "materieel",
+        "severity": "letsel",
         "year": 2025,
-        "count": 1,
+        "count": 5,
         "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 92026,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.752895832061768,
-          52.641403348018656
-        ]
-      },
-      "properties": {
-        "date": "2025-01-01",
-        "severity": "materieel",
-        "year": 2025,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2025-01-01",
-        "starId": 92646,
+        "firstSeen": "2026-06-12",
+        "starId": 94534,
         "area": "schoolzone"
       }
     },
@@ -601,7 +541,7 @@
       },
       "properties": {
         "date": "2025-01-01",
-        "severity": "materieel",
+        "severity": "letsel",
         "year": 2025,
         "count": 1,
         "description": "",
@@ -615,18 +555,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7224098443984985,
-          52.63234010630492
+          4.775855541229248,
+          52.629956787029556
         ]
       },
       "properties": {
-        "date": "2024-01-01",
+        "date": "2025-01-01",
         "severity": "materieel",
-        "year": 2024,
+        "year": 2025,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 88419,
+        "firstSeen": "2026-06-12",
+        "starId": 96301,
         "area": "schoolzone"
       }
     },
@@ -635,18 +575,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.749687910079956,
-          52.65894827449932
+          4.7233593463897705,
+          52.634996768223175
         ]
       },
       "properties": {
         "date": "2024-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 92164,
+        "firstSeen": "2026-06-12",
+        "starId": 88512,
         "area": "schoolzone"
       }
     },
@@ -663,7 +603,7 @@
         "date": "2024-01-01",
         "severity": "letsel",
         "year": 2024,
-        "count": 3,
+        "count": 1,
         "description": "",
         "firstSeen": "2024-01-01",
         "starId": 90391,
@@ -675,28 +615,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.74958598613739,
-          52.64881792280286
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "letsel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 92122,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.7296518087387085,
-          52.63590181963494
+          4.738696217536926,
+          52.63457679196381
         ]
       },
       "properties": {
@@ -705,8 +625,8 @@
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 89322,
+        "firstSeen": "2026-06-12",
+        "starId": 90387,
         "area": "schoolzone"
       }
     },
@@ -715,8 +635,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.730021953582764,
-          52.63495118959938
+          4.739125370979309,
+          52.63346660274817
         ]
       },
       "properties": {
@@ -725,108 +645,8 @@
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 89369,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.731234312057495,
-          52.6358236864385
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "letsel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 89513,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.737553596496582,
-          52.634104720813184
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "materieel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90250,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.73909854888916,
-          52.633528461539385
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "letsel",
-        "year": 2024,
-        "count": 2,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90446,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739120006561279,
-          52.63378891864832
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "materieel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90454,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739586710929871,
-          52.634169834378184
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "letsel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90529,
+        "firstSeen": "2026-06-12",
+        "starId": 90453,
         "area": "schoolzone"
       }
     },
@@ -841,7 +661,7 @@
       },
       "properties": {
         "date": "2024-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2024,
         "count": 1,
         "description": "",
@@ -855,8 +675,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.74034309387207,
-          52.6280812969907
+          4.740251898765564,
+          52.632213129453504
         ]
       },
       "properties": {
@@ -865,8 +685,8 @@
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90634,
+        "firstSeen": "2026-06-12",
+        "starId": 90629,
         "area": "schoolzone"
       }
     },
@@ -875,8 +695,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.741330146789551,
-          52.628416676979214
+          4.740766882896423,
+          52.62945861782785
         ]
       },
       "properties": {
@@ -885,8 +705,8 @@
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90783,
+        "firstSeen": "2026-06-12",
+        "starId": 90707,
         "area": "schoolzone"
       }
     },
@@ -895,18 +715,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7413623332977295,
-          52.62918185470966
+          4.740933179855347,
+          52.629315352432286
         ]
       },
       "properties": {
         "date": "2024-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90789,
+        "firstSeen": "2026-06-12",
+        "starId": 90732,
         "area": "schoolzone"
       }
     },
@@ -915,38 +735,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.741619825363159,
-          52.62869670102003
+          4.741764664649963,
+          52.62887904129266
         ]
       },
       "properties": {
         "date": "2024-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90827,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.741968512535095,
-          52.62903207629216
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "letsel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 90875,
+        "firstSeen": "2026-06-12",
+        "starId": 90848,
         "area": "schoolzone"
       }
     },
@@ -975,33 +775,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.748556017875671,
-          52.62104423678272
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "letsel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 91900,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.750546216964722,
           52.61709048216389
         ]
       },
       "properties": {
         "date": "2024-01-01",
-        "severity": "materieel",
+        "severity": "letsel",
         "year": 2024,
         "count": 1,
         "description": "",
@@ -1015,18 +795,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.752895832061768,
-          52.641403348018656
+          4.766795039176941,
+          52.67214057083169
         ]
       },
       "properties": {
         "date": "2024-01-01",
-        "severity": "materieel",
+        "severity": "letsel",
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 92646,
+        "firstSeen": "2026-06-12",
+        "starId": 94978,
         "area": "schoolzone"
       }
     },
@@ -1055,28 +835,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.765014052391052,
-          52.64322944205753
-        ]
-      },
-      "properties": {
-        "date": "2024-01-01",
-        "severity": "letsel",
-        "year": 2024,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 94624,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.751147031784058,
-          52.616338121035284
+          4.764584898948669,
+          52.63701845798599
         ]
       },
       "properties": {
@@ -1085,8 +845,8 @@
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 92316,
+        "firstSeen": "2026-06-12",
+        "starId": 94532,
         "area": "schoolzone"
       }
     },
@@ -1115,18 +875,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.775855541229248,
-          52.629956787029556
+          4.890342950820923,
+          52.600841818131016
         ]
       },
       "properties": {
         "date": "2024-01-01",
-        "severity": "materieel",
+        "severity": "letsel",
         "year": 2024,
         "count": 1,
         "description": "",
-        "firstSeen": "2024-01-01",
-        "starId": 96301,
+        "firstSeen": "2026-06-12",
+        "starId": 113312,
         "area": "schoolzone"
       }
     },
@@ -1135,18 +895,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.731234312057495,
-          52.6358236864385
+          4.738197326660156,
+          52.634511679004504
         ]
       },
       "properties": {
         "date": "2023-01-01",
-        "severity": "dodelijk",
+        "severity": "letsel",
         "year": 2023,
         "count": 1,
         "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 89513,
+        "firstSeen": "2026-06-12",
+        "starId": 90328,
         "area": "schoolzone"
       }
     },
@@ -1155,8 +915,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.738910794258118,
-          52.634137277607806
+          4.739173650741577,
+          52.634186112754264
         ]
       },
       "properties": {
@@ -1165,8 +925,8 @@
         "year": 2023,
         "count": 1,
         "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 90423,
+        "firstSeen": "2026-06-12",
+        "starId": 90462,
         "area": "schoolzone"
       }
     },
@@ -1195,18 +955,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739506244659424,
-          52.63292940430472
+          4.740809798240662,
+          52.62939349725164
         ]
       },
       "properties": {
         "date": "2023-01-01",
         "severity": "materieel",
         "year": 2023,
-        "count": 1,
+        "count": 2,
         "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 90517,
+        "firstSeen": "2026-06-12",
+        "starId": 90716,
         "area": "schoolzone"
       }
     },
@@ -1215,18 +975,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739586710929871,
-          52.634169834378184
+          4.7413623332977295,
+          52.62918185470966
+        ]
+      },
+      "properties": {
+        "date": "2023-01-01",
+        "severity": "materieel",
+        "year": 2023,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90789,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.741764664649963,
+          52.62887904129266
         ]
       },
       "properties": {
         "date": "2023-01-01",
         "severity": "letsel",
         "year": 2023,
-        "count": 1,
+        "count": 2,
         "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 90529,
+        "firstSeen": "2026-06-12",
+        "starId": 90848,
         "area": "schoolzone"
       }
     },
@@ -1241,9 +1021,9 @@
       },
       "properties": {
         "date": "2023-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2023,
-        "count": 2,
+        "count": 1,
         "description": "",
         "firstSeen": "2023-01-01",
         "starId": 90849,
@@ -1255,28 +1035,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.742220640182495,
-          52.629106965565
-        ]
-      },
-      "properties": {
-        "date": "2023-01-01",
-        "severity": "letsel",
-        "year": 2023,
-        "count": 2,
-        "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 90918,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.743481278419495,
-          52.619389826075604
+          4.7410887479782104,
+          52.61863750446278
         ]
       },
       "properties": {
@@ -1285,8 +1045,28 @@
         "year": 2023,
         "count": 1,
         "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 91073,
+        "firstSeen": "2026-06-12",
+        "starId": 90731,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.743695855140686,
+          52.61910322889051
+        ]
+      },
+      "properties": {
+        "date": "2023-01-01",
+        "severity": "materieel",
+        "year": 2023,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 91107,
         "area": "schoolzone"
       }
     },
@@ -1301,7 +1081,7 @@
       },
       "properties": {
         "date": "2023-01-01",
-        "severity": "letsel",
+        "severity": "materieel",
         "year": 2023,
         "count": 1,
         "description": "",
@@ -1335,8 +1115,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7574180364608765,
-          52.65908818903847
+          4.766795039176941,
+          52.67214057083169
         ]
       },
       "properties": {
@@ -1345,8 +1125,8 @@
         "year": 2023,
         "count": 1,
         "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 93509,
+        "firstSeen": "2026-06-12",
+        "starId": 94978,
         "area": "schoolzone"
       }
     },
@@ -1355,78 +1135,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.761092662811279,
-          52.665696200535564
+          4.764515161514282,
+          52.643154576955766
         ]
       },
       "properties": {
         "date": "2023-01-01",
-        "severity": "materieel",
-        "year": 2023,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 94041,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.751946330070496,
-          52.64083369524019
-        ]
-      },
-      "properties": {
-        "date": "2023-01-01",
-        "severity": "materieel",
-        "year": 2023,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 92498,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.76532518863678,
-          52.64325873706247
-        ]
-      },
-      "properties": {
-        "date": "2023-01-01",
-        "severity": "materieel",
-        "year": 2023,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2023-01-01",
-        "starId": 94682,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.738433361053467,
-          52.649306107935956
-        ]
-      },
-      "properties": {
-        "date": "2022-01-01",
         "severity": "letsel",
-        "year": 2022,
-        "count": 1,
+        "year": 2023,
+        "count": 3,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90381,
+        "firstSeen": "2026-06-12",
+        "starId": 94534,
         "area": "schoolzone"
       }
     },
@@ -1435,18 +1155,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.7387391328811646,
-          52.64964132523792
+          4.890342950820923,
+          52.600841818131016
         ]
       },
       "properties": {
-        "date": "2022-01-01",
+        "date": "2023-01-01",
         "severity": "letsel",
-        "year": 2022,
+        "year": 2023,
         "count": 1,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90431,
+        "firstSeen": "2026-06-12",
+        "starId": 113312,
         "area": "schoolzone"
       }
     },
@@ -1455,8 +1175,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.731234312057495,
-          52.6358236864385
+          4.749687910079956,
+          52.65894827449932
         ]
       },
       "properties": {
@@ -1465,8 +1185,8 @@
         "year": 2022,
         "count": 1,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 89513,
+        "firstSeen": "2026-06-12",
+        "starId": 92164,
         "area": "schoolzone"
       }
     },
@@ -1475,8 +1195,128 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.738910794258118,
-          52.634137277607806
+          4.7296518087387085,
+          52.63590181963494
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 89322,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.730021953582764,
+          52.63495118959938
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 89369,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7390663623809814,
+          52.63149684287657
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90441,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.739307761192322,
+          52.63431959520989
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90483,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.739586710929871,
+          52.634169834378184
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90529,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.74034309387207,
+          52.6280812969907
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90634,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.741002917289734,
+          52.628442725802785
         ]
       },
       "properties": {
@@ -1485,8 +1325,8 @@
         "year": 2022,
         "count": 2,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90423,
+        "firstSeen": "2026-06-12",
+        "starId": 90738,
         "area": "schoolzone"
       }
     },
@@ -1495,8 +1335,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739125370979309,
-          52.63346660274817
+          4.74185585975647,
+          52.61947124538821
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 2,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90841,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.742140173912048,
+          52.61937354219489
         ]
       },
       "properties": {
@@ -1505,8 +1365,8 @@
         "year": 2022,
         "count": 1,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90453,
+        "firstSeen": "2026-06-12",
+        "starId": 90876,
         "area": "schoolzone"
       }
     },
@@ -1515,8 +1375,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739506244659424,
-          52.63292940430472
+          4.748556017875671,
+          52.62104423678272
         ]
       },
       "properties": {
@@ -1525,128 +1385,8 @@
         "year": 2022,
         "count": 1,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90517,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.740251898765564,
-          52.632213129453504
-        ]
-      },
-      "properties": {
-        "date": "2022-01-01",
-        "severity": "letsel",
-        "year": 2022,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90629,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.740809798240662,
-          52.62939349725164
-        ]
-      },
-      "properties": {
-        "date": "2022-01-01",
-        "severity": "letsel",
-        "year": 2022,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90716,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.741764664649963,
-          52.629012539939055
-        ]
-      },
-      "properties": {
-        "date": "2022-01-01",
-        "severity": "materieel",
-        "year": 2022,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 90849,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.746571183204651,
-          52.627465884306986
-        ]
-      },
-      "properties": {
-        "date": "2022-01-01",
-        "severity": "letsel",
-        "year": 2022,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 91602,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.74884033203125,
-          52.62156529807302
-        ]
-      },
-      "properties": {
-        "date": "2022-01-01",
-        "severity": "materieel",
-        "year": 2022,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 91947,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.750009775161743,
-          52.617214245959644
-        ]
-      },
-      "properties": {
-        "date": "2022-01-01",
-        "severity": "letsel",
-        "year": 2022,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 92115,
+        "firstSeen": "2026-06-12",
+        "starId": 91900,
         "area": "schoolzone"
       }
     },
@@ -1661,12 +1401,32 @@
       },
       "properties": {
         "date": "2022-01-01",
-        "severity": "materieel",
+        "severity": "letsel",
         "year": 2022,
         "count": 1,
         "description": "",
         "firstSeen": "2022-01-01",
         "starId": 94978,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7574180364608765,
+          52.65908818903847
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "letsel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 93509,
         "area": "schoolzone"
       }
     },
@@ -1701,7 +1461,7 @@
       },
       "properties": {
         "date": "2022-01-01",
-        "severity": "materieel",
+        "severity": "dodelijk",
         "year": 2022,
         "count": 1,
         "description": "",
@@ -1715,8 +1475,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.764112830162048,
-          52.65908818903847
+          4.760620594024658,
+          52.66050683209767
         ]
       },
       "properties": {
@@ -1725,8 +1485,8 @@
         "year": 2022,
         "count": 1,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 94506,
+        "firstSeen": "2026-06-12",
+        "starId": 93974,
         "area": "schoolzone"
       }
     },
@@ -1755,8 +1515,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.759177565574646,
-          52.65361491901754
+          4.752895832061768,
+          52.641403348018656
         ]
       },
       "properties": {
@@ -1765,8 +1525,8 @@
         "year": 2022,
         "count": 1,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 93761,
+        "firstSeen": "2026-06-12",
+        "starId": 92646,
         "area": "schoolzone"
       }
     },
@@ -1775,18 +1535,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.764584898948669,
-          52.63701845798599
+          4.764515161514282,
+          52.643154576955766
         ]
       },
       "properties": {
         "date": "2022-01-01",
         "severity": "letsel",
         "year": 2022,
-        "count": 1,
+        "count": 3,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 94532,
+        "firstSeen": "2026-06-12",
+        "starId": 94534,
         "area": "schoolzone"
       }
     },
@@ -1795,8 +1555,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.890342950820923,
-          52.600841818131016
+          4.751147031784058,
+          52.616338121035284
         ]
       },
       "properties": {
@@ -1805,8 +1565,68 @@
         "year": 2022,
         "count": 1,
         "description": "",
-        "firstSeen": "2022-01-01",
-        "starId": 113312,
+        "firstSeen": "2026-06-12",
+        "starId": 92316,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.775855541229248,
+          52.629956787029556
+        ]
+      },
+      "properties": {
+        "date": "2022-01-01",
+        "severity": "materieel",
+        "year": 2022,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 96301,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.72211480140686,
+          52.63306614635246
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 2,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 88382,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7224098443984985,
+          52.63234010630492
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 88419,
         "area": "schoolzone"
       }
     },
@@ -1827,6 +1647,66 @@
         "description": "",
         "firstSeen": "2021-01-01",
         "starId": 90381,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7387391328811646,
+          52.64964132523792
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 90431,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.74958598613739,
+          52.64881792280286
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "letsel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 92122,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.730021953582764,
+          52.63495118959938
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 89369,
         "area": "schoolzone"
       }
     },
@@ -1875,8 +1755,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.73909854888916,
-          52.633528461539385
+          4.738910794258118,
+          52.634137277607806
         ]
       },
       "properties": {
@@ -1885,8 +1765,8 @@
         "year": 2021,
         "count": 1,
         "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90446,
+        "firstSeen": "2026-06-12",
+        "starId": 90423,
         "area": "schoolzone"
       }
     },
@@ -1895,8 +1775,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.739243388175964,
-          52.634544235496236
+          4.741378426551819,
+          52.62917208656762
         ]
       },
       "properties": {
@@ -1905,108 +1785,8 @@
         "year": 2021,
         "count": 1,
         "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90473,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739506244659424,
-          52.63292940430472
-        ]
-      },
-      "properties": {
-        "date": "2021-01-01",
-        "severity": "materieel",
-        "year": 2021,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90517,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.739586710929871,
-          52.634169834378184
-        ]
-      },
-      "properties": {
-        "date": "2021-01-01",
-        "severity": "letsel",
-        "year": 2021,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90529,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.740933179855347,
-          52.629315352432286
-        ]
-      },
-      "properties": {
-        "date": "2021-01-01",
-        "severity": "letsel",
-        "year": 2021,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90732,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.741002917289734,
-          52.628442725802785
-        ]
-      },
-      "properties": {
-        "date": "2021-01-01",
-        "severity": "materieel",
-        "year": 2021,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90738,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.741067290306091,
-          52.62815618789065
-        ]
-      },
-      "properties": {
-        "date": "2021-01-01",
-        "severity": "materieel",
-        "year": 2021,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90744,
+        "firstSeen": "2026-06-12",
+        "starId": 90791,
         "area": "schoolzone"
       }
     },
@@ -2021,9 +1801,9 @@
       },
       "properties": {
         "date": "2021-01-01",
-        "severity": "materieel",
+        "severity": "letsel",
         "year": 2021,
-        "count": 2,
+        "count": 1,
         "description": "",
         "firstSeen": "2021-01-01",
         "starId": 90827,
@@ -2035,8 +1815,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.742140173912048,
-          52.61937354219489
+          4.741764664649963,
+          52.62887904129266
         ]
       },
       "properties": {
@@ -2045,8 +1825,8 @@
         "year": 2021,
         "count": 2,
         "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 90876,
+        "firstSeen": "2026-06-12",
+        "starId": 90848,
         "area": "schoolzone"
       }
     },
@@ -2055,8 +1835,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.743695855140686,
-          52.61910322889051
+          4.746571183204651,
+          52.627465884306986
         ]
       },
       "properties": {
@@ -2065,8 +1845,48 @@
         "year": 2021,
         "count": 1,
         "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 91107,
+        "firstSeen": "2026-06-12",
+        "starId": 91602,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.743481278419495,
+          52.619389826075604
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 91073,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.749387502670288,
+          52.6164911998884
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 92026,
         "area": "schoolzone"
       }
     },
@@ -2095,8 +1915,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.750546216964722,
-          52.61709048216389
+          4.764112830162048,
+          52.65908818903847
         ]
       },
       "properties": {
@@ -2105,28 +1925,8 @@
         "year": 2021,
         "count": 1,
         "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 92199,
-        "area": "schoolzone"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.760620594024658,
-          52.66050683209767
-        ]
-      },
-      "properties": {
-        "date": "2021-01-01",
-        "severity": "letsel",
-        "year": 2021,
-        "count": 1,
-        "description": "",
-        "firstSeen": "2021-01-01",
-        "starId": 93974,
+        "firstSeen": "2026-06-12",
+        "starId": 94506,
         "area": "schoolzone"
       }
     },
@@ -2143,10 +1943,50 @@
         "date": "2021-01-01",
         "severity": "materieel",
         "year": 2021,
-        "count": 1,
+        "count": 4,
         "description": "",
         "firstSeen": "2021-01-01",
         "starId": 94534,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.765014052391052,
+          52.64322944205753
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 94624,
+        "area": "schoolzone"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.76532518863678,
+          52.64325873706247
+        ]
+      },
+      "properties": {
+        "date": "2021-01-01",
+        "severity": "materieel",
+        "year": 2021,
+        "count": 1,
+        "description": "",
+        "firstSeen": "2026-06-12",
+        "starId": 94682,
         "area": "schoolzone"
       }
     }
