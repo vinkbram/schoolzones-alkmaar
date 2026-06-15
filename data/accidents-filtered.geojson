@@ -2,12 +2,12 @@
   "type": "FeatureCollection",
   "metadata": {
     "source": "STAR via star-verkeersongevallen.nl (via.software API)",
-    "lastUpdated": "2026-06-14",
-    "dataRange": "20210101 - 20260613",
+    "lastUpdated": "2026-06-15",
+    "dataRange": "20210101 - 20260614",
     "featureCount": 107,
-    "locationCount": 3991,
+    "locationCount": 3993,
     "note": "Dates are year-level from STAR. New locations detected via daily diff get exact first-seen date.",
-    "filterNote": "Filtered to accidents within 100m school zones (107). Original: 5264 accidents."
+    "filterNote": "Filtered to accidents within 100m school zones (107). Original: 5266 accidents."
   },
   "features": [
     {
@@ -26,7 +26,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 88479,
+        "starId": 88510,
         "area": "schoolzone"
       }
     },
@@ -46,7 +46,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90424,
+        "starId": 90455,
         "area": "schoolzone"
       }
     },
@@ -66,7 +66,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90625,
+        "starId": 90656,
         "area": "schoolzone"
       }
     },
@@ -86,7 +86,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90668,
+        "starId": 90699,
         "area": "schoolzone"
       }
     },
@@ -106,7 +106,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90804,
+        "starId": 90835,
         "area": "schoolzone"
       }
     },
@@ -126,7 +126,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90638,
+        "starId": 90669,
         "area": "schoolzone"
       }
     },
@@ -146,7 +146,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-01-01",
-        "starId": 92743,
+        "starId": 92775,
         "area": "schoolzone"
       }
     },
@@ -166,7 +166,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 88609,
+        "starId": 88640,
         "area": "schoolzone"
       }
     },
@@ -186,7 +186,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2025-01-01",
-        "starId": 89450,
+        "starId": 89481,
         "area": "schoolzone"
       }
     },
@@ -206,7 +206,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 89610,
+        "starId": 89641,
         "area": "schoolzone"
       }
     },
@@ -226,7 +226,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90483,
+        "starId": 90514,
         "area": "schoolzone"
       }
     },
@@ -246,7 +246,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90537,
+        "starId": 90568,
         "area": "schoolzone"
       }
     },
@@ -266,7 +266,7 @@
         "count": 3,
         "description": "",
         "firstSeen": "2025-01-01",
-        "starId": 90542,
+        "starId": 90573,
         "area": "schoolzone"
       }
     },
@@ -286,7 +286,7 @@
         "count": 3,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90558,
+        "starId": 90589,
         "area": "schoolzone"
       }
     },
@@ -306,7 +306,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2025-01-01",
-        "starId": 90559,
+        "starId": 90590,
         "area": "schoolzone"
       }
     },
@@ -326,7 +326,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90579,
+        "starId": 90610,
         "area": "schoolzone"
       }
     },
@@ -346,7 +346,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90625,
+        "starId": 90656,
         "area": "schoolzone"
       }
     },
@@ -366,7 +366,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90668,
+        "starId": 90699,
         "area": "schoolzone"
       }
     },
@@ -386,7 +386,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90726,
+        "starId": 90757,
         "area": "schoolzone"
       }
     },
@@ -406,7 +406,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90888,
+        "starId": 90919,
         "area": "schoolzone"
       }
     },
@@ -426,7 +426,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90924,
+        "starId": 90955,
         "area": "schoolzone"
       }
     },
@@ -446,7 +446,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2025-01-01",
-        "starId": 90945,
+        "starId": 90976,
         "area": "schoolzone"
       }
     },
@@ -466,7 +466,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90828,
+        "starId": 90859,
         "area": "schoolzone"
       }
     },
@@ -486,7 +486,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90938,
+        "starId": 90969,
         "area": "schoolzone"
       }
     },
@@ -506,7 +506,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 91997,
+        "starId": 92028,
         "area": "schoolzone"
       }
     },
@@ -526,7 +526,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2025-01-01",
-        "starId": 92070,
+        "starId": 92101,
         "area": "schoolzone"
       }
     },
@@ -546,7 +546,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92092,
+        "starId": 92123,
         "area": "schoolzone"
       }
     },
@@ -566,7 +566,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92123,
+        "starId": 92154,
         "area": "schoolzone"
       }
     },
@@ -586,7 +586,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92743,
+        "starId": 92775,
         "area": "schoolzone"
       }
     },
@@ -606,7 +606,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2025-01-01",
-        "starId": 93352,
+        "starId": 93384,
         "area": "schoolzone"
       }
     },
@@ -626,7 +626,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 88516,
+        "starId": 88547,
         "area": "schoolzone"
       }
     },
@@ -646,7 +646,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92261,
+        "starId": 92292,
         "area": "schoolzone"
       }
     },
@@ -666,7 +666,7 @@
         "count": 3,
         "description": "",
         "firstSeen": "2024-01-01",
-        "starId": 90487,
+        "starId": 90518,
         "area": "schoolzone"
       }
     },
@@ -686,7 +686,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92219,
+        "starId": 92250,
         "area": "schoolzone"
       }
     },
@@ -706,7 +706,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 89419,
+        "starId": 89450,
         "area": "schoolzone"
       }
     },
@@ -726,7 +726,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 89466,
+        "starId": 89497,
         "area": "schoolzone"
       }
     },
@@ -746,7 +746,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 89610,
+        "starId": 89641,
         "area": "schoolzone"
       }
     },
@@ -766,7 +766,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90346,
+        "starId": 90377,
         "area": "schoolzone"
       }
     },
@@ -786,7 +786,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90542,
+        "starId": 90573,
         "area": "schoolzone"
       }
     },
@@ -806,7 +806,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90550,
+        "starId": 90581,
         "area": "schoolzone"
       }
     },
@@ -826,7 +826,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90625,
+        "starId": 90656,
         "area": "schoolzone"
       }
     },
@@ -846,7 +846,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2024-01-01",
-        "starId": 90668,
+        "starId": 90699,
         "area": "schoolzone"
       }
     },
@@ -866,7 +866,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90731,
+        "starId": 90762,
         "area": "schoolzone"
       }
     },
@@ -886,7 +886,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90880,
+        "starId": 90911,
         "area": "schoolzone"
       }
     },
@@ -906,7 +906,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90886,
+        "starId": 90917,
         "area": "schoolzone"
       }
     },
@@ -926,7 +926,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90924,
+        "starId": 90955,
         "area": "schoolzone"
       }
     },
@@ -946,7 +946,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90972,
+        "starId": 91003,
         "area": "schoolzone"
       }
     },
@@ -966,7 +966,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2024-01-01",
-        "starId": 91927,
+        "starId": 91958,
         "area": "schoolzone"
       }
     },
@@ -986,7 +986,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 91997,
+        "starId": 92028,
         "area": "schoolzone"
       }
     },
@@ -1006,7 +1006,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2024-01-01",
-        "starId": 92296,
+        "starId": 92327,
         "area": "schoolzone"
       }
     },
@@ -1026,7 +1026,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92743,
+        "starId": 92775,
         "area": "schoolzone"
       }
     },
@@ -1046,7 +1046,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2024-01-01",
-        "starId": 94633,
+        "starId": 94665,
         "area": "schoolzone"
       }
     },
@@ -1066,7 +1066,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 94723,
+        "starId": 94755,
         "area": "schoolzone"
       }
     },
@@ -1086,7 +1086,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92413,
+        "starId": 92444,
         "area": "schoolzone"
       }
     },
@@ -1106,7 +1106,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2024-01-01",
-        "starId": 92439,
+        "starId": 92470,
         "area": "schoolzone"
       }
     },
@@ -1126,7 +1126,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 96403,
+        "starId": 96435,
         "area": "schoolzone"
       }
     },
@@ -1146,7 +1146,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 89610,
+        "starId": 89641,
         "area": "schoolzone"
       }
     },
@@ -1166,7 +1166,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90519,
+        "starId": 90550,
         "area": "schoolzone"
       }
     },
@@ -1186,7 +1186,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2023-01-01",
-        "starId": 90569,
+        "starId": 90600,
         "area": "schoolzone"
       }
     },
@@ -1206,7 +1206,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90613,
+        "starId": 90644,
         "area": "schoolzone"
       }
     },
@@ -1226,7 +1226,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90625,
+        "starId": 90656,
         "area": "schoolzone"
       }
     },
@@ -1246,7 +1246,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2023-01-01",
-        "starId": 90946,
+        "starId": 90977,
         "area": "schoolzone"
       }
     },
@@ -1266,7 +1266,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 91015,
+        "starId": 91046,
         "area": "schoolzone"
       }
     },
@@ -1286,7 +1286,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 91170,
+        "starId": 91201,
         "area": "schoolzone"
       }
     },
@@ -1306,7 +1306,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2023-01-01",
-        "starId": 91617,
+        "starId": 91648,
         "area": "schoolzone"
       }
     },
@@ -1326,7 +1326,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2023-01-01",
-        "starId": 92092,
+        "starId": 92123,
         "area": "schoolzone"
       }
     },
@@ -1346,7 +1346,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 93606,
+        "starId": 93638,
         "area": "schoolzone"
       }
     },
@@ -1366,7 +1366,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 94140,
+        "starId": 94172,
         "area": "schoolzone"
       }
     },
@@ -1386,7 +1386,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92595,
+        "starId": 92627,
         "area": "schoolzone"
       }
     },
@@ -1406,7 +1406,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 94781,
+        "starId": 94813,
         "area": "schoolzone"
       }
     },
@@ -1426,7 +1426,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90477,
+        "starId": 90508,
         "area": "schoolzone"
       }
     },
@@ -1446,7 +1446,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90527,
+        "starId": 90558,
         "area": "schoolzone"
       }
     },
@@ -1466,7 +1466,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 89610,
+        "starId": 89641,
         "area": "schoolzone"
       }
     },
@@ -1486,7 +1486,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90519,
+        "starId": 90550,
         "area": "schoolzone"
       }
     },
@@ -1506,7 +1506,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90549,
+        "starId": 90580,
         "area": "schoolzone"
       }
     },
@@ -1526,7 +1526,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90613,
+        "starId": 90644,
         "area": "schoolzone"
       }
     },
@@ -1546,7 +1546,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90726,
+        "starId": 90757,
         "area": "schoolzone"
       }
     },
@@ -1566,7 +1566,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90813,
+        "starId": 90844,
         "area": "schoolzone"
       }
     },
@@ -1586,7 +1586,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90946,
+        "starId": 90977,
         "area": "schoolzone"
       }
     },
@@ -1606,7 +1606,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 91699,
+        "starId": 91730,
         "area": "schoolzone"
       }
     },
@@ -1626,7 +1626,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92044,
+        "starId": 92075,
         "area": "schoolzone"
       }
     },
@@ -1646,7 +1646,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92212,
+        "starId": 92243,
         "area": "schoolzone"
       }
     },
@@ -1666,7 +1666,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2022-01-01",
-        "starId": 95078,
+        "starId": 95110,
         "area": "schoolzone"
       }
     },
@@ -1686,7 +1686,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2022-01-01",
-        "starId": 93623,
+        "starId": 93655,
         "area": "schoolzone"
       }
     },
@@ -1706,7 +1706,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2022-01-01",
-        "starId": 94035,
+        "starId": 94067,
         "area": "schoolzone"
       }
     },
@@ -1726,7 +1726,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 94605,
+        "starId": 94637,
         "area": "schoolzone"
       }
     },
@@ -1746,7 +1746,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2022-01-01",
-        "starId": 95543,
+        "starId": 95575,
         "area": "schoolzone"
       }
     },
@@ -1766,7 +1766,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 93860,
+        "starId": 93892,
         "area": "schoolzone"
       }
     },
@@ -1786,7 +1786,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 94631,
+        "starId": 94663,
         "area": "schoolzone"
       }
     },
@@ -1806,7 +1806,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 113435,
+        "starId": 113469,
         "area": "schoolzone"
       }
     },
@@ -1826,7 +1826,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2021-01-01",
-        "starId": 90477,
+        "starId": 90508,
         "area": "schoolzone"
       }
     },
@@ -1846,7 +1846,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2021-01-01",
-        "starId": 89610,
+        "starId": 89641,
         "area": "schoolzone"
       }
     },
@@ -1866,7 +1866,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2021-01-01",
-        "starId": 90443,
+        "starId": 90474,
         "area": "schoolzone"
       }
     },
@@ -1886,7 +1886,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90542,
+        "starId": 90573,
         "area": "schoolzone"
       }
     },
@@ -1906,7 +1906,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90569,
+        "starId": 90600,
         "area": "schoolzone"
       }
     },
@@ -1926,7 +1926,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90613,
+        "starId": 90644,
         "area": "schoolzone"
       }
     },
@@ -1946,7 +1946,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90625,
+        "starId": 90656,
         "area": "schoolzone"
       }
     },
@@ -1966,7 +1966,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90829,
+        "starId": 90860,
         "area": "schoolzone"
       }
     },
@@ -1986,7 +1986,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90835,
+        "starId": 90866,
         "area": "schoolzone"
       }
     },
@@ -2006,7 +2006,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90841,
+        "starId": 90872,
         "area": "schoolzone"
       }
     },
@@ -2026,7 +2026,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2021-01-01",
-        "starId": 90924,
+        "starId": 90955,
         "area": "schoolzone"
       }
     },
@@ -2046,7 +2046,7 @@
         "count": 2,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 90973,
+        "starId": 91004,
         "area": "schoolzone"
       }
     },
@@ -2066,7 +2066,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 91204,
+        "starId": 91235,
         "area": "schoolzone"
       }
     },
@@ -2086,7 +2086,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2021-01-01",
-        "starId": 92212,
+        "starId": 92243,
         "area": "schoolzone"
       }
     },
@@ -2106,7 +2106,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 92296,
+        "starId": 92327,
         "area": "schoolzone"
       }
     },
@@ -2126,7 +2126,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2026-06-13",
-        "starId": 94073,
+        "starId": 94105,
         "area": "schoolzone"
       }
     },
@@ -2146,7 +2146,7 @@
         "count": 1,
         "description": "",
         "firstSeen": "2021-01-01",
-        "starId": 94633,
+        "starId": 94665,
         "area": "schoolzone"
       }
     }
